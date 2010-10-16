@@ -36,6 +36,7 @@ class Twitter::UsersController < ApplicationController
 
   def create_user
     @user = ::User.new params[:user]
+    @user.avatar_type = 2
     @user.twitter_id    = session[:twitter_session][:id]
     @user.screen_name   = session[:twitter_session][:screen_name]
     @user.access_token  = session[:twitter_session][:access_token]

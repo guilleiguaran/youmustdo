@@ -1,37 +1,153 @@
-<% form_for(@must, :html => {:method => :post}) do |f| %>
+<script>
+$(window).load(function(){
+initialize();
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    /*var options = { position: new google.maps.LatLng(lat, lng) }
+    var marker = new google.maps.Marker(options);
+    marker.setMap(map);
+    marker.setDraggable(true);*/
+    var myLatlng = new google.maps.LatLng(lat, lng);
+    if(marker == null){
+        marker = new google.maps.Marker({
+        position: myLatlng, 
+        map: map
+      });
+    }else{
+      marker.setPosition(myLatlng)
+    }
+    map.setCenter(myLatlng);
+    $('input[id=must_latitude]').attr(
+      {value: lat});
+    $('input[id=must_longitude]').attr(
+      {value: lng});
+      google.maps.event.addListener(marker, 'dragend', function(event) {
+        //placeMarker(event.latLng);
+        latLng = marker.getPosition();
+        $('input[id=must_latitude]').attr(
+          {value: latLng.lat()});
+        $('input[id=must_longitude]').attr(
+          {value: latLng.lng()});
+      });
+  });
+}
+});
+/*document.observe("dom:loaded", function() {
+  // initially load all the google maps functions
+});*/ 
+</script>
+<div id="left">
+  <br class="spacer" />
+  <% title "Sign Up!" %>
+  <% form_for(@must, :html => {:method => :post}) do |f| %>
 
-	<p>
-		<%= f.label :url %><br />
-		<%= f.text_field :url %>
-		<%= error_message_on :must, :url%>
-	</p>
-	
-	<%= button_to_remote 'Attach', { :loading => "$('#loader').show()", :complete => "$('#loader').hide()",
-									 :url => { :action => 'get_url_metadata' }, :with => "'url='+$('#must_url').val()"} %>
+  <ul>
+    <li><%= f.label :category_id, "You Must " %>
+    <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}) %>
+    <%#= f.text_field :category_id, :class => "text" %>
+    </li>
+    <li>
+    	<%= f.label :url %><br />
+    	<%= f.text_field :url, :class => "text" %>
+    	<%= error_message_on :must, :url%>
+    </li>
+    <li>
+    	<%= button_to_remote 'Attach', { :loading => "$('#loader').show()", :complete => "$('#loader').hide()",
+    									 :url => { :action => 'get_url_metadata' }, :with => "'url='+$('#must_url').val()"} %>
+    </li>									 
+    <li>
+    	<div class="loader" id="loader" style="display:none;">
+    		<%= image_tag 'ajax_waiting.gif' %>
+    	</div>
+    	
+    </li>
+    <li>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, :class => "text"%>
+      <%= error_message_on :must,:name%>
+    </li>
+    <li>
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :class => "textarea" %>
+      <%= error_message_on :must,:description %>
+    </li>
+    <li>
+      <p>Click in the map your desired location. Remember only the last position will be added</p>
+      <div id="map_canvas" style="width:380px; height:200px;"></div>
+    </li>
+    <li>
+      <%= f.label :latitude %><br />
+      <%= f.text_field :latitude, :class => "text", :readonly => "true" %>
+      <%= error_message_on :must,:latitude %>
+    </li>
+    <li>
+      <%= f.label :longitude %><br />
+      <%= f.text_field :longitude, :class => "text", :readonly => "true" %>
+      <%= error_message_on :must,:longitude %>
+    </li>
+    <li>
+      <%= submit_or_cancel(f, 'Cancel') %>	
+    </li>
+  </ul>
+  <% end %>
+  <br class="spacer" />
+</div>
+<script>
+var map;
+var marker = null;
+function initialize() {
+  var myLatlng = new google.maps.LatLng(37.45617490689341, -122.17509257214354);
+  var myOptions = {
+    zoom: 13,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+}
 
-	<div class="loader" id="loader" style="display:none;">
-		<%= image_tag 'ajax_waiting.gif' %>
-	</div>
-			
-			
-	<p>
-		<%= f.label :name %><br />
-		<%= f.text_field :name%>
-		<%= error_message_on :must, :name%>
-	</p>
-	
-	<p>
-		<%= f.label :description %><br />
-		<%= f.text_area :description %>
-		<%= error_message_on :must, :description %>
-	</p>
-	
-	<p>
-		<%= f.label :location %><br />
-		<%= f.text_field :location%>
-		<%= error_message_on :must, :location %>
-	</p>
-	
-	<%= submit_or_cancel(f, 'Cancel') %>	
-	
-<% end %>
+function addPlaceMarker(lat,lng){
+  var latlong = new google.maps.LatLng(lat, lng);
+  var marker = new google.maps.Marker({
+      position: latlong, 
+      map: map
+  });
+}  
+  
+function placeMarker(location) {
+  var clickedLocation = new google.maps.LatLng(location);
+  if(marker == null){
+      marker = new google.maps.Marker({
+      position: location, 
+      map: map
+    });
+  }else{
+    marker.setPosition(location)
+  }
+  marker.setDraggable(true);
+  $('input[id=must_latitude]').attr(
+    {value: location.lat()});
+  $('input[id=must_longitude]').attr(
+    {value: location.lng()});
+  map.setCenter(location);
+  google.maps.event.addListener(marker, 'dragend', function(event) {
+    //placeMarker(event.latLng);
+    latLng = marker.getPosition();
+    $('input[id=must_latitude]').attr(
+      {value: latLng.lat()});
+    $('input[id=must_longitude]').attr(
+      {value: latLng.lng()});
+  });
+}
+</script>
+<% content_for :additional_javascript do %>
+  <script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=true">
+    </script>
+<%end%>
+

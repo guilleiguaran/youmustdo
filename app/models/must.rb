@@ -22,4 +22,8 @@ class Must < ActiveRecord::Base
     def agree_must
       agree = Agree.create(:must_id => self.id, :user_id => self.user.id, :calification => 1)
     end
+    
+    def location
+      return self.latitude + " - " + self.longitude 
+    end
 end

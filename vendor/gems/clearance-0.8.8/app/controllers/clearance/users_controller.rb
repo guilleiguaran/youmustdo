@@ -12,6 +12,7 @@ class Clearance::UsersController < ApplicationController
 
   def create
     @user = ::User.new params[:user]
+    @user.avatar_type = 3
     if @user.save
       flash_notice_after_create
       redirect_to(url_after_create)

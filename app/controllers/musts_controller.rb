@@ -1,5 +1,5 @@
 class MustsController < ApplicationController
-
+  before_filter :login_required, :only =>[:create, :new, :edit, :update, :destroy]
   def index
     @musts = Must.all
   end
