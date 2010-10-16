@@ -14,4 +14,20 @@ class ApplicationController < ActionController::Base
   def redirect_home_if_signed_in
     redirect_to_home if signed_in?
   end
+  
+  protected
+
+  def check_valid_user
+    user = User.find(params[:id])
+    unless user.nil?
+      if signed_in?
+        if user != current_user
+         flash[:error] = "Ouch sorry, Something's not right, please verify your information and try again."
+         redirect_to root_path
+        end
+      end
+    else
+      render(:file => "#{RAILS_ROOT}/public/404.html", :head => 404)
+    end
+  end
 end
