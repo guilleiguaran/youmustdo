@@ -1,6 +1,7 @@
 keys: &keys
   app_id: 157823077584267
   app_secret: e62f4157b97b97c942a517ca21d79650
+  site: https://graph.facebook.com
 
 development:
   <<: *keys

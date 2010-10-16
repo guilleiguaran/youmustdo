@@ -30,4 +30,14 @@ class Must < ActiveRecord::Base
     def category_name
       self.category.name
     end
+
+    def to_facebook_feed
+      "Share with facebook: #{self.name}. http://youmustdo.com/"
+    end
+
+    def to_tweet
+      short_url = UrlShortener.shorten(must_url)
+      tweet = truncate("#{self.name}", :length => (139 - short_url.to_s.length))
+      "#{tweet} #{short_url}"
+    end
 end
