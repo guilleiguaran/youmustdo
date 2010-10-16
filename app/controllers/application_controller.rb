@@ -14,4 +14,12 @@ class ApplicationController < ActionController::Base
   def redirect_home_if_signed_in
     redirect_to_home if signed_in?
   end
+  
+  def login_required
+    unless signed_in?
+      flash[:error]="Sorry, You must be logged"
+      redirect_to sign_in_path 
+    end
+  end
+  
 end

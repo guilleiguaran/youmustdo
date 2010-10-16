@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag 'reset' %>
   <%= stylesheet_link_tag 'global' %>
   <%= javascript_include_tag :defaults %>
+  <%= yield :additional_javascript %>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
       <li><a href="#">Contact Us</a></li>
     </ul>
     <%unless signed_in?%><a href="<%= sign_in_path %>" class="memberLogin">Login</a> <a href="<%= sign_up_path %>" class="memberLogin">Register </a><%else%><a href="#" class="memberLogin"><%=current_user.username%></a>  <a href="<%= sign_out_path %>" class="memberLogin"> Logout </a> <%end%>
-    <img src="images/logo.png" alt="oriented instruction" class="logo" />
+    <%=image_tag 'logo.png', :alt=>"youmust", :class=>"logo" %>
     <p class="vest">
       <span class="white">You must</span> try this site, here you will be able to post all kind of things that you consider everyone <span class="bg">must do</span>.
     </p>
