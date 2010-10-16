@@ -1,4 +1,6 @@
-class ClearanceMailer < ActionMailer::Base
+require "postageapp/mailer"
+
+class ClearanceMailer < PostageApp::Mailer
 
   def change_password(user)
     from       Clearance.configuration.mailer_sender
