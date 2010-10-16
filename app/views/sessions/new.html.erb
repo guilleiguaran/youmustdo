@@ -3,6 +3,12 @@
 <div id="left">
 
   <br class="spacer" />
+<a id="twitter_connect" href="<%= twitter_login_path %>" class="login">
+  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
+</a>
+<a id="facebook_connect" href="javascript:void(0)" class="login">
+  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
+</a>
 
 <% form_for :session, :url => session_path do |form| %>
 <a href="<%= twitter_login_path %>" class="login">
@@ -26,3 +32,25 @@
 <% end %>
   <br class="spacer" />
 </div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    fb_window = null;
+
+    jQuery(function(){
+      // Facebook connect
+      $("a#facebook_connect").click(function(obj) {
+        if(fb_window && !fb_window.closed) {
+          fb_window.focus()
+        } else {
+          fb_window = window.open("","holderWindow","resizable=no,width=640,height=480");
+          fb_window.moveTo(screen.availWidth/2 - 320, screen.availHeight/2 -240);
+          fb_window.focus();
+          fb_window.location = "<%= facebook_auth_url %>";
+        }
+      });
+    });
+    /* ]]> */
+	</script>
+<% end %>
