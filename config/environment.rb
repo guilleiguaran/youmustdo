@@ -15,4 +15,5 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'UTC'
 
+  NO_REPLY = "no-reply@youmustdo.r10.railsrumble.com"
 end

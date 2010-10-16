@@ -27,6 +27,8 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
+HOST = "youmustdo.r10.railsrumble.com"
+
 config.action_mailer.default_url_options = { :host => 'youmustdo.r10.railsrumble.com' }
 
 config.action_mailer.delivery_method = :smtp
