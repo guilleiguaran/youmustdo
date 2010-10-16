@@ -15,13 +15,21 @@ module ApplicationHelper
 
   def avatar_for(user, pic = "avatar.png", options = {})
     case user.avatar_type
-      when "1"
-        facebook_avatar(user)
+      # when "1"
+      #         facebook_avatar(user)
       when "2"
         twitter_avatar(user)
       when "3"
         gravatar_for(user)
+      when "4"
+        external_url_avatar(user)
+      when "5"
+        uploaded_avatar(user)
     end
+  end
+
+  def external_url_avatar(user)
+    return image_tag(user.external_avatar_url, :height => 48)
   end
 
   def gravatar_for(user, pic = "avatar.png", options = {})
@@ -31,11 +39,15 @@ module ApplicationHelper
   end
 
   def facebook_avatar(user)
-    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.facebook_access_token}&type=large",:height => 80, :alt => 'user.username')
+    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.access_secret}&type=large",:height => 48, :alt => 'user.username')
   end
 
   def twitter_avatar(user)
     return image_tag(user.avatar_url, :alt => user.screen_name)
+  end
+  
+  def uploaded_avatar(user)
+    image_tag(user.avatar.url,:height => 48)
   end
 
 end
