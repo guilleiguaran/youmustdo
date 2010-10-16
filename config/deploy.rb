@@ -1,4 +1,4 @@
-set :domain, "youmustdo.railsrumble.com"
+set :domain, "youmustdo.r10.railsrumble.com"
 set :application, "youmustdo"
 set :deploy_to, "/var/www/apps/#{application}"
 set :user, "www-data"
