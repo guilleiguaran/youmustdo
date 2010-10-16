@@ -1,0 +1,9 @@
+<br class="spacer" />
+<%unless @musts.blank? %>
+<ul class="musts">
+  <%@musts.each do |must|%>
+    <%= render :partial => "musts/must_item", :locals => {:must => must} %>
+  <%end%>
+</ul>
+
+<%end%>
