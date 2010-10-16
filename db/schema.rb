@@ -34,13 +34,6 @@ ActiveRecord::Schema.define(:version => 20101016202433) do
     t.integer  "must_id"
   end
 
-  create_table "followers", :force => true do |t|
-    t.integer  "following_id"
-    t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
     t.string   "followable_type",                    :null => false
@@ -61,9 +54,9 @@ ActiveRecord::Schema.define(:version => 20101016202433) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
+    t.string   "url"
   end
 
   create_table "users", :force => true do |t|
