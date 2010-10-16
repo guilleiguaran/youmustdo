@@ -1,14 +1,19 @@
 <%  header"You Must Sign Up!" %>
 <% title "Sign Up!" %>
+<div id="left">
 
-<a id="twitter_connect" href="<%= twitter_login_path %>">
-  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
-</a>
-<a id="facebook_connect" href="javascript:void(0)">
-  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
-</a>
+  <br class="spacer" />
+
+
 
 <% form_for :session, :url => session_path do |form| %>
+<a href="<%= twitter_login_path %>" class="login">
+  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
+</a>
+
+<a id="facebook_connect" href="javascript:void(0)" class="login">
+  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
+</a>
   <%= form.error_messages %>
   <ul>
     <li>
@@ -25,6 +30,8 @@
     </li>
   </ul>
 <% end %>
+  <br class="spacer" />
+</div>
 
 <% content_for :javascript do %>
   <script type="text/javascript">
