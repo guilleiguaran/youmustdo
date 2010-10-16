@@ -29,12 +29,9 @@ config.action_view.cache_template_loading            = true
 
 config.action_mailer.default_url_options = { :host => 'youmustdo.r10.railsrumble.com' }
 
-Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
-
 ActionMailer::Base.smtp_settings = {
-  :tls            => true,
   :address        => "smtp.sendgrid.net",
-  :port           => 587,
+  :port           => 25,
   :authentication => :plain,
   :user_name      => 'guilleiguaran@gmail.com',
   :password       => 'koombea',
