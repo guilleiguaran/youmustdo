@@ -1,0 +1,2 @@
+class MustsController < ApplicationController
+end
