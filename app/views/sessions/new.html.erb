@@ -1,0 +1,24 @@
+<%  header"You Must Sign Up!" %>
+<% title "Sign Up!" %>
+
+<a href="<%= twitter_login_path %>">
+  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
+</a>
+
+<% form_for :session, :url => session_path do |form| %>
+  <%= form.error_messages %>
+  <ul>
+    <li>
+      <%= form.label :email %><br/>
+      <%= form.text_field :email, :class => "text" %>
+    </li>
+    <li>
+      <%= form.label :password %><br/>
+      <%= form.password_field :password, :class => "text" %>
+    </li>
+    <li>
+      <p><%= link_to "Forgot password?", new_password_path %></p>
+      <div class="button"><%= form.submit "Sign in" %></div>
+    </li>
+  </ul>
+<% end %>
