@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016150234) do
+ActiveRecord::Schema.define(:version => 20101016160712) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(:version => 20101016150234) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "encrypted_password", :limit => 128
-    t.string   "salt",               :limit => 128
-    t.string   "confirmation_token", :limit => 128
-    t.string   "remember_token",     :limit => 128
-    t.boolean  "email_confirmed",                   :default => false, :null => false
+    t.string   "encrypted_password",  :limit => 128
+    t.string   "salt",                :limit => 128
+    t.string   "confirmation_token",  :limit => 128
+    t.string   "remember_token",      :limit => 128
+    t.boolean  "email_confirmed",                    :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20101016150234) do
     t.string   "web"
     t.string   "location"
     t.text     "bio"
+    t.string   "external_avatar_url"
+    t.string   "avatar_type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

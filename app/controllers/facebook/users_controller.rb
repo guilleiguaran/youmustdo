@@ -13,6 +13,7 @@ class Facebook::UsersController < ApplicationController
       :facebook_uid => session[:facebook_session][:facebook_uid],
       :email => session[:facebook_session][:email]
     })
+    @user.avatar_type = 1
     if @user.save
       @user.confirm_email!
       sign_in(@user)

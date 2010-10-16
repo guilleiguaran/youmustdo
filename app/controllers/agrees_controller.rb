@@ -1,35 +1,29 @@
 class AgreesController < ApplicationController
 
   def agree
-    @agree = Agree.find(:first, :conditions => {:user_id => current_user.id, :must_id => params[:must_id]})
-    if @agree.nil?
-      Agree.create(:user_id => current_user.id, :must_id => params[:must_id], :calification => true)
-      flash[:notice] = "You Agreed"
+    @agree = Agree.create(:user_id => current_user.id, :must_id => params[:must_id], :calification => 1)
+    if @agree.save
+      flash[:notice] = "Agreed!"
     else
-      if @agree.calification == 0
-         @agree.update_attribute('calification', true)
-        flash[:notice] = "You Agreed"
-      else
-        flash[:error] = "You has already Agreed this must"
-      end
+      flash[:error] = "You have already Agreed this must before"
     end
-    redirect_to musts_path
+    respond_to do |wants|
+      wants.html { redirect_to musts_path }
+      wants.js
+    end
   end
 
   def disagree
-    @agree = Agree.find(:first, :conditions => {:user_id => current_user.id, :must_id => params[:must_id]})
-    if @agree.nil?
-      Agree.create(:user_id => current_user.id, :must_id => params[:must_id], :calification => false)
-      flash[:notice] = "You Disagree"
+    @agree = Agree.create(:user_id => current_user.id, :must_id => params[:must_id], :calification => -1)
+    if @agree.save
+      flash[:notice] = "Disagreed!"
     else
-      if @agree.calification == 0
-         flash[:error] = "You has already disagreed this must"
-      else
-        @agree.update_attribute('calification', false)
-        flash[:notice] = "You Disagree"
-      end
+      flash[:error] = "You have already Disagreed this must before"
     end
-    redirect_to musts_path
+    respond_to do |wants|
+      wants.html { redirect_to musts_path }
+      wants.js
+    end
   end
 
 end
