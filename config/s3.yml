@@ -1,7 +1,7 @@
 keys: &keys
-  key: AKIAJKTZC2AHYR6PIISA
-  secret: 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
-
+  access_key_id: AKIAJKTZC2AHYR6PIISA
+  secret_access_key: 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
+  
 development:
   <<: *keys
   bucket: youmustdo.local

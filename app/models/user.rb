@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
     }, 
     :storage => :s3,
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-    :path => ":attachment/:id/:style.:extension",
-    :bucket => 'lengelzigich_blog_buckit'
+    :path => "/uploads/avatars/:attachment/:id/:style.:extension",
+    :bucket => AMAZON_S3['bucket']
     
 end
