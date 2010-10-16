@@ -8,17 +8,26 @@
 
 	<table id="modal_table" border="1" width="100%">
 		<tr>
+			<th>Author</th>
 			<th>Name</th>
 			<th>Desc</th>
 			<th>Location</th>
-			<th>Date</th>
+			<th></th>
+			<th></th>
 		</tr>
 
 		<% @musts.each do |must| %>
 		<tr class=<%= cycle("dark","")%>>
+			<td><%=h must.user.email %></td>
 			<td><%=h link_to must.name, must_path(must) %></td>
 			<td><%=h must.description %></td>
 			<td><%=h must.location %></td>
+			
+			<% if current_user == must.user%>
+				<td><%= link_to "delete", must, :method => 'DELETE' %></td>
+				<td><%= link_to "edit", edit_must_path(must)%></td>
+			<% end %>
+
 		</tr>
 		<% end %>
 	</table>

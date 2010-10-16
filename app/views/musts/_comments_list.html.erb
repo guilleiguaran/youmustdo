@@ -1,11 +1,14 @@
 <hr/>
 <% unless @must.comments.empty? %>
-comments: <%=h @must.comments.count%>
-<br/>
-<% @must.comments.each do |comment| %>
-<%=h comment.content%> - posted by <%=h comment.user.email%>
-<hr/>
-<% end %>
+	comments: <%=h @must.comments.count%>
+	<br/>
+	<% @must.comments.each do |comment| %>
+		<%=h comment.content%> - posted by <%=h comment.user.email%>
+		<% if current_user == comment.user%>
+			<%=h link_to 'delete', must_comment_path(comment.must, comment), :method => 'DELETE'%>
+		<%end%>
+	<hr/>
+	<% end %>
 <% else %>
-be the first one to comment
+	be the first one to comment
 <% end %>
