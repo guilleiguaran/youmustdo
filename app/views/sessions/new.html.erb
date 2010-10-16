@@ -1,11 +1,13 @@
 <%  header"You Must Sign Up!" %>
 <% title "Sign Up!" %>
+<div id="left">
 
-<a href="<%= twitter_login_path %>">
-  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
-</a>
+  <br class="spacer" />
 
 <% form_for :session, :url => session_path do |form| %>
+<a href="<%= twitter_login_path %>" class="login">
+  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
+</a>
   <%= form.error_messages %>
   <ul>
     <li>
@@ -22,3 +24,5 @@
     </li>
   </ul>
 <% end %>
+  <br class="spacer" />
+</div>
