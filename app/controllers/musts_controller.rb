@@ -20,4 +20,9 @@ class MustsController < ApplicationController
       render :action => "new"
     end
   end
+  
+  def show
+    @must = current_user.musts.find_by_id(params[:id])
+  end
+  
 end
