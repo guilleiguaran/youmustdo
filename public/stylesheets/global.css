@@ -4,7 +4,7 @@
 /* CSS Document */
 
 body{
-	background:url("../images/main_bg.jpg") 0 0 repeat-x #FFFDE7;
+	background:url("/images/main_bg.jpg") 0 0 repeat-x #FFFDE7;
 	color:#000;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:1em;
@@ -27,7 +27,7 @@ ul{
 
 /*------------------------------------------------main--------------------*/
 #main{
-	background:url("../images/header_bg.jpg") -11px 0 no-repeat;
+	background:url("/images/header_bg.jpg") -11px 0 no-repeat;
 	margin:0 auto;
 	padding-bottom:24px;
 	position:relative;
@@ -64,14 +64,14 @@ ul{
 	/*position:absolute;
 	left:0;
 	top:0;*/
-	background:url("../images/nav_div.gif") left top no-repeat;
+	background:url("/images/nav_div.gif") left top no-repeat;
 	padding:0 90px 0 2px;
 	float:left;
 }
 #main ul.nav li{
 	height:24px;
 	float:left;
-	background:url("../images/nav_div.gif") right top no-repeat;
+	background:url("/images/nav_div.gif") right top no-repeat;
 	padding:0 2px 0 0;
 }
 #main ul.nav li a{
@@ -79,19 +79,19 @@ ul{
 	padding:0 12px;
 	font:bold 11px/24px Arial, Helvetica, sans-serif;
 	color:#B5B5B5;
-	background:url("../images/nav_bg.gif") 0 0 repeat-x #000;
+	background:url("/images/nav_bg.gif") 0 0 repeat-x #000;
 	text-decoration:none;
 }
 #main ul.nav li a:hover{
 	color:#fff;
-	background:url("../images/nav_bg_hover.gif") 0 0 repeat-x #294F20;
+	background:url("/images/nav_bg_hover.gif") 0 0 repeat-x #294F20;
 }
 #main ul.nav li a.hover{
 	display:block;
 	padding:0 12px;
 	font:bold 11px/24px Arial, Helvetica, sans-serif;
 	color:#fff;
-	background:url("../images/nav_bg_hover.gif") 0 0 repeat-x #000;
+	background:url("/images/nav_bg_hover.gif") 0 0 repeat-x #000;
 	text-decoration:none;
 	cursor:text;
 }
@@ -131,30 +131,30 @@ ul{
 }
 #left ul.banner li a.why{
 	display:block;
-	background:url("../images/why_bg.gif") 0 0 no-repeat;
+	background:url("/images/why_bg.gif") 0 0 no-repeat;
 	width:197px;
 	height:88px;
 }
 #left ul.banner li a.why:hover{
-	background:url("../images/why_bg_hover.gif") 0 0 no-repeat;
+	background:url("/images/why_bg_hover.gif") 0 0 no-repeat;
 }
 #left ul.banner li a.best{
 	display:block;
-	background:url("../images/best.gif") 0 0 no-repeat;
+	background:url("/images/best.gif") 0 0 no-repeat;
 	width:206px;
 	height:88px;
 }
 #left ul.banner li a.best:hover{
-	background:url("../images/best_hover.gif") 0 0 no-repeat;
+	background:url("/images/best_hover.gif") 0 0 no-repeat;
 }
 #left ul.banner li a.our{
 	display:block;
-	background:url("../images/our.gif") 0 0 no-repeat;
+	background:url("/images/our.gif") 0 0 no-repeat;
 	width:206px;
 	height:88px;
 }
 #left ul.banner li a.our:hover{
-	background:url("../images/our_bg.gif") 0 0 no-repeat;
+	background:url("/images/our_bg.gif") 0 0 no-repeat;
 }
 /*------------------------------------------------musts list--------------------*/
 #left ul.musts{
@@ -172,7 +172,7 @@ ul{
   margin-bottom:5px;
 }
 #left ul.musts div.left .count{
-  background:transparent url("../images/count.png") no-repeat scroll 0 0;
+  background:transparent url("/images/count.png") no-repeat scroll 0 0;
   color:#FFFFFF;
   display:inline-block;
   line-height:48px;
@@ -224,7 +224,7 @@ ul{
 }
 /*------------------------------------------------musts list--------------------*/
 #left h2{
-	background:url("../images/event_bg.gif") 0 0 no-repeat;
+	background:url("/images/event_bg.gif") 0 0 no-repeat;
 	width:534px;
 	height:74px;
 	padding:0 0 0 74px;
@@ -309,14 +309,14 @@ ul{
 }
 #left p.highlight{
 	display:block;
-	background:url("../images/highlight_bg.gif") 0 0 no-repeat;
+	background:url("/images/highlight_bg.gif") 0 0 no-repeat;
 	width:169px;
 	height:39px;
 	padding:108px 0 0 14px;
 	float:right;
 }
 #left p.highlight a{
-	background:url("../images/click_view_bg.gif") 0 0 no-repeat;
+	background:url("/images/click_view_bg.gif") 0 0 no-repeat;
 	width:157px;
 	height:25px;
 	font:bold 11px/25px Arial, Helvetica, sans-serif;
@@ -335,7 +335,7 @@ ul{
 
 /*------------------------------------------------right panel--------------------*/
 #right{
-  background:#FFFFFF url("../images/right_panel_bg.gif") no-repeat scroll 0 0;
+  background:#FFFFFF url("/images/right_panel_bg.gif") no-repeat scroll 0 0;
   color:#000000;
   float:right;
   margin:21px 0 0;
@@ -343,7 +343,7 @@ ul{
   width:240px;
 }
 #right .green {
-  background:#7C9E19 url("../images/welcome_bg.gif") repeat-x scroll 0 0;
+  background:#7C9E19 url("/images/welcome_bg.gif") repeat-x scroll 0 0;
   color:#FFFFFF;
   display:block;
   height:30px;
@@ -371,7 +371,7 @@ ul{
   margin-bottom:15px;
 }
 #right ul li a.count{
-  background:transparent url("../images/must_item_bg.jpg") no-repeat scroll 0 0;
+  background:transparent url("/images/must_item_bg.jpg") no-repeat scroll 0 0;
   color:#FFFFFF;
   display:inline-block;
   float:left;
@@ -397,7 +397,7 @@ ul{
 	background-color:#EBECD3;
 }
 #quicksearch{
-  background:url("../images/quicksearch_bg.gif") repeat-x scroll 0 0;
+  background:url("/images/quicksearch_bg.gif") repeat-x scroll 0 0;
   color:#FFFFFF;
   margin-top:30px;
   padding:10px;
@@ -427,7 +427,7 @@ ul{
   width:198px;
 }
 #quicksearch form input[type="submit"]{
-  background:transparent url("../images/btn_submit.gif") no-repeat scroll 0 0;
+  background:transparent url("/images/btn_submit.gif") no-repeat scroll 0 0;
 	border:none;
   cursor:pointer;
   float:right;
@@ -499,7 +499,7 @@ form .text{
 	float:left;
 }
 #bottom ul.first li.topHead{
-	background:url("../images/bullet.gif") 0 12px no-repeat #E8E6CD;
+	background:url("/images/bullet.gif") 0 12px no-repeat #E8E6CD;
 	color:#CE6C04;
 	font:bold 18px/43px Arial, Helvetica, sans-serif;
 	padding:0 0 0 26px;
@@ -509,7 +509,7 @@ form .text{
 	margin:0;
 }
 #bottom ul.first li.normal a{
-	background:url("../images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
+	background:url("/images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
 	padding:0 0 0 12px;
 	color:#3F3D1F;
 	font:normal 12px/21px Arial, Helvetica, sans-serif;
@@ -527,7 +527,7 @@ form .text{
 	float:left;
 }
 #bottom ul.second li.topHead2{
-	background:url("../images/bullet.gif") 0 12px no-repeat #E8E6CD;
+	background:url("/images/bullet.gif") 0 12px no-repeat #E8E6CD;
 	color:#CE6C04;
 	font:bold 18px/43px Arial, Helvetica, sans-serif;
 	padding:0 0 0 26px;
@@ -537,7 +537,7 @@ form .text{
 	margin:0;
 }
 #bottom ul.second li.normal2 a{
-	background:url("../images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
+	background:url("/images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
 	padding:0 0 0 12px;
 	color:#3F3D1F;
 	font:normal 12px/21px Arial, Helvetica, sans-serif;
@@ -555,7 +555,7 @@ form .text{
 	float:right;
 }
 #bottom ul.third li.topHead3{
-	background:url("../images/bullet.gif") 0 12px no-repeat #E8E6CD;
+	background:url("/images/bullet.gif") 0 12px no-repeat #E8E6CD;
 	color:#CE6C04;
 	font:bold 18px/43px Arial, Helvetica, sans-serif;
 	padding:0 0 0 26px;
@@ -565,7 +565,7 @@ form .text{
 	margin:0;
 }
 #bottom ul.third li.normal3 a{
-	background:url("../images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
+	background:url("/images/arrow_white.gif") 0 5px no-repeat #E8E6CD;
 	padding:0 0 0 12px;
 	color:#3F3D1F;
 	font:normal 12px/21px Arial, Helvetica, sans-serif;
@@ -577,7 +577,7 @@ form .text{
 	text-decoration:none;
 }
 #bottom ul.third li.xhtml{
-	background:url("../images/xhtml_bg.gif") right top no-repeat;
+	background:url("/images/xhtml_bg.gif") right top no-repeat;
 	width:73px;
 	height:22px;
 	padding:0 0 0 29px;

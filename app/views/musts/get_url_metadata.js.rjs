@@ -1,0 +1,2 @@
+page[:must_name].value = @title
+page[:must_description].value = @description
