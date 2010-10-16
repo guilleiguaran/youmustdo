@@ -3,16 +3,16 @@
 <div id="left">
 
   <br class="spacer" />
-<a id="twitter_connect" href="<%= twitter_login_path %>" class="login">
-  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
-</a>
-<a id="facebook_connect" href="javascript:void(0)" class="login">
-  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
-</a>
+
+
 
 <% form_for :session, :url => session_path do |form| %>
 <a href="<%= twitter_login_path %>" class="login">
   <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
+</a>
+
+<a id="facebook_connect" href="javascript:void(0)" class="login">
+  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
 </a>
   <%= form.error_messages %>
   <ul>
