@@ -22,6 +22,7 @@ class MustsController < ApplicationController
   end
   
   def show
+    @comment = Comment.new
     @must = current_user.musts.find_by_id(params[:id])
   end
   
