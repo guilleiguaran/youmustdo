@@ -1,0 +1,23 @@
+<% form_for(@must, :html => {:method => :post}) do |f| %>
+
+	<p>
+		<%= f.label :name %><br />
+		<%= f.text_field :name%>
+		<%= error_message_on :must,:name%>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_area :description %>
+		<%= error_message_on :must,:description %>
+	</p>
+	
+	<p>
+		<%= f.label :location %><br />
+		<%= f.text_field :location%>
+		<%= error_message_on :must,:location %>
+	</p>
+	
+	<%= submit_or_cancel(f, 'Cancel') %>	
+	
+<% end %>
