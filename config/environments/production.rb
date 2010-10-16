@@ -34,6 +34,6 @@ ActionMailer::Base.smtp_settings = {
   :port           => "25",
   :authentication => :plain,
   :user_name      => 'guilleiguaran@gmail.com',
-  :password       => 'koombea2008',
+  :password       => 'koombea',
   :domain         => 'youmustdo.r10.railsrumble.com'
 }
