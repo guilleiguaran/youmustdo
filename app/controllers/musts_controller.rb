@@ -14,7 +14,7 @@ class MustsController < ApplicationController
     @must.user = current_user
     if @must.save
       flash[:notice] = "Awesome, one more thing they must do!"
-      render :action => "index"
+      redirect_to musts_path
     else
       flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
       render :action => "new"
