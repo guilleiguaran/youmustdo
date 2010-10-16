@@ -1,0 +1,29 @@
+<h1>My Musts</h1>
+
+<%=link_to "create a new Must", new_must_path %>
+
+<% unless @musts.empty? %>
+
+<div id="table_content">
+
+	<table id="modal_table" width="100%">
+		<tr>
+			<th>Name</th>
+			<th>Desc</th>
+			<th>Location</th>
+			<th>Date</th>
+		</tr>
+
+		<% @musts.each do |must| %>
+		<tr class=<%= cycle("dark","")%>>
+			<td><%= must.name %></td>
+			<td><%= must.description %></td>
+			<td><%= must.location %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<% else %>
+Comm'on, there is nothung yet... create the first Must and win a T-Shirt!
+<% end %>
