@@ -23,6 +23,8 @@ module ApplicationHelper
         gravatar_for(user)
       when "4"
         external_url_avatar(user)
+      when "5"
+        uploaded_avatar(user)
     end
   end
 
@@ -42,6 +44,10 @@ module ApplicationHelper
 
   def twitter_avatar(user)
     return image_tag(user.avatar_url, :alt => user.screen_name)
+  end
+  
+  def uploaded_avatar(user)
+    image_tag(user.avatar.url,:height => 48)
   end
 
 end
