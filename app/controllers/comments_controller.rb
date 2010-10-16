@@ -6,10 +6,14 @@ class CommentsController < ApplicationController
     @comment.must_id = params[:must_id]
     if @comment.save
       flash[:notice] = "There you go, you just commented this must!"
-      redirect_to must_path(@comment.must)
+      respond_to do |wants|
+        wants.html { redirect_to must_path(@comment.must) }
+      end
     else
-      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
-      render :action => "new"
+      flash[:error] = "Ouch sorry, Something's not right down there, please verify and try again."
+      respond_to do |wants|
+        wants.html { render :action => "new" }
+      end
     end
   end
 
@@ -18,13 +22,17 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    must_temp = @comment.must
+    must_id = @comment.must_id
     if @comment.destroy
       flash[:notice] = "comment deleted"
-      redirect_to must_path(must_temp)
+      respond_to do |wants|
+        wants.html { redirect_to must_path(must_id) }
+      end
     else
-      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
-      render :action => "new"
+      flash[:error] = "Something's goes wrong."
+      respond_to do |wants|
+        wants.html { render :action => "new" }
+      end
     end
   end
 
