@@ -41,8 +41,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: youmustdo_production
+  database: youmustdo
   pool: 5
   username: root
-  password: 
-  socket: /tmp/mysql.sock
+  password: koombea2008
