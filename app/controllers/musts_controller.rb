@@ -1,7 +1,7 @@
 class MustsController < ApplicationController
 
   def index
-    @musts = current_user.musts
+    @musts = Must.all
   end
   
   def new
@@ -21,9 +21,35 @@ class MustsController < ApplicationController
     end
   end
   
+  def edit
+    @must = Must.find_by_id(params[:id])
+  end
+  
+  def update
+    @must = Must.find(params[:id])
+    if @must.update_attributes(params[:must])
+      flash[:notice] = "Must edited"
+      redirect_to musts_path
+    else
+      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
+      render :action => "new"
+    end
+  end
+  
   def show
     @comment = Comment.new
-    @must = current_user.musts.find_by_id(params[:id])
+    @must = Must.find(params[:id])
+  end
+  
+  def destroy
+    @must = Must.find_by_id(params[:id])
+    if @must.destroy
+      flash[:notice] = "Must deleted"
+      redirect_to musts_path
+    else
+      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
+      render :action => "new"
+    end
   end
   
 end
