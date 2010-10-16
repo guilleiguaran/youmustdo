@@ -4,7 +4,38 @@
 
 <%= form.error_messages %>
 
+this is my current avatar
 <%= avatar_for(current_user)%>
+
+
+<% unless current_user.twitter_id.nil?%>
+		<hr/>
+		<input type="radio" name="user[avatar_type]" value="2">Use my Twitter avatar<br>
+		<br/>
+		<%= twitter_avatar(current_user) %> 
+		<br/>
+	<% end %>
+	
+	<hr/>
+	<input type="radio" name="user[avatar_type]" value="3">Use my Gravatar<br>
+	<br/>
+	<%= gravatar_for(current_user) %> 
+	<br/>
+	
+	<% unless current_user.external_avatar_url.blank?%>
+		<hr/>
+		<input type="radio" name="user[avatar_type]" value="4">Use my External Location Avatar<br>
+		<br/>
+		<%= external_url_avatar(current_user) %> 
+		<br/>
+	<% end %>
+	
+
+	<hr/>
+	<label>Use New External Link image</label>
+	<br/>
+	<%= form.text_field :external_avatar_url%>
+	<br/>
 
 <p>
 	<%= form.label :username %><br/>

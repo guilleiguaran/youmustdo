@@ -19,7 +19,7 @@ class Facebook::SessionsController < ApplicationController
         flash[:error] = "There was a problem linking your facebook account. Please try again."
         @redirect_to = sign_in_path
       else
-        user = User.find_by_facebook_uid(facebook_user['id'])
+        user = User.find_by_email(facebook_user['email'])
         unless user
           session[:facebook_session] = {
             :facebook_uid => facebook_user['id'],
