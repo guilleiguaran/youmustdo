@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016043922) do
+ActiveRecord::Schema.define(:version => 20101016062642) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20101016043922) do
     t.string   "avatar_url"
     t.string   "access_token"
     t.string   "access_secret"
+    t.integer  "facebook_uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -17,6 +17,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    must_temp = @comment.must
+    if @comment.destroy
+      flash[:notice] = "comment deleted"
+      redirect_to must_path(must_temp)
+    else
+      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
+      render :action => "new"
+    end
   end
 
 end
