@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  acts_as_followable
+  acts_as_follower
+  
   has_many :musts, :dependent => :destroy
   has_many :comments
   
