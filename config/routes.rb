@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
-  map.resources :categories, :only => [:show]
+  
   map.resources :musts do |must|
     must.resources :comments
     must.agree '/agree', :controller => 'agrees', :action => 'agree'
@@ -30,5 +30,6 @@ ActionController::Routing::Routes.draw do |map|
     twitter.resource :users, :only => [:new, :create]
   end
   # ==================================================================================================
-
+  #map.resources :categories, :only => [:show]
+  map.categories '/:category', :controller => 'categories', :action => 'show'
 end
