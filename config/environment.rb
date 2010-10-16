@@ -11,7 +11,9 @@ Rails::Initializer.run do |config|
   config.gem "jrails",    :version => '0.6.0'
   config.gem "twitter",   :version => '>= 0.9.8'
   config.gem "oauth",     :version => '>= 0.4.1'
-  # dependencies for oauth2
+  config.gem "postageapp", :version => '1.0.8'
+
+  # oauth2 and its dependencies
   #config.gem "addressable",     :version => '>= 2.2.2'
   #config.gem "multipart-post",  :version => '>= 1.0.1'
   config.gem "rack",            :version => '>= 1.2.1'
@@ -20,4 +22,5 @@ Rails::Initializer.run do |config|
 
   config.time_zone = 'UTC'
 
+  NO_REPLY = "no-reply@youmustdo.r10.railsrumble.com"
 end

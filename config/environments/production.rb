@@ -26,3 +26,21 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+HOST = "youmustdo.r10.railsrumble.com"
+
+config.action_mailer.default_url_options = { :host => 'youmustdo.r10.railsrumble.com' }
+
+config.action_mailer.delivery_method = :sendmail
+
+#config.action_mailer.delivery_method = :smtp
+
+#ActionMailer::Base.smtp_settings = {
+#  :tls            => true
+#  :address        => "smtp.sendgrid.net",
+#  :port           => '587',
+#  :authentication => :plain,
+#  :user_name      => 'guilleiguaran@gmail.com',
+#  :password       => 'koombea',
+#  :domain         => 'youmustdo.r10.railsrumble.com'
+#}
