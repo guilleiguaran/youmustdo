@@ -1,0 +1,10 @@
+<% form_for([@must, @comment], :html => {:method => :post}) do |f| %>
+
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+		<%= error_message_on :comment,:description %>
+	</p>
+	
+	<%= f.submit 'Post' %>	
+<% end %>

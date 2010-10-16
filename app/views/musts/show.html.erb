@@ -7,3 +7,6 @@
 <p>
 	<%=h @must.location%>
 </p>
+
+<%= render :partial => 'comments_list', :locals => { :must => @must} %>
+<%= render :partial => 'comments', :locals => { :must => @must} %>

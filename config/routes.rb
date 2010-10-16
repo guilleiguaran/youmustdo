@@ -2,6 +2,11 @@ ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
 
+  map.resources :musts do |must|
+    must.resources :comments
+  end
+  
+
   
   # Twitter Connect
   map.twitter_login   '/twitter/login',     :controller => 'twitter/sessions',  :action => 'create'
@@ -10,7 +15,5 @@ ActionController::Routing::Routes.draw do |map|
     twitter.resource :users, :only => [:new, :create]
   end
   
-
-  map.resources :musts
 
 end

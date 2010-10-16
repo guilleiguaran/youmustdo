@@ -1,0 +1,11 @@
+<hr/>
+<% unless @must.comments.empty? %>
+comments: <%=h @must.comments.count%>
+<br/>
+<% @must.comments.each do |comment| %>
+<%=h comment.content%> - posted by <%=h comment.user.email%>
+<hr/>
+<% end %>
+<% else %>
+be the first one to comment
+<% end %>
