@@ -1,0 +1,21 @@
+@charset "utf-8";
+*{	font-family:Arial, Helvetica, sans-serif;
+	outline:medium none;
+}
+html{
+
+}
+html, body {
+height:100%;
+margin:0;
+padding:50px;
+}
+h1{
+font-size:30px;
+font-weight:bold;	
+}
+p{
+	font-size:14px;
+margin-bottom:15px;
+margin-top:15px;
+}
