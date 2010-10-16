@@ -1,6 +1,6 @@
 keys: &keys
-  app_id: 164243886936118
-  app_secret: 1cefe1e9f46ccefc9ac09abb692a8500
+  app_id: 157823077584267
+  app_secret: e62f4157b97b97c942a517ca21d79650
   
 development:
   <<: *keys
