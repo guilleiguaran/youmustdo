@@ -1,0 +1,17 @@
+keys: &keys
+  key: 0ff09ebbd057e7d1393bfcb1f8f6dfe9
+  
+development:
+  <<: *keys
+
+test:
+  <<: *keys
+  
+cucumber:
+  <<: *keys
+
+staging:
+  <<: *keys
+
+production:
+  key: 0ff09ebbd057e7d1393bfcb1f8f6dfe9

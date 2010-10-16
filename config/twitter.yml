@@ -1,0 +1,19 @@
+keys: &keys
+  key: Ehd085OtRKbPUcLepdWFg
+  secret: cbgSQvRlpfazNzcwX4oKUs9yQniiD7HI0ey2A8FE
+  
+development:
+  <<: *keys
+
+test:
+  <<: *keys
+  
+cucumber:
+  <<: *keys
+
+staging:
+  <<: *keys
+
+production:
+  key: Ehd085OtRKbPUcLepdWFg
+  secret: cbgSQvRlpfazNzcwX4oKUs9yQniiD7HI0ey2A8FE

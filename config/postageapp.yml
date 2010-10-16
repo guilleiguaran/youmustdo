@@ -1,0 +1,17 @@
+keys: &keys
+  key: LHDLvswP6o8U3aHmjYGiS3Cihjo0oJeT
+  
+development:
+  <<: *keys
+
+test:
+  <<: *keys
+  
+cucumber:
+  <<: *keys
+
+staging:
+  <<: *keys
+
+production:
+  key: LHDLvswP6o8U3aHmjYGiS3Cihjo0oJeT
