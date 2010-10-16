@@ -15,6 +15,15 @@ class ApplicationController < ActionController::Base
     redirect_to_home if signed_in?
   end
   
+
+  def login_required
+    unless signed_in?
+      flash[:error]="Sorry, You must be logged"
+      redirect_to sign_in_path 
+    end
+  end
+  
+
   protected
 
   def check_valid_user
@@ -30,4 +39,5 @@ class ApplicationController < ActionController::Base
       render(:file => "#{RAILS_ROOT}/public/404.html", :head => 404)
     end
   end
+
 end

@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(:version => 20101016160712) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.text     "description"
-    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "longitude"
+    t.string   "latitude"
     t.string   "url"
   end
 
