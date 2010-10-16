@@ -10,7 +10,11 @@ Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
-  config.gem "clearance",                 :version => '0.8.8'
+  config.gem "clearance", :version => '0.8.8'
+  config.gem "paperclip", :version => '2.3.4'
+  config.gem "aws-s3", :version => '0.6.2', :lib => "aws/s3"
+  config.gem "jrails", :version => '0.6.0'
+  
   # Add additional load paths for your own custom dirs
   # config.autoload_paths += %W( #{RAILS_ROOT}/extras )
 
