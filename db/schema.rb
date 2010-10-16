@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20101016043922) do
     t.boolean  "email_confirmed",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.integer  "twitter_id"
+    t.string   "screen_name"
+    t.string   "avatar_url"
+    t.string   "access_token"
+    t.string   "access_secret"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
