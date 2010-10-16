@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016144423) do
+ActiveRecord::Schema.define(:version => 20101016150234) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20101016144423) do
     t.datetime "updated_at"
     t.string   "longitude"
     t.string   "latitude"
+    t.string   "url"
   end
 
   create_table "users", :force => true do |t|
@@ -61,6 +62,10 @@ ActiveRecord::Schema.define(:version => 20101016144423) do
     t.string   "access_token"
     t.string   "access_secret"
     t.integer  "facebook_uid"
+    t.string   "name"
+    t.string   "web"
+    t.string   "location"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

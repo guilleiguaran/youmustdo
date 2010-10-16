@@ -1,0 +1,47 @@
+<h1>Profile</h1>
+
+<% form_for @user, :html => {:method => :put}, :url => user_update_profile_path(current_user) do |form| -%>
+
+<%= form.error_messages %>
+
+<%= gravatar_for(current_user)%>
+
+<p>
+	<%= form.label :username %><br/>
+	<%= form.text_field :username %>
+	<%= error_message_on :user, :username %>
+</p>
+
+<p>
+	<%= form.label :email %><br/>
+	<%= form.text_field :email %>
+	<%= error_message_on :user, :email %>
+</p>
+
+<p>
+	<%= form.label :name %><br/>
+	<%= form.text_field :name %>
+	<%= error_message_on :user, :name %>
+</p>
+
+<p>
+	<%= form.label :web %><br/>
+	<%= form.text_field :web %>
+	<%= error_message_on :user, :web %>
+</p>
+
+<p>
+	<%= form.label :location %><br/>
+	<%= form.text_field :location %>
+	<%= error_message_on :user, :location %>
+</p>
+
+<p>
+	<%= form.label :bio %><br/>
+	<%= form.text_area :bio %>
+	<%= error_message_on :user, :bio %>
+</p>
+
+<%= submit_or_cancel(form, 'Cancel') %>
+
+<% end -%>

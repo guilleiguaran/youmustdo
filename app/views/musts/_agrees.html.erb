@@ -1,1 +1,1 @@
-<%= link_to "(+)", must_agree_path(must) %> | <%= link_to "(-)", must_disagree_path(must)%> 
+<%= link_to "(+)", must_agree_path(must) %> (<%= must.total_agrees%>) <%= link_to "(-)", must_disagree_path(must)%> 

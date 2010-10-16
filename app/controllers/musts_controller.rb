@@ -52,4 +52,15 @@ class MustsController < ApplicationController
     end
   end
   
+  def get_url_metadata
+    if params[:url]
+      data = Metadata.get(params[:url])
+      @title = data[0]
+      @description = data[1]
+      respond_to do |wants|
+        wants.js
+      end
+    end
+  end
+  
 end

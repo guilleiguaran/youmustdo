@@ -45,6 +45,21 @@ if (navigator.geolocation) {
 
   <ul>
     <li>
+    	<%= f.label :url %><br />
+    	<%= f.text_field :url, :class => "text" %>
+    	<%= error_message_on :must, :url%>
+    </li>
+    <li>
+    	<%= button_to_remote 'Attach', { :loading => "$('#loader').show()", :complete => "$('#loader').hide()",
+    									 :url => { :action => 'get_url_metadata' }, :with => "'url='+$('#must_url').val()"} %>
+    </li>									 
+    <li>
+    	<div class="loader" id="loader" style="display:none;">
+    		<%= image_tag 'ajax_waiting.gif' %>
+    	</div>
+    	
+    </li>
+    <li>
       <%= f.label :name %><br />
       <%= f.text_field :name, :class => "text"%>
       <%= error_message_on :must,:name%>
@@ -131,3 +146,4 @@ function placeMarker(location) {
     src="http://maps.google.com/maps/api/js?sensor=true">
     </script>
 <%end%>
+
