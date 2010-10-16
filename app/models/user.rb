@@ -10,7 +10,5 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /^[a-z][\w\-]+$/i, :message => "cannot contain special characters or spaces"
   validates_exclusion_of :username, :in => %w( support blog www billing help api dev test production prod staging qa stage docs samples koombea examples status account doc docs), :message => "is not available"
   validates_length_of :username, :maximum => 20
-  
-  validates_length_of :bio, :maximum => 256
-  
+    
 end

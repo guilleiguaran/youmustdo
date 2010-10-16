@@ -4,6 +4,8 @@
 
 <%= form.error_messages %>
 
+<%= gravatar_for(current_user)%>
+
 <p>
 	<%= form.label :username %><br/>
 	<%= form.text_field :username %>
