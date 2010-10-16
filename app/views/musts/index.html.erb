@@ -16,9 +16,9 @@
 
 		<% @musts.each do |must| %>
 		<tr class=<%= cycle("dark","")%>>
-			<td><%= must.name %></td>
-			<td><%= must.description %></td>
-			<td><%= must.location %></td>
+			<td><%=h link_to must.name, must_path(must) %></td>
+			<td><%=h must.description %></td>
+			<td><%=h must.location %></td>
 		</tr>
 		<% end %>
 	</table>
