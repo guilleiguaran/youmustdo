@@ -1,0 +1,23 @@
+<li>
+  <div class="left">
+    <a href="<%=must_agree_path(must)%>"><%=image_tag "plus.png", :border => "none" %>
+    <span class="count"><%=must.calification%></span>
+    <a href="<%=must_disagree_path(must)%>"><%=image_tag "minus.png", :border => "none" %>
+  </div>
+  <div class="right">
+    <a href="#" class="must_remove" alt="Must delete it"><%=image_tag "trash.png" %></a>
+    <a href="#" class="must_star" alt="Must star it"><%=image_tag "star.png" %></a>
+    <a href="#" class="must_tweet" alt="Must tweet it"><%=image_tag "icn_twitter16.gif" %></a>
+    <a href="#" class="must_fb_share" alt="Must fb share it"><%=image_tag "icn_facebook16.gif" %></a>
+    <%=image_tag "profile_img_default.jpg" %>
+    <div class="must_title">Must <%=must.category_name%>: <%=must.name%></div>
+    <br class="spacer" />
+    <div class="must_content">
+      <div class="must_preview">
+        <%=image_tag "video.png" %>
+      </div>
+      <p><%=must.description%></p>
+    </div>
+  </div>
+  <br class="spacer" />
+</li>
