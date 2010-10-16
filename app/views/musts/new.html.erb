@@ -44,6 +44,10 @@ if (navigator.geolocation) {
   <% form_for(@must, :html => {:method => :post}) do |f| %>
 
   <ul>
+    <li><%= f.label :category_id, "You Must " %>
+    <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}) %>
+    <%#= f.text_field :category_id, :class => "text" %>
+    </li>
     <li>
     	<%= f.label :url %><br />
     	<%= f.text_field :url, :class => "text" %>

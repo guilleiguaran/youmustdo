@@ -12,4 +12,8 @@ class Must < ActiveRecord::Base
     def total_disagrees
       self.agrees.find(:all, :conditions => {:calification => 0}).count
     end
+    
+    def location
+      return self.latitude + " - " + self.longitude 
+    end
 end
