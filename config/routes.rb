@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :musts do |must|
     must.resources :comments
+    must.agree '/agree', :controller => 'agrees', :action => 'agree'
+    must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
 

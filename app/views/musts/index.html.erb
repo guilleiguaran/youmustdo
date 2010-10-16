@@ -14,6 +14,7 @@
 			<th>Location</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 
 		<% @musts.each do |must| %>
@@ -22,7 +23,8 @@
 			<td><%=h link_to must.name, must_path(must) %></td>
 			<td><%=h must.description %></td>
 			<td><%=h must.location %></td>
-			
+			<td><%= render :partial => "agrees", :locals => {:must => must} %></td>
+			<td><%= do_i_agree(must.id)%></td>
 			<% if current_user == must.user%>
 				<td><%= link_to "delete", must, :method => 'DELETE' %></td>
 				<td><%= link_to "edit", edit_must_path(must)%></td>

@@ -4,7 +4,6 @@ class CreateAgrees < ActiveRecord::Migration
       t.integer :user_id
       t.integer :must_id
       t.integer :calification
-
       t.timestamps
     end
   end
