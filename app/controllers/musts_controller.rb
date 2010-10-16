@@ -2,11 +2,11 @@ class MustsController < ApplicationController
 
   def new
     @user = current_user
-    @must = Must.new(params[:project])
+    @must = Must.new(params[:must])
   end
 
   def create
-    @must = Project.new(params[:project])
+    @must = Must.new(params[:must])
     @must.user = current_user
     if @must.save
       flash[:notice] = "Awesome, one more thing they must do!"
