@@ -29,6 +29,8 @@ config.action_view.cache_template_loading            = true
 
 config.action_mailer.default_url_options = { :host => 'youmustdo.r10.railsrumble.com' }
 
+config.action_mailer.delivery_method = :smtp
+
 ActionMailer::Base.smtp_settings = {
   :address        => "smtp.sendgrid.net",
   :port           => 25,
