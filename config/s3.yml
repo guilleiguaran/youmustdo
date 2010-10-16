@@ -1,0 +1,23 @@
+keys: &keys
+  key: AKIAJKTZC2AHYR6PIISA
+  secret: 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
+
+development:
+  <<: *keys
+  bucket: youmustdo.local
+
+test:
+  <<: *keys
+  bucket: youmustdo.local
+  
+cucumber:
+  <<: *keys
+  bucket: youmustdo.local
+
+staging:
+  <<: *keys
+  bucket: staging.youmustdo.com
+
+production:
+  <<: *keys
+  bucket: youmustdo.r10.railsrumble.com
