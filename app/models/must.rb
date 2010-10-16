@@ -3,4 +3,5 @@ class Must < ActiveRecord::Base
     validates_presence_of :name
     belongs_to :category
     has_many :comments, :dependent => :destroy
+    has_many :agrees, :dependent => :destroy
 end
