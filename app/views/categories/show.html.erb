@@ -1,0 +1,31 @@
+<br class="spacer" />
+<%unless @musts.blank? %>
+<ul class="musts">
+  <%@musts.each do |must|%>
+  <li>
+    <div class="left">
+      <a href="#"><img src="images/plus.png" /></a>
+      <span class="count">1000</span>
+      <a href="#"><img src="images/minus.png" /></a>
+    </div>
+    <div class="right">
+      <a href="#" class="must_remove" alt="Must delete it"><img src="images/trash.png" /></a>
+      <a href="#" class="must_star" alt="Must star it"><img src="images/star.png" /></a>
+      <a href="#" class="must_tweet" alt="Must tweet it"><img src="images/icn_twitter16.gif" /></a>
+      <a href="#" class="must_fb_share" alt="Must fb share it"><img src="images/icn_facebook16.gif" /></a>
+      <img src="images/profile_img_default.jpg" />
+      <div class="must_title">Must <%=must.category_name%>: <%=must.name%></div>
+      <br class="spacer" />
+      <div class="must_content">
+        <div class="must_preview">
+          <img src="images/video.png" />
+        </div>
+        <p><%=must.description%></p>
+      </div>
+    </div>
+    <br class="spacer" />
+  </li>
+  <%end%>
+</ul>
+
+<%end%>
