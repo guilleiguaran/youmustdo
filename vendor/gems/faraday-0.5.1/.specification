@@ -1,0 +1,176 @@
+--- !ruby/object:Gem::Specification 
+name: faraday
+version: !ruby/object:Gem::Version 
+  hash: 9
+  prerelease: false
+  segments: 
+  - 0
+  - 5
+  - 1
+  version: 0.5.1
+platform: ruby
+authors: 
+- Rick Olson
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-10-15 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: rake
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 27
+        segments: 
+        - 0
+        - 8
+        version: "0.8"
+  type: :development
+  version_requirements: *id001
+- !ruby/object:Gem::Dependency 
+  name: addressable
+  prerelease: false
+  requirement: &id002 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 3
+        segments: 
+        - 2
+        - 2
+        - 2
+        version: 2.2.2
+  type: :runtime
+  version_requirements: *id002
+- !ruby/object:Gem::Dependency 
+  name: multipart-post
+  prerelease: false
+  requirement: &id003 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 21
+        segments: 
+        - 1
+        - 0
+        - 1
+        version: 1.0.1
+  type: :runtime
+  version_requirements: *id003
+- !ruby/object:Gem::Dependency 
+  name: rack
+  prerelease: false
+  requirement: &id004 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 29
+        segments: 
+        - 1
+        - 2
+        - 1
+        version: 1.2.1
+  type: :runtime
+  version_requirements: *id004
+description: HTTP/REST API client library.
+email: technoweenie@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- Gemfile
+- Gemfile.lock
+- LICENSE
+- README.md
+- Rakefile
+- faraday.gemspec
+- lib/faraday.rb
+- lib/faraday/adapter.rb
+- lib/faraday/adapter/action_dispatch.rb
+- lib/faraday/adapter/net_http.rb
+- lib/faraday/adapter/patron.rb
+- lib/faraday/adapter/test.rb
+- lib/faraday/adapter/typhoeus.rb
+- lib/faraday/builder.rb
+- lib/faraday/connection.rb
+- lib/faraday/error.rb
+- lib/faraday/middleware.rb
+- lib/faraday/request.rb
+- lib/faraday/request/active_support_json.rb
+- lib/faraday/request/yajl.rb
+- lib/faraday/response.rb
+- lib/faraday/response/active_support_json.rb
+- lib/faraday/response/yajl.rb
+- lib/faraday/upload_io.rb
+- lib/faraday/utils.rb
+- test/adapters/live_test.rb
+- test/adapters/test_middleware_test.rb
+- test/adapters/typhoeus_test.rb
+- test/connection_app_test.rb
+- test/connection_test.rb
+- test/env_test.rb
+- test/form_post_test.rb
+- test/helper.rb
+- test/live_server.rb
+- test/multipart_test.rb
+- test/request_middleware_test.rb
+- test/response_middleware_test.rb
+has_rdoc: true
+homepage: http://github.com/technoweenie/faraday
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 23
+      segments: 
+      - 1
+      - 3
+      - 6
+      version: 1.3.6
+requirements: []
+
+rubyforge_project: faraday
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 2
+summary: HTTP/REST API client library.
+test_files: 
+- test/adapters/live_test.rb
+- test/adapters/test_middleware_test.rb
+- test/adapters/typhoeus_test.rb
+- test/connection_app_test.rb
+- test/connection_test.rb
+- test/env_test.rb
+- test/form_post_test.rb
+- test/multipart_test.rb
+- test/request_middleware_test.rb
+- test/response_middleware_test.rb
