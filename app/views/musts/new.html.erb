@@ -1,21 +1,35 @@
 <% form_for(@must, :html => {:method => :post}) do |f| %>
 
 	<p>
+		<%= f.label :url %><br />
+		<%= f.text_field :url %>
+		<%= error_message_on :must, :url%>
+	</p>
+	
+	<%= button_to_remote 'Attach', { :loading => "$('#loader').show()", :complete => "$('#loader').hide()",
+									 :url => { :action => 'get_url_metadata' }, :with => "'url='+$('#must_url').val()"} %>
+
+	<div class="loader" id="loader" style="display:none;">
+		<%= image_tag 'ajax_waiting.gif' %>
+	</div>
+			
+			
+	<p>
 		<%= f.label :name %><br />
 		<%= f.text_field :name%>
-		<%= error_message_on :must,:name%>
+		<%= error_message_on :must, :name%>
 	</p>
 	
 	<p>
 		<%= f.label :description %><br />
 		<%= f.text_area :description %>
-		<%= error_message_on :must,:description %>
+		<%= error_message_on :must, :description %>
 	</p>
 	
 	<p>
 		<%= f.label :location %><br />
 		<%= f.text_field :location%>
-		<%= error_message_on :must,:location %>
+		<%= error_message_on :must, :location %>
 	</p>
 	
 	<%= submit_or_cancel(f, 'Cancel') %>	

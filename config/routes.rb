@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
+  map.get_url_metadata '/musts/get_url_metadata', :controller => 'musts', :action => 'get_url_metadata'
 
   
   # Routes for social networks
