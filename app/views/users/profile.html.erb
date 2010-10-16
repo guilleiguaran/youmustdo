@@ -7,7 +7,14 @@
 this is my current avatar
 <%= avatar_for(current_user)%>
 
-
+<% unless current_user.fb_access_token.nil? %>
+<hr/>
+<input type="radio" name="user[avatar_type]" value="1">Use my Facebook Avatar<br>
+<br/>
+<%= facebook_avatar(current_user) %> 
+<br/>
+<% end %>
+	
 <% unless current_user.twitter_id.nil?%>
 		<hr/>
 		<input type="radio" name="user[avatar_type]" value="2">Use my Twitter avatar<br>

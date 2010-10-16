@@ -69,7 +69,7 @@ class Twitter::SessionsController < ApplicationController
                                       :access_token => oauth.access_token.token,
                                       :access_secret => oauth.access_token.secret,
                                       :avatar_url => profile.profile_image_url)
-        redirect_to user_path(current_user)
+        redirect_to root_path
       else
         flash[:error] = "Sorry, but that twitter account is already taken!"
         redirect_to user_path(current_user)

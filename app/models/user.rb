@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   
   # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
-  has_attached_file :photo,
+  has_attached_file :avatar,
     :styles => {
       :tiny => "35x35",
       :preview => "175x175",

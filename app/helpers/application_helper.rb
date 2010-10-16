@@ -15,8 +15,8 @@ module ApplicationHelper
 
   def avatar_for(user, pic = "avatar.png", options = {})
     case user.avatar_type
-      # when "1"
-      #         facebook_avatar(user)
+      when "1"
+        facebook_avatar(user)
       when "2"
         twitter_avatar(user)
       when "3"
@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def facebook_avatar(user)
-    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.access_secret}&type=large",:height => 48, :alt => 'user.username')
+    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.fb_access_token}&type=large",:height => 48, :alt => 'user.username')
   end
 
   def twitter_avatar(user)

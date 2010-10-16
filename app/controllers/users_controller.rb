@@ -6,7 +6,7 @@ class UsersController < Clearance::UsersController
   def profile
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = current_user
     before_name = current_user.username
