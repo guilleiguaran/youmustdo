@@ -6,7 +6,7 @@
 		
 	<h2>Recent musts</h2>
 	<h3 class='peoplemusting'>RECENT ACTIVITY </h3>
-	<% unless musts.nil? %>
+	<% unless musts.blank? %>
 	<ul id="recent_must">
 		<% musts.each do |must| %>
 		<li>
@@ -22,15 +22,14 @@
 		<% end %>
 	</ul>
 	<% else %>
-	<ul id="recent_must">
-		<li>&nbsp;</li>
-		<li>There is no recent activity.</li>
-	</ul>
+		<p>There is no recent activity.</p>
 	<% end %>
 
 	<script type="text/javascript">
 	$(window).load(function(){
+		<% unless @date.nil?%>
 		load_more_muts("<%=@date%>")
+		<% end %>
 	});
 	</script>
 
