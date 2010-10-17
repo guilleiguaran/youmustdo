@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.string   "url_image"
     t.boolean  "top"
     t.float    "top_value"
+    t.string   "url_image"
     t.string   "url_video"
   end
 
