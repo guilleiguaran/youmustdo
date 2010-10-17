@@ -11,6 +11,7 @@
 
 ActiveRecord::Schema.define(:version => 20101017011520) do
 
+
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
     t.integer  "must_id"
@@ -33,6 +34,19 @@ ActiveRecord::Schema.define(:version => 20101017011520) do
     t.datetime "updated_at"
     t.integer  "must_id"
   end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
   create_table "musts", :force => true do |t|
     t.string   "name"
@@ -69,6 +83,11 @@ ActiveRecord::Schema.define(:version => 20101017011520) do
     t.text     "bio"
     t.string   "external_avatar_url"
     t.string   "avatar_type"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "fb_access_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

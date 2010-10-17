@@ -23,10 +23,15 @@ class Facebook::SessionsController < ApplicationController
         unless user
           session[:facebook_session] = {
             :facebook_uid => facebook_user['id'],
-            :email => facebook_user['email']
+            :email => facebook_user['email'],
+            :fb_access_token => access_token.token
           }
           @redirect_to = new_facebook_users_path
         else
+          user.update_attributes({
+            :facebook_uid => facebook_user['id'],
+            :fb_access_token => access_token.token
+          })
           flash[:success] = "You have succesfully signed in with facebook."
           sign_in(user) 
           @redirect_to = root_path
@@ -40,6 +45,7 @@ class Facebook::SessionsController < ApplicationController
   private
 
   def oauth
-    @oauth ||= OAuth2::Client.new(FACEBOOK['app_id'], FACEBOOK['app_secret'], :site => "https://graph.facebook.com")
+    @oauth ||= OAuth2::Client.new(FACEBOOK['app_id'], FACEBOOK['app_secret'], :site => FACEBOOK['site'])
+    # "https://graph.facebook.com"
   end
 end

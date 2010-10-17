@@ -16,15 +16,20 @@
       <%= error_message_on :user, :email %>
 		</li>	
 		<li>
-		  <%= form.label :password %><br/>
-      <%= form.password_field :password, :class => 'text' %>
-      <%= error_message_on :user, :password %>
+		  <p>If you want to login using your email/username, you'll have to reset your password in your profile settings.</p>
+		</li>
+		<%#
+		<li>
+		  <%= form.label :password % ><br/>
+      <%= form.password_field :password, :class => 'text' % >
+      <%= error_message_on :user, :password % >
 		</li>
 		<li>
-		  <%= form.label :password_confirmation, "Confirm password" %><br/>
-      <%= form.password_field :password_confirmation, :class => 'text' %>
-       <%= error_message_on :user, :password %>
+		  <%= form.label :password_confirmation, "Confirm password" % ><br/>
+      <%= form.password_field :password_confirmation, :class => 'text' % >
+       <%= error_message_on :user, :password % >
 		</li>
+		%>
 		<li>
 		 <div class="button"> <%= form.submit "Sign up"%> </div>
 		</li>
