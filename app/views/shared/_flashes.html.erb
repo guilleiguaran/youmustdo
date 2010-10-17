@@ -1,0 +1,20 @@
+<div id="flash" style="display:none;">
+	<% flash.each do |key, value| -%>
+	<p class="<%= key %>"><%= image_tag("icons/#{key}.png") %><%=h value %></p>
+	<% end -%>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    setTimeout("show_messages()", 200);
+  });
+  
+  function show_messages() {
+    $("#flash").fadeIn(500);
+    setTimeout("hide_messages()", 5000);
+  }
+  
+  function hide_messages() {
+    $("#flash").fadeOut(500);
+  }
+</script>

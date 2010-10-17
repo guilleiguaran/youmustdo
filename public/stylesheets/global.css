@@ -612,34 +612,41 @@ background:url(../images/buttons/login.png) bottom left;
 
 /* Style for flash messages */
 /* ================================================================================================ */
-p.error, p.warning, p.info,p.success{
-    background: url("../images/icon/icn_messages.png") no-repeat;
+#flash{
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+}
+#flash img{
+  padding-right:6px;
+  position:relative;
+  top:3px;
+}
+p.error, p.failure, p.warning, p.info, p.success, p.notice{
     clear:both;
     margin-bottom:20px;
     padding:10px 5px 10px 35px;
+    text-align:center;
 }
 
-p.error{
+p.error, p.failure{
     background-color:#FFEBEB;
-    background-position: 10px -116px;
     border: 1px solid #D6B2B4;
     color:#AA0101;
 }
 p.warning{
     background-color:#FFFFCC;
-    background-position: 10px -180px;
     border: 1px solid #E6E7BA;
     color:#A97B00;
 }
 p.info{
     background-color:#EEEEFF;
-    background-position: 10px -52px;
     border: 1px solid #B1CDEE;
     color:#0000A4;
 }
-p.success{
+p.success, p.notice{
     background-color:#EBFFEB;
-    background-position: 10px 12px;
     border: 1px solid #B9E7BA;
     color:#009D01;
 }

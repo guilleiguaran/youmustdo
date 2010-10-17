@@ -62,11 +62,7 @@
     </div><!-- header --> 
     <div id="content">
       <br class="fclear" />
-      <div id="flash">
-        <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
-        <% end -%>
-      </div>
+			<%= render :partial => "shared/flashes" %>
       <%= yield %>
       <% flash.discard %>
     </div><!-- content --> 

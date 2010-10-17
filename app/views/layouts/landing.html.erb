@@ -66,12 +66,7 @@
 
 			<div id="yield_container">
 				<div class="post">
-					<div id="flash">
-						<% flash.each do |key, value| -%>
-						<div id="flash_<%= key %>"><%=h value %></div>
-						<% end -%>
-					</div>
-
+					<%= render :partial => "shared/flashes" %>
 					<%= render :partial => "shared/sidebar", :locals => {:musts => @musts_recent} %>
 
 					<div id="left">
