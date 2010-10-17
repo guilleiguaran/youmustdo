@@ -1,12 +1,14 @@
 class Must < ActiveRecord::Base
   acts_as_favorite
-
+  acts_as_taggable
+  
   belongs_to :user
   validates_presence_of :name
   belongs_to :category
   has_many :comments, :dependent => :destroy
   has_many :agrees, :dependent => :destroy
   after_create :agree_must
+  named_scope :by_creation_date, :order => "created_at DESC"
 
   def calification
     self.total_agrees - self.total_disagrees

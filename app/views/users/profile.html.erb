@@ -1,98 +1,128 @@
-<h1>Profile</h1>
+<div id="menu_lower">
+	<ul>
+		<li><a href="javascript:void(0)" onclick="change_profile_tabs('info')" id="link_info" class="selected">Profile Information</a></li>
+		<li><a href="javascript:void(0)" onclick="change_profile_tabs('password')" id="link_password">Change Password</a></li>
+		<li><a href="javascript:void(0)" onclick="change_profile_tabs('avatar')" id="link_avatar">Change Avatar</a></li>
+	</ul>
+</div>
 
-<% form_for @user, :html => {:method => :put, :multipart => true}, :url => user_update_profile_path(current_user) do |form| -%>
+<div id="avatar" style="display:none">
 
-<%= form.error_messages %>
+	<div id="login" class="form_left">
 
-this is my current avatar
-<%= avatar_for(current_user)%>
+		<% form_for @user, :html => {:method => :put, :multipart => true}, :url => user_update_profile_path(current_user) do |form| -%>
 
-<% unless current_user.fb_access_token.nil? %>
-<hr/>
-<input type="radio" name="user[avatar_type]" value="1">Use my Facebook Avatar<br>
-<br/>
-<%= facebook_avatar(current_user) %> 
-<br/>
-<% end %>
-	
-<% unless current_user.twitter_id.nil?%>
-		<hr/>
-		<input type="radio" name="user[avatar_type]" value="2">Use my Twitter avatar<br>
-		<br/>
-		<%= twitter_avatar(current_user) %> 
-		<br/>
-	<% end %>
-	
-	<hr/>
-	<input type="radio" name="user[avatar_type]" value="3">Use my Gravatar<br>
-	<br/>
-	<%= gravatar_for(current_user) %> 
-	<br/>
-	
-	<% unless current_user.external_avatar_url.blank?%>
-		<hr/>
-		<input type="radio" name="user[avatar_type]" value="4">Use my External Location Avatar<br>
-		<br/>
-		<%= external_url_avatar(current_user) %> 
-		<br/>
-	<% end %>
-	
-	<% unless current_user.avatar_file_name.nil?%>
-		<hr/>
-		<input type="radio" name="user[avatar_type]" value="5">Use my Uploaded Avatar<br>
-		<br/>
-		<%= uploaded_avatar(current_user) %>
-		<br/>
-	<% end %>
-	
-	<hr/>
-	<label>Upload a new Picture</label>
-	<br/>
-	<%= form.file_field :avatar %>
-	<br/><br/>
-	
-	<hr/>
-	<label>Use New External Link image</label>
-	<br/>
-	<%= form.text_field :external_avatar_url%>
-	<br/>
+		<%= form.error_messages %>
+		<ul class="left">
+			<li><h3>Change your Avatar</h3></li>
+			<li>
+				<% unless current_user.fb_access_token.nil? %>
+				<%= facebook_avatar(current_user,50) %> 
+				<input type="radio" name="user[avatar_type]" value="1">Use my Facebook Avatar
+				<% end %>
+			</li>
 
-<p>
-	<%= form.label :username %><br/>
-	<%= form.text_field :username %>
-	<%= error_message_on :user, :username %>
-</p>
+			<li>
+				<% unless current_user.twitter_id.nil?%>
+				<%= twitter_avatar(current_user,50) %> 
+				<input type="radio" name="user[avatar_type]" value="2">Use my Twitter avatar
+				<% end %>
+			</li>
 
-<p>
-	<%= form.label :email %><br/>
-	<%= form.text_field :email %>
-	<%= error_message_on :user, :email %>
-</p>
+			<li>
+				<%= gravatar_for(current_user,50) %> 
+				<input type="radio" name="user[avatar_type]" value="3">Use my Gravatar
+			</li>
 
-<p>
-	<%= form.label :name %><br/>
-	<%= form.text_field :name %>
-	<%= error_message_on :user, :name %>
-</p>
+			<li>
+				<% unless current_user.external_avatar_url.blank?%>
+				<%= external_url_avatar(current_user,50) %> 
+				<input type="radio" name="user[avatar_type]" value="4">Use my External Location Avatar
+				<% end %>
+			</li>
 
-<p>
-	<%= form.label :web %><br/>
-	<%= form.text_field :web %>
-	<%= error_message_on :user, :web %>
-</p>
+			<li>
+				<% unless current_user.avatar_file_name.nil?%>
+				<%= uploaded_avatar(current_user,50) %>
+				<input type="radio" name="user[avatar_type]" value="5">Use my Uploaded Avatar
+				<% end %>
+			</li>
+			<li>
+				<%= form.label :external_avatar_url, "Use New External Link image" %>
+				<span><%= form.text_field :external_avatar_url, :class => "input" %></span>
+			</li>
 
-<p>
-	<%= form.label :location %><br/>
-	<%= form.text_field :location %>
-	<%= error_message_on :user, :location %>
-</p>
+			<li>
+				<%= form.label :avatar, "Upload a new Picture" %>
+				<span><%= form.file_field :avatar, :class => "input" %></span>
+			</li>
 
-<p>
-	<%= form.label :bio %><br/>
-	<%= form.text_area :bio %>
-	<%= error_message_on :user, :bio %>
-</p>
+			<li><%= form.submit "", :class => "btn_login" %></li>
+		</ul>
 
-<%= submit_or_cancel(form, 'Cancel') %>
+	</div>
+	<% end -%>
+</div>
 
-<% end -%>
+<div id="info">
+
+	<div id="login" class="form_left">
+		<% form_for @user, :html => {:method => :put}, :url => user_update_profile_path(current_user) do |form| -%>
+
+		<%= form.error_messages %>
+
+		<ul class="left">
+			<li><h3>Update your account information</h3></li>
+			<li>
+				<%= form.label :username %>
+				<span><%= form.text_field :username, :class => "input" %></span>
+			</li>
+			<li>
+				<%= form.label :email %>
+				<span><%= form.text_field :email, :class => "input" %></span>
+			</li>
+			<li>
+				<%= form.label :web %>
+				<span><%= form.text_field :web, :class => "input" %></span>
+			</li>
+			<li>
+				<%= form.label :location %>
+				<span><%= form.text_field :web, :class => "input" %></span>
+			</li>
+			<li>
+				<%= form.label :bio %>
+				<span><%= form.text_area :bio, :class => "input_area" %></span>
+			</li>
+
+			<li><%= form.submit "", :class => "btn_login" %></li>
+		</ul>
+
+		<% end %>
+	</div>	
+</div>
+
+
+<div id="password" style="display:none">
+
+	<div id="login" class="form_left">
+		<% form_for @user, :html => {:method => :put}, :url => user_update_profile_path(current_user) do |form| -%>
+
+		<%= form.error_messages %>
+
+		<ul class="left">
+			<li><h3>Change your Password</h3></li>
+			<li>
+				<%= form.label :password %>
+				<span><%= form.password_field :password, :class => "input" %></span>
+			</li>
+			<li>
+				<%= form.label :password_confirmation %>
+				<span><%= form.password_field :password_confirmation, :class => "input" %></span>
+			</li>		
+
+			<li><%= form.submit "", :class => "btn_login" %></li>
+		</ul>
+
+		<% end %>
+	</div>	
+</div>

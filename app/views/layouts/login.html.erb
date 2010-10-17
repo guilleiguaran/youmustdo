@@ -34,6 +34,7 @@
       <ul id="top_menu">
         <li><a href="#">Top Musts</a></li>
         <li><a href="#">Recent Musts</a></li>
+        <li><a href="#">People</a></li>
       </ul>
       <ul id="user_menu">				
         <% unless signed_in? %>
@@ -50,8 +51,8 @@
 					</li>
         <% else %>
   				<li>
-  				  <%= image_tag("misc/top_user_profile.jpg", :class => "profile", :alt => "User avatar") %>
-  				  <a href="#"><span><%= current_user.username %></span></a>
+  				  <%= avatar_for(current_user, 20)%>
+				  <a href="/users/<%=h current_user.id%>/profile"><span><%= current_user.username %></span></a>
   				</li>
   				<li class="last"><a href="<%= sign_out_path %>"><span>Logout</span></a></li>
         <% end %>

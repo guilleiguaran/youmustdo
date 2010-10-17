@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
+  map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
 
   # Favorites
   map.favorites '/favorites', :controller => 'favorites', :action => 'index'
@@ -68,7 +69,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==================================================================================================
   #map.resources :categories, :only => [:show]
   
-  
+   map.resources :search, :only => [:index]
   map.recents '/recents', :controller => 'musts', :action => 'recents'
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
