@@ -4,6 +4,13 @@ ActionController::Routing::Routes.draw do |map|
   map.sign_out 'sign_out',  :controller => 'sessions',  :action => 'destroy', :method => :delete
   map.sign_up  'sign_up',   :controller => 'users',     :action => 'new'
 
+  map.resources :passwords, :controller => 'passwords', :only => [:new, :create]
+  map.resource  :session,   :controller => 'sessions',  :only => [:new, :create, :destroy]
+  map.resources :users,     :controller => 'users' do |users|
+    users.resource :password,     :controller => 'passwords', :only => [:create, :edit, :update]
+    users.resource :confirmation, :controller => 'clearance/confirmations', :only => [:new, :create]
+  end
+
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
   

@@ -13,7 +13,7 @@
 				<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=<%= must_url(must)%>&t=<%= must.name %>', 'Share this on Facebook', 'width=540,height=480');"></a></li>
 				<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=<%= must_url(must)%>&text=<%= must.name %>&via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
       </ul>
-      <div class="title"><%=h avatar_for(must.user) %>
+      <div class="title"><%=h avatar_for(must.user,30) %>
         <span>You must <%= must.category_name %></span> 
 		<%=link_to must.name, must_path(must) %> <small>by <%=h must.user.username %></small>
       </div><!-- title -->

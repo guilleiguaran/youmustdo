@@ -14,33 +14,33 @@ module ApplicationHelper
     form.submit + " or " + link_to(name, 'javascript:history.go(-1);', :class => 'cancel')
   end
 
-  def avatar_for(user)
+  def avatar_for(user, size)
     case user.avatar_type
       when "1"
-        facebook_avatar(user)
+        facebook_avatar(user, size)
       when "2"
-        twitter_avatar(user)
+        twitter_avatar(user, size)
       when "3"
-        gravatar_for(user)
+        gravatar_for(user, size)
       when "4"
-        external_url_avatar(user)
+        external_url_avatar(user, size)
       when "5"
-        uploaded_avatar(user)
+        uploaded_avatar(user, size)
     end
   end
 
-  def external_url_avatar(user)
-    return image_tag(user.external_avatar_url, :height => 48)
+  def external_url_avatar(user, size)
+    return image_tag(user.external_avatar_url, :height => size)
   end
 
-  def gravatar_for(user, pic = "avatar.png", options = {})
-    RAILS_ENV == 'development' ? default = "http://youmustdo.local/images/#{pic}" : default = "#{request.protocol}#{request.host}/images/#{pic}"
+  def gravatar_for(user, size)
+    RAILS_ENV == 'development' ? default = "http://youmustdo.local/images/avatar.png" : default = "#{request.protocol}#{request.host}/images/avatar.png"
     subdomain = (request.protocol == "https://") ? "secure" : "www"
-    return link_to image_tag("#{request.protocol}#{subdomain}.gravatar.com/avatar.php?default=#{default}&gravatar_id=#{Digest::MD5.hexdigest(user.email)}", :alt => user.username, :height => 48), 'http://en.gravatar.com/site/login'
+    return link_to image_tag("#{request.protocol}#{subdomain}.gravatar.com/avatar.php?default=#{default}&gravatar_id=#{Digest::MD5.hexdigest(user.email)}", :alt => user.username, :height => size), 'http://en.gravatar.com/site/login'
   end
 
-  def facebook_avatar(user)
-    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.fb_access_token}&type=large",:height => 48, :alt => 'user.username')
+  def facebook_avatar(user, size)
+    image_tag("https://graph.facebook.com/me/picture?access_token=#{user.fb_access_token}&type=large",:height => size, :alt => 'user.username')
   end
 
   def link_active(category,text)
@@ -50,12 +50,12 @@ module ApplicationHelper
     return ""
   end
   
-  def twitter_avatar(user)
-    return image_tag(user.avatar_url, :alt => user.screen_name)
+  def twitter_avatar(user, size)
+    return image_tag(user.avatar_url, :alt => user.screen_name,:height => size)
   end
   
-  def uploaded_avatar(user)
-    image_tag(user.avatar.url,:height => 48)
+  def uploaded_avatar(user, size)
+    image_tag(user.avatar.url,:height => size)
   end
 
 end

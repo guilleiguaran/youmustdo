@@ -13,6 +13,12 @@ function selectCategory(value){
 		case "watch" :
 			watchForm();
 		break;
+		case "Have" :
+			haveForm();
+		break;
+		case "have" :
+			haveForm();
+		break;
 		default:
 		  alert(value);
 	}
@@ -31,6 +37,13 @@ function readForm(){
 
 function watchForm(){
 	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_video", "tag_list"];
+	for(i=0; i<9;i++){
+		$('#'+valids[i]).show();
+	}
+}
+	
+function haveForm(){
+	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_images","external_video"];
 	for(i=0; i<9;i++){
 		$('#'+valids[i]).show();
 	}

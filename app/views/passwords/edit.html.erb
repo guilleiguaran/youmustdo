@@ -1,0 +1,20 @@
+<% title "Forgot your password?" %>
+
+<div id="login">
+  <% form_for(:user, :url => user_password_path(@user, :token => @user.confirmation_token),
+              :html => { :method => :put }) do |form| %>
+  <%= form.error_messages %>
+    <ul>
+      <li><h3>Your password has been reset. You Must type in a new password below.</h3></li>
+      <li>
+        <%= form.label :password, "New password" %>
+        <span><%= form.password_field :password, :class => "input" %></span>
+      </li>
+      <li>
+        <%= form.label :password_confirmation, "Confirm new password" %>
+        <span><%= form.password_field :password_confirmation, :class => "input" %></span>
+      </li>
+      <li><%= form.submit "Save new password", :class => "btn_login" %></li>
+    </ul>
+  <% end %>
+</div>
