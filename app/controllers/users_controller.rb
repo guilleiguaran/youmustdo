@@ -9,6 +9,7 @@ class UsersController < Clearance::UsersController
 
   def profile
     @user = User.find(params[:id])
+    render :layout => "login"
   end
 
   def update
