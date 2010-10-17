@@ -44,7 +44,9 @@ class MustsController < ApplicationController
 
   def create
     @must = Must.new(params[:must])
-    @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank? || params[:attachment].nil? || params[:attachment].blank?
+    if params[:attachment]
+      @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank?
+    end
     @must.user = current_user
     if @must.save
       flash[:notice] = "Awesome, one more thing they must do!"
