@@ -609,3 +609,60 @@ width:173px;
 .btn_login:active{
 background:url(../images/buttons/login.png) bottom left;
 }
+
+/* Style for flash messages */
+/* ================================================================================================ */
+p.error, p.warning, p.info,p.success{
+    background: url("../images/icon/icn_messages.png") no-repeat;
+    clear:both;
+    margin-bottom:20px;
+    padding:10px 5px 10px 35px;
+}
+
+p.error{
+    background-color:#FFEBEB;
+    background-position: 10px -116px;
+    border: 1px solid #D6B2B4;
+    color:#AA0101;
+}
+p.warning{
+    background-color:#FFFFCC;
+    background-position: 10px -180px;
+    border: 1px solid #E6E7BA;
+    color:#A97B00;
+}
+p.info{
+    background-color:#EEEEFF;
+    background-position: 10px -52px;
+    border: 1px solid #B1CDEE;
+    color:#0000A4;
+}
+p.success{
+    background-color:#EBFFEB;
+    background-position: 10px 12px;
+    border: 1px solid #B9E7BA;
+    color:#009D01;
+}
+#errorExplanation{
+  clear:both;
+  margin-bottom:20px;
+  padding:10px 5px 10px 20px;
+  background-color:#FFEBEB;
+  background-position: 10px -116px;
+  border: 1px solid #D6B2B4;
+  color:#AA0101;
+}
+#errorExplanation p{
+  font-size:1.2em;
+  color:#000;
+}
+#errorExplanation ul{
+  list-style-image:none;
+  list-style-position:inside;
+  list-style-type:disc;
+}
+#errorExplanation ul li{
+  margin:0 0 8px;
+}
+/* ================================================================================================ */
+/*  end styles for flash messages */
