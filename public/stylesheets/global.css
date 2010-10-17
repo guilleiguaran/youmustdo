@@ -72,6 +72,7 @@ padding:0;
 }
 #wrapper{
 display:block;
+min-height:500px;
 margin:0 auto 90px;
 overflow:hidden;
 width:960px;
