@@ -56,6 +56,9 @@ class Must < ActiveRecord::Base
         SELECT must_id, COUNT(id) * ((7 - top_factor) / 7) AS top_value
         FROM (#{top_factor_query}) as top_factors
         GROUP BY must_id}, Time.now - 7.days])
+        
+      logger.info top_musts.inspect
+      puts top_musts.inspect
 
         # Then we reset the previous Musts top rated
         Must.update_all ["top = ?", false], ["top = ?", true]
