@@ -72,6 +72,7 @@ padding:0;
 }
 #wrapper{
 display:block;
+min-height:500px;
 margin:0 auto 90px;
 overflow:hidden;
 width:960px;
@@ -728,14 +729,14 @@ background:url(../images/icons/twitter.jpg) bottom left;
 }
 
 .bookmark{
-	background:url(../images/icons/bookmark.jpg) top left;
+	background:url(../images/icons/unbookmark.png) top left;
 	float:left;
 	height:16px;
 	width:16px;
 
 }
 .bookmark:hover{
-background:url(../images/icons/bookmark.jpg) bottom left;
+background:url(../images/icons/unbookmark.png) bottom left;
 }
 
 .add{
