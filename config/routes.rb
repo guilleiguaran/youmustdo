@@ -16,8 +16,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # Favorites
   map.favorites '/favorites', :controller => 'favorites', :action => 'index'
-  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'create'
-  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'destroy'
+  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'favorite'
+  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'unfavorite'
 
   map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
 

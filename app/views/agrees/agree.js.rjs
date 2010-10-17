@@ -1,0 +1,7 @@
+if flash[:success]
+  page.replace_html("agrees_count_#{@must.id}", @must.total_agrees)
+  page << "alert('#{flash[:success]}')"
+else
+  page << "alert('#{flash[:error]}')"
+end
+flash.discard

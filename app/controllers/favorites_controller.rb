@@ -7,16 +7,18 @@ class FavoritesController < ApplicationController
     end
   end
   
-  def create
-    current_user.has_favorite(Must.find(params[:must_id]))
+  def favorite
+    @must = Must.find(params[:must_id])
+    current_user.has_favorite(@must)
     respond_to do |wants|
       wants.html{ redirect_to :back }
       wants.js
     end
   end
   
-  def destroy
-    current_user.has_no_favorite(Must.find(params[:must_id]))
+  def unfavorite
+    @must = Must.find(params[:must_id])
+    current_user.has_no_favorite(@must)
     respond_to do |wants|
       wants.html{ redirect_to :back }
       wants.js
