@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+  before_filter :login_required
   def create
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
@@ -15,9 +15,6 @@ class CommentsController < ApplicationController
         wants.html { render :action => "new" }
       end
     end
-  end
-
-  def update
   end
 
   def destroy
