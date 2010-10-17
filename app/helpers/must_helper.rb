@@ -20,7 +20,7 @@ module MustHelper
     unless must.url_image.nil?
       return '<img src="'+must.url_image+'" class="most_image" alt="'+must.name+'" />' 
     end
-    unless must.longitude.nil? or must.latitude.nil?
+    unless must.longitude.blank? or must.latitude.blank?
       return return_map(must)
     end
     puts image_tag('YouMustDoTwitter watermark.jpg')
