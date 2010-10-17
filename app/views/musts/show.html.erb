@@ -23,8 +23,19 @@
 </div><!-- title -->
 
 <div class="must_content">
-
-<%=show_big_content(@must)%>
+<% if @must.listen? %>
+  <!-- Begin AudioJS -->
+  <div class="audio-js-box">
+    <!-- Using the Audio for Everybody Embed Code http://camendesign.com/code/audio_for_everybody -->
+    <audio class="audio-js" controls preload>
+      <source src="<%= @must.attachment.format1_url %>">
+      <source src="<%= @must.attachment.format2_url %>">
+    </audio>
+  </div>
+  <!-- End AudioJS -->
+<% else %>
+  <%=show_big_content(@must)%>
+<% end %>
 
 <p><%=@must.description%></p>
 
@@ -56,4 +67,33 @@
 	
 		 
 </ul>
+<% if @must.listen? %>
+  <% content_for :stylesheet do %>
+    <%= stylesheet_link_tag 'audio_js/audio-js' %>
+    <%= stylesheet_link_tag 'audio_js/skins/hu.css' %>
+    <%= stylesheet_link_tag 'audio_js/skins/tube.css' %>
+    <%= stylesheet_link_tag 'audio_js/skins/vim.css' %>
+  <% end %>
 
+  <% content_for :javascript do %>
+    <%= javascript_include_tag "audio" %>
+    <script type="text/javascript" charset="utf-8">
+      // Run the script on page load.
+
+      // If using jQuery
+      $(function(){
+        AudioJS.setup();
+      })
+
+      // If using Prototype
+      // document.observe("dom:loaded", function() {
+      //   AudioJS.setup();
+      // });
+
+      // If not using a JS library
+      // window.onload = function(){
+      //   AudioJS.setup();
+      // }
+    </script>
+  <% end %>
+<% end %>

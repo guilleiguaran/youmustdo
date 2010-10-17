@@ -59,6 +59,12 @@ class Must < ActiveRecord::Base
     "#{tweet} #{short_url}"
   end
 
+  # Methods to determine the category of the must
+  def listen?
+    self.category.name.downcase.eql?("listen")
+  end
+  # =============================================
+
   class << self
     def refresh_top_musts
       # Must.all( :select => "*, DATEDIFF(NOW(), created_at) as top_factor",
@@ -88,9 +94,7 @@ class Must < ActiveRecord::Base
   end
 
   def should_process
-    case self.category.name.downcase
-    when "listen" then zencoder_process_audio
-    end
+    zencoder_process_audio if listen?
   end
 
   def attachment_format1_ready?
