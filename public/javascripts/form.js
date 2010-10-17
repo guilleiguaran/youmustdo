@@ -3,6 +3,7 @@ function selectCategory(value){
 	switch(value.toLowerCase()){
 		case "Read" :
 		case "read" :
+		case "see" :
 			readForm();
 		break;
 		case "Watch" :
@@ -21,7 +22,7 @@ function selectCategory(value){
 			haveVisit();
 		break;
 		default:
-		  alert(value);
+		  doForm();
 	}
 }
 
@@ -67,6 +68,13 @@ function haveVisit(){
 function listenForm(){
   var valids = ["category", "attachments", "name", "description", "submit",  "external_images","external_video"];
 	for(i=0; i<9;i++){
+		$('#'+valids[i]).show();
+	}
+}
+
+function doForm(){
+  var valids = ["category", "attachments", "name", "description", "submit",  "external_images","external_video", "url", "url_button", "url_loader", "tag_list", "google_map", "latitude", "longitude"];
+	for(i=0; i<valids.length;i++){
 		$('#'+valids[i]).show();
 	}
 }
