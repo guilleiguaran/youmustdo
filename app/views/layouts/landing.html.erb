@@ -37,7 +37,12 @@
 					<ul id="top_menu">
 						<li><a href="#">Top Musts</a></li>
 						<li><a href="#">Recent Musts</a></li>
+						<% if signed_in? %>
 						<li><a href="<%=search_index_path%>">People</a></li>
+						<li><a href="#">Following</a></li>
+						<li><a href="#">My Musts</a></li>
+						<li><a href="#">Bucket List<span>12</span></a></li>
+						<%end%>
 					</ul>
 					<ul id="user_menu">				
 
@@ -80,20 +85,20 @@
 						<div id="content">
 							<ul id="must_bar">
 								<li class="main"><img src="/images/misc/bar_youmust.jpg?1287290042" alt="You Must"></li>
-  							<li><a href="<%=categories_path('read')%>" class="<%=link_active(@category,"Read")%>">Read</a></li>
-  							<li><a href="<%=categories_path('see')%>" class="<%=link_active(@category,"See")%>">See</a></li>
-  							<li><a href="<%=categories_path('watch')%>" class="<%=link_active(@category,"Watch")%>">Watch</a></li>
-  							<li><a href="<%=categories_path('listen')%>" class="<%=link_active(@category,"Listen")%>">Listen</a></li>
-  							<li><a href="<%=categories_path('have')%>" class="<%=link_active(@category,"Have")%>">Have</a></li>
-  							<li><a href="<%=categories_path('visit')%>" class="<%=link_active(@category,"Visit")%>">Visit</a></li>
-  							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>
+								<li><a href="<%=categories_path('read')%>" class="<%=link_active(@category,"Read")%>">Read</a></li>
+								<li><a href="<%=categories_path('see')%>" class="<%=link_active(@category,"See")%>">See</a></li>
+								<li><a href="<%=categories_path('watch')%>" class="<%=link_active(@category,"Watch")%>">Watch</a></li>
+								<li><a href="<%=categories_path('listen')%>" class="<%=link_active(@category,"Listen")%>">Listen</a></li>
+								<li><a href="<%=categories_path('have')%>" class="<%=link_active(@category,"Have")%>">Have</a></li>
+								<li><a href="<%=categories_path('visit')%>" class="<%=link_active(@category,"Visit")%>">Visit</a></li>
+								<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>
 							</ul>
 
 							<h3>These are the Top Must Read</h3>
 
 							<ul class="musts">
 								<% @musts.each do |must|%>
-									<%= render :partial => "musts/must_item", :locals => {:must => must} %>
+								<%= render :partial => "musts/must_item", :locals => {:must => must} %>
 								<% end %>
 							</ul>
 
@@ -128,7 +133,7 @@
 			<div id="footer">
 				<div class="wrapper">
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="<%= root_path %>">Home</a></li>
 						<li><a href="#">About</a></li>
 						<li><a href="<%= privacy_path %>">Privacy</a></li>
 						<li><a href="<%= terms_path %>">Terms</a></li>

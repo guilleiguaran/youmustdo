@@ -73,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "url"
-
     t.string   "url_image"
     t.string   "url_video"
     t.boolean  "top"

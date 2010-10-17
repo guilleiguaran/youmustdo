@@ -19,6 +19,12 @@ function selectCategory(value){
 		case "have" :
 			haveForm();
 		break;
+		case "Visit" :
+			haveVisit();
+		break;
+		case "visit" :
+			haveVisit();
+		break;
 		default:
 		  alert(value);
 	}
@@ -43,8 +49,15 @@ function watchForm(){
 }
 	
 function haveForm(){
-	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_images","external_video"];
-	for(i=0; i<9;i++){
+	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_images","external_video","tag_list"];
+	for(i=0; i<10;i++){
+		$('#'+valids[i]).show();
+	}
+}
+
+function haveVisit(){
+	var valids = ["category",  "name", "description", "submit","tag_list","google_map", "longitude", "latitude"];
+	for(i=0; i<8;i++){
 		$('#'+valids[i]).show();
 	}
 }
