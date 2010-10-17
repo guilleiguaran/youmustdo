@@ -8,7 +8,7 @@ class BucketsController < ApplicationController
     bucket.user_id = current_user.id
     bucket.must_id = params[:must_id]
     if bucket.save
-      flash[:notice] = "You just add this Must to your Bucket List"
+      # flash[:notice] = "You just add this Must to your Bucket List"
       render :update do |page|
         page << "alert('bucket created')"
       end
@@ -23,7 +23,7 @@ class BucketsController < ApplicationController
   def destroy
     bucket = Bucket.find_by_user_id_and_must_id(current_user.id, params[:must_id])
     if bucket.destroy
-      flash[:notice] = "Must was succesfully deleted from your Bucket List"
+      # flash[:notice] = "Must was succesfully deleted from your Bucket List"
       render :update do |page|
         page << "alert('bucket deleted')"
       end

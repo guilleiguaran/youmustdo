@@ -115,3 +115,14 @@ float:left
 	float:left;
 	margin:0 !important;
 }
+
+.bucket_add:hover{
+	background-position:left bottom;
+}
+.bucket_add{
+	background:url(../images/bucket_list.png) top left;
+	float:left;
+	height:16px;
+	width:16px;
+
+}
