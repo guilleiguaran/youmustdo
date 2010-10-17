@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(:version => 20101017055146) do
     t.datetime "updated_at"
   end
 
+  create_table "buckets", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "must_id"
+    t.boolean  "status",     :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -32,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20101017055146) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "must_id"
+  end
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "favorable_type", :limit => 30
+    t.integer  "favorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follows", :force => true do |t|
@@ -59,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20101017055146) do
     t.string   "url"
     t.string   "url_image"
     t.string   "url_video"
+    t.boolean  "top"
+    t.float    "top_value"
   end
 
   create_table "users", :force => true do |t|

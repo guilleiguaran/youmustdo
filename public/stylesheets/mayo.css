@@ -1,0 +1,45 @@
+#recent_must{
+	height:430px;
+	overflow:hidden;	
+}
+#recent_must li{
+margin-bottom:15px;
+overflow:hidden;
+}
+
+#recent_must li .avatar_img{
+	border:2px solid #D3D3D3;
+	float:left;
+	padding:1px;
+}
+#recent_must li img{
+	height:28px;
+	width:28px;
+}
+#recent_must li span{
+	font-size:12px;
+}
+#recent_must li .avatar_content{
+	float:left;
+	width:43px;
+}
+#recent_must li .avatar_content_right{
+	float:left;
+	width:190px;
+}
+#recent_must li small{
+	color:#999999;
+	font-size:9px;
+}
+#recent_must li a{
+border:medium none;
+color:#0099FF;
+font-size:12px !important;
+font-weight:bold;
+}
+.peoplemusting{
+color:#CE6C01;
+font-size:13px !important;
+font-weight:bold;
+margin-bottom:10px;
+}

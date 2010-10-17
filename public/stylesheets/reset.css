@@ -1,69 +1,74 @@
+/*
+- Copyright (c) 2009, Koombea, Inc All rights reserved.
+- Version: 1.0       
+- Reset.css
+- Based on Yui and Meyer reset file.
+*/
+
 html {
-	background:#FFFFFF none repeat scroll 0 0;
-	color:#000000;
-	font-size:62.5%;
-        font-family:Arial;
+color:#000000;
+font-size:100%
 }
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
-	margin:0;
-	padding:0;
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, button, textarea, p, blockquote, th, td{
+margin:0;
+padding:0
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
-	border-collapse:collapse;
-	border-spacing:0;
+border-collapse:collapse;
+border-spacing:0
 }
 fieldset, img, button {
-	border:0 none;
+border:0 none
 }
-address, caption, cite, code, dfn, em, th, var, optgroup {
-	font-style:inherit;
-	font-weight:inherit;
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+font-style:inherit;
+font-weight:inherit
 }
 del, ins {
-	text-decoration:none;
+text-decoration:none
 }
 ol {
-	list-style:decimal;
+list-style:decimal
 }
 ol li {
-	list-style: decimal outside;
+list-style: decimal outside
 }
 ul {
-	list-style:none
+list-style:none
 }
 caption, th {
-	text-align:left;
+text-align:left
 }
 h1, h2, h3, h4, h5, h6 {
-	font-size:100%;
-	font-weight:normal;
+font-size:100%;
+font-weight:normal
 }
 :focus {
-	outline: 0;
+outline: 0
 }
 q:before, q:after {
-	content:'';
+content:''
 }
 abbr, acronym {
-	border:0 none;
-	font-variant:normal;
+border:0 none;
+font-variant:normal
 }
 sup {
-	vertical-align:text-top;
+vertical-align:text-top
 }
 sub {
-	vertical-align:text-bottom;
+vertical-align:text-bottom
 }
 legend {
-	color:#000;
+color:#000000
 }
 input, button, textarea, select, optgroup, option {
-	font-family:inherit;
-	font-size:inherit;
-	font-style:inherit;
-	font-weight:inherit;
+font-family:inherit;
+font-size:inherit;
+font-style:inherit;
+font-weight:inherit
 }
 input, textarea, select {
-	border:1px solid #CCC;
+border:1px solid #CCCCCC
 }

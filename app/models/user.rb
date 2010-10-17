@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   include Clearance::User
   acts_as_followable
   acts_as_follower
+  acts_as_favorite_user
   
-  has_many :musts, :dependent => :destroy
-  has_many :comments
+  has_many :musts, :dependent => :nullify
+  has_many :comments, :dependent => :nullify
   
   validates_presence_of :username
   validates_uniqueness_of :username
@@ -13,8 +14,6 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /^[a-z][\w\-]+$/i, :message => "cannot contain special characters or spaces"
   validates_exclusion_of :username, :in => %w( support blog www billing help api dev test production prod staging qa stage docs samples koombea examples status account doc docs), :message => "is not available"
   validates_length_of :username, :maximum => 20
-  
-  # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   has_attached_file :avatar,
     :styles => {
@@ -45,4 +44,5 @@ class User < ActiveRecord::Base
     client = Twitter::Base.new(oauth)
     client
   end
+
 end
