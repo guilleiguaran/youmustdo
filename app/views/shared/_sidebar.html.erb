@@ -12,9 +12,11 @@
 
 	<h2>Recent musts</h2>
 	<h3 class='peoplemusting'>RECENT ACTIVITY </h3>
-	<% unless musts.blank? %>
+	
+	<% musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')%>
+	<% unless musts_recent.nil? %>
 	<ul id="recent_must">
-		<% musts.each do |must| %>
+		<% musts_recent.each do |must| %>
 		<li>
 			<div class="avatar_content">
 				<div class="avatar_img"><%= avatar_for(must.user,28)%></div>

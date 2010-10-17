@@ -37,9 +37,12 @@
 					<ul id="top_menu">
 						<li><a href="#">Top Musts</a></li>
 						<li><a href="#">Recent Musts</a></li>
-						<li><a href="#">Following</a></li>
-						<li><a href="#">My Musts</a></li>
-						<li><a href="#">Bucket List<span>12</span></a></li>
+				<% if signed_in? %>
+				<li><a href="#">People</a></li>
+				<li><a href="#">Following</a></li>
+				<li><a href="#">My Musts</a></li>
+				<li><a href="#">Bucket List<span>12</span></a></li>
+				<%end%>
 					</ul>
 					<ul id="user_menu">				
 
