@@ -1,0 +1,10 @@
+<% unless @musts.blank? %>
+<h3>These are your Favorites Musts</h3>
+<ul class="musts">
+  <% @musts.each do |must| %>
+  	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
+  <% end %>
+</ul>
+<% else %>
+<h3>You don't have favorite Musts yet</h3>
+<% end %>
