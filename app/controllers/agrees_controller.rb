@@ -15,8 +15,9 @@ class AgreesController < ApplicationController
   end
 
   def disagree
-     @must = Must.find(params[:must_id])
+    @must = Must.find(params[:must_id])
     @agree = Agree.create(:user_id => current_user.id, :must_id => @must.id, :calification => -1)
+    logger.info @must.inspect
     if @agree.save
       flash[:notice] = "Disagreed!"
     else
