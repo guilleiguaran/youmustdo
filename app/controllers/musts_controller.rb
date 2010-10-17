@@ -44,7 +44,9 @@ class MustsController < ApplicationController
 
   def create
     @must = Must.new(params[:must])
-    @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank?
+    if params[:attachment]
+      @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank?
+    end
     @must.user = current_user
     if @must.save
       @must.should_process #Process attachments
@@ -64,6 +66,7 @@ class MustsController < ApplicationController
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
+
     #render :layout => 'login'
     render :action => "show"
   end

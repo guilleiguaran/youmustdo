@@ -15,4 +15,8 @@ class HomeController < ApplicationController
   def terms
     render :layout => "login"
   end
+  
+  def about
+    render :layout => "login"
+  end
 end

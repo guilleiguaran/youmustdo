@@ -1,12 +1,59 @@
-<h1><%=h @must.name%></h1>
+<ul class="musts must">
+	
+		  <li>
+<div class="left">
+<a class="add" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/agree'}); return false;"></a>          <span class="add_count" id="agrees_count_12">1</span>
+<a class="remove" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/disagree'}); return false;"></a>		  <span class="remove_count" id="disagrees_count_12">0</span>
+</div><!-- left -->
+<div class="right">
+<ul class="icons">
+<span id="favorite_12">
 
+
+<li><a class="bookmark" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/favorite'}); return false;"></a></li>
+
+
+</span>
+<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=http://youmustdo.local/musts/12&amp;t=Palo Alto International Airport', 'Share this on Facebook', 'width=540,height=480');"></a></li>
+<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=http://youmustdo.local/musts/12&amp;text=Palo Alto International Airport&amp;via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
+</ul>
+<div class="title"><%=avatar_for(@must.user, 30)%>
+<span>You must <%=@must.category_name%></span> 
+<a href="http://youmustdo.local/musts/12"><%=@must.name%></a>
+</div><!-- title -->
+
+<div class="must_content">
+
+<%=show_big_content(@must)%>
+
+<p><%=@must.description%></p>
+
+<div class="tags">
 <p>
-	<%=h @must.description%>
+<b>Tags:</b>
+
+<% @must.tag_list.each do |tag|%>
+	<a href="<%= tags_path(tag) %>"><%= tag %></a>
+<% end %>
+
 </p>
 
-<p>
-	<%=h @must.location%>
-</p>
 
+<p>This must has <a><%= pluralize(@must.comments.count, 'comment') %></a></p>     
+</div>     
+</div> <!-- must_content -->
+
+<div id="comments">
 <%= render :partial => 'comments_list', :locals => { :must => @must} %>
+
 <%= render :partial => 'comments', :locals => { :must => @must} %>
+
+
+</div><!-- comments -->
+
+</div><!-- right -->
+</li>
+	
+		 
+</ul>
+
