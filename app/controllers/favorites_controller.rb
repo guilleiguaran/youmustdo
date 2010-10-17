@@ -1,9 +1,9 @@
 class FavoritesController < ApplicationController
   
   def index
-    @favorites = current_user.favorite_musts
+    @musts = current_user.favorite_musts
     respond_to do |wants|
-      wants.js
+      wants.html
     end
   end
   

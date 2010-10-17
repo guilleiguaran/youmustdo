@@ -35,13 +35,15 @@
 			<div class="header">
 				<div id="menu">
 					<ul id="top_menu">
-						<li><a href="#">Top Musts</a></li>
-						<li><a href="#">Recent Musts</a></li>
+						
+						<li><a href="<%= root_path %>">Top Musts</a></li>
+						<li><a href="<%= recents_path %>">Recent Musts</a></li>
 						<% if signed_in? %>
-						<li><a href="#">People</a></li>
+						<li><a href="<%=search_index_path%>">People</a></li>
 						<li><a href="#">Following</a></li>
 						<li><a href="#">My Musts</a></li>
 						<li><a href="#">Bucket List<span>12</span></a></li>
+						<li><a href="<%= favorites_path %>">Favorites</a></li>
 						<%end%>
 					</ul>
 					<ul id="user_menu">				

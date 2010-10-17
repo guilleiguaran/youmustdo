@@ -27,7 +27,8 @@ class Must < ActiveRecord::Base
   end
 
   def location
-    return self.latitude + " - " + self.longitude 
+    return self.latitude + " - " + self.longitude unless self.latitude.nil? or self.longitude.nil?
+    return ""
   end
 
   def category_name

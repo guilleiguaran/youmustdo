@@ -29,16 +29,18 @@
 	<![endif]-->
 </head>
 <body class="home">
+
 	<div id="wrapper">
 		<div id="menu">
 			<ul id="top_menu">
-				<li><a href="#">Top Musts</a></li>
-				<li><a href="#">Recent Musts</a></li>
+				<li><a href="<%= root_path %>">Top Musts</a></li>
+				<li><a href="<%= recents_path %>">Recent Musts</a></li>
 				<% if signed_in? %>
-				<li><a href="#">People</a></li>
+        <li><a href="<%=search_index_path%>">People</a></li>
 				<li><a href="#">Following</a></li>
 				<li><a href="#">My Musts</a></li>
 				<li><a href="#">Bucket List<span>12</span></a></li>
+				<li><a href="<%= favorites_path %>">Favorites</a></li>
 				<%end%>
 			</ul>
 			<ul id="user_menu">				
@@ -76,7 +78,7 @@
 	<div id="footer_login">
 		<div class="wrapper">
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="<%= root_path %>">Home</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="<%= privacy_path %>">Privacy</a></li>
 				<li><a href="<%= terms_path %>">Terms</a></li>
