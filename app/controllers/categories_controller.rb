@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
     else 
       # @musts = @category.musts.find(:all, :order => "created_at DESC", :limit => 10)
       
-          @musts = @category.musts.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
+          @musts = @category.musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
 
 
     end
