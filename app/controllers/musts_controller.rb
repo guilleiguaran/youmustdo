@@ -47,6 +47,7 @@ class MustsController < ApplicationController
     @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank?
     @must.user = current_user
     if @must.save
+      @must.should_process #Process attachments
       flash[:notice] = "Awesome, one more thing they must do!"
       respond_to do |wants|
         wants.html { redirect_to must_path(@must) }

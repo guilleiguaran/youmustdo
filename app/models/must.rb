@@ -12,7 +12,7 @@ class Must < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :agrees, :dependent => :destroy
 
-  after_create :agree_must, :should_process
+  after_create :agree_must
   named_scope :by_creation_date, :order => "created_at DESC"
 
   def calification
@@ -98,7 +98,7 @@ class Must < ActiveRecord::Base
     data = response.body.to_hash
     logger.info response.inspect
     puts response.inspect
-    data['status'].eql?("finished")
+    data['state'].to_s.eql?("finished")
   end
 
   def attachment_format2_ready?
@@ -106,7 +106,7 @@ class Must < ActiveRecord::Base
     data = response.body.to_hash
     logger.info response.inspect
     puts response.inspect
-    data['status'].eql?("finished")
+    data['state'].to_s.eql?("finished")
   end
 
   def zencoder_file_url(filename, ext)
@@ -114,6 +114,7 @@ class Must < ActiveRecord::Base
   end
 
   def zencoder_process_audio
+    self.reload
     response = Zencoder::Job.create({
       :input => self.attachment.file.url,
       :outputs => [
@@ -135,11 +136,11 @@ class Must < ActiveRecord::Base
     self.attachment.update_attributes({
       :job_id => data['id'],
       :format1_id => data['outputs'][0]['id'],
-      :format2_id => data['outputs'][1]['id'],
       :format1_url => data['outputs'][0]['url'],
+      :format1_label => data['outputs'][0]['label'],
+      :format2_id => data['outputs'][1]['id'],
       :format2_url => data['outputs'][1]['url'],
-      :format1_url => data['outputs'][0]['label'],
-      :format2_url => data['outputs'][1]['label']
+      :format2_label => data['outputs'][1]['label']
     })
     logger.info response.inspect
     puts response.inspect
