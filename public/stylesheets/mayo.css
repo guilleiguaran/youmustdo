@@ -3,7 +3,8 @@
 	overflow:hidden;	
 }
 #recent_must li{
-	overflow:hidden;	
+margin-bottom:15px;
+overflow:hidden;
 }
 
 #recent_must li .avatar_img{
@@ -31,9 +32,14 @@
 	font-size:9px;
 }
 #recent_must li a{
-	border:medium none;
-	font-size:12px !important;
+border:medium none;
+color:#0099FF;
+font-size:12px !important;
+font-weight:bold;
 }
 .peoplemusting{
-	font-size:13px !important;
+color:#CE6C01;
+font-size:13px !important;
+font-weight:bold;
+margin-bottom:10px;
 }
