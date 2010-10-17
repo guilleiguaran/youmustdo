@@ -23,13 +23,7 @@ div#rr10sash {
 }
 .wordcloud {
   margin:30px 0;
-}
-#footer {
-  bottom:0;
-  position:absolute;
-  width:100%;
+color: #0099FF;
 }
 #content #login form ul li span .input {
-  height:25px;
-  padding-top:10px;
 }

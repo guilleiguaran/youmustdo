@@ -6,6 +6,10 @@ class MustsController < ApplicationController
   def index
     @musts = Must.all
   end
+  
+  def recents
+    @musts = Must.find(:all, :order => "created_at DESC", :limit => 10)
+  end
 
   def new
     @user = current_user

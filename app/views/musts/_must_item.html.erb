@@ -1,23 +1,35 @@
-<li>
-  <div class="left">
-    <a href="<%=must_agree_path(must)%>"><%=image_tag "plus.png", :border => "none" %>
-    <span class="count"><%=must.calification%></span>
-    <a href="<%=must_disagree_path(must)%>"><%=image_tag "minus.png", :border => "none" %>
-  </div>
-  <div class="right">
-    <a href="#" class="must_remove" alt="Must delete it"><%=image_tag "trash.png" %></a>
-    <a href="#" class="must_star" alt="Must star it"><%=image_tag "star.png" %></a>
-    <a href="#" class="must_tweet" alt="Must tweet it"><%=image_tag "icn_twitter16.gif" %></a>
-    <a href="#" class="must_fb_share" alt="Must fb share it"><%=image_tag "icn_facebook16.gif" %></a>
-    <%=image_tag "profile_img_default.jpg" %>
-    <div class="must_title">Must <%=must.category_name%>: <%=must.name%></div>
-    <br class="spacer" />
-    <div class="must_content">
-      <div class="must_preview">
-        <%=image_tag "video.png" %>
+  <li>
+ 	  <div class="left">
+	      <%= link_to_remote "", { :url => must_agree_path(must) }, :class => "add" -%>
+          <span class="add_count" id="agrees_count_<%=must.id%>"><%= must.total_agrees %></span>
+		  <%= link_to_remote "", { :url => must_disagree_path(must) }, :class => "remove" -%>
+		  <span class="remove_count" id="disagrees_count_<%=must.id%>"><%= must.total_disagrees %></span>
+		</div><!-- left -->
+    <div class="right">
+      <ul class="icons">
+				<span id="favorite_<%=must.id%>">
+				<%= render :partial => "musts/favorite", :locals => {:must => must} %>
+				</span>
+				<li><a class="facebook" href="#" title=""></a></li>
+				<li><a class="twitter" href="#" title=""></a></li>
+      </ul>
+      <div class="title"><%=h avatar_for(must.user) %>
+        <span>You must <%= must.category_name %></span> 
+		<%=link_to must.name, must_path(must) %> <small>by <%=h must.user.username %></small>
+      </div><!-- title -->
+      
+      <div class="must_content">
+		<% if true %>
+        <img src="/images/misc/image_preview.jpg">
+		<% end %>
+        <p><%=h must.description %></p>
+        <p><b>Tags:</b> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a></p>
+        <p>This must has <a><%= pluralize(must.comments.count, 'comment') %></a></p>        
+      </div> <!-- must_content -->
+      <div class="related">
+        <p><b>Related musts</b></p>
+	      <p><span>You Must listen</span> <a href="#">When I Come Around from Green Day live at...</a></p>
+	      <p><span>You Must watch</span> <a href="#">Metallica singing One live</a></p>
       </div>
-      <p><%=must.description%></p>
-    </div>
-  </div>
-  <br class="spacer" />
-</li>
+    </div><!-- right -->
+  </li>
