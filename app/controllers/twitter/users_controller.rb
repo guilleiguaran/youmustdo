@@ -13,7 +13,7 @@ class Twitter::UsersController < ApplicationController
   end
 
   def create
-    create_user
+    find_or_create_user
     if @user.save
       @user.confirm_email!
       sign_in(@user)
@@ -37,9 +37,10 @@ class Twitter::UsersController < ApplicationController
     root_path
   end
 
-  def create_user
+  def find_or_create_user
     password = User.random_string(10)
-    @user = ::User.new params[:user]
+    @user = User.find_by_email(params[:user][:email])
+    @user = ::User.new(params[:user]) if @user.nil?
     @user.avatar_type = 2
     @user.twitter_id    = session[:twitter_session][:id]
     @user.screen_name   = session[:twitter_session][:screen_name]

@@ -17,6 +17,9 @@ ActionController::Routing::Routes.draw do |map|
   map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
   map.recents '/recents', :controller => 'musts', :action => 'recents'
   
+  # This url is temporal
+  map.play_audio '/play_audio', :controller => 'musts', :action => 'play'
+
   map.resources :musts do |must|
     must.resources :comments
     must.agree '/agree', :controller => 'agrees', :action => 'agree'

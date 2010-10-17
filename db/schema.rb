@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017094505) do
+ActiveRecord::Schema.define(:version => 20101017202926) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -17,6 +17,23 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.integer  "calification"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "must_id"
+    t.integer  "job_id"
+    t.integer  "format1_id"
+    t.integer  "format2_id"
+    t.string   "format1_url"
+    t.string   "format2_url"
+    t.string   "format1_label"
+    t.string   "format2_label"
   end
 
   create_table "buckets", :force => true do |t|
@@ -50,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.datetime "updated_at"
   end
 
+  create_table "followers", :force => true do |t|
+    t.integer  "following_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
     t.string   "followable_type",                    :null => false
@@ -73,11 +97,10 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "url"
-    t.string   "url_image"
-    t.string   "url_video"
     t.boolean  "top"
     t.float    "top_value"
-
+    t.string   "url_image"
+    t.string   "url_video"
   end
 
   create_table "taggings", :force => true do |t|
