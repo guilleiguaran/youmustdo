@@ -4,10 +4,8 @@
 	<% if signed_in? %>	
 	<li><a <% if (controller.controller_name == "search" && controller.action_name == "index")%> class="active" <% end %> href="<%= search_index_path %>">People</a></li>
 	<li><a <% if (controller.controller_name == "blahblah" && controller.action_name == "blahblah")%> class="active" <% end %> href="#">Following</a></li>
-	<li><a <% if (controller.controller_name == "hblahblahome" && controller.action_name == "blahblah")%> class="active" <% end %> href="#">My Musts</a></li>
+	<li><a <% if (controller.controller_name == "musts" && controller.action_name == "my_musts")%> class="active" <% end %> href="<%= my_musts_path %>">My Musts</a></li>
 	<li><a <% if (controller.controller_name == "buckets")%> class="active" <% end %> href="#">Bucket List<span>12</span></a></li>
 	<li><a <% if controller.controller_name == "favorites" %> class="active" <% end %> href="<%= favorites_path %>">Favorites</a></li>
 	<%end%>
 </ul>
-
-as.dkjalksdj kasjdlkjas dlkj

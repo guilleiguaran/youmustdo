@@ -13,14 +13,16 @@ ActionController::Routing::Routes.draw do |map|
 
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
+  map.my_musts '/musts/me', :controller => 'musts', :action => 'my_musts'
+  map.user_musts '/musts/:username', :controller => 'musts', :action => 'user_musts'
+  map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
+  map.recents '/recents', :controller => 'musts', :action => 'recents'
   
   map.resources :musts do |must|
     must.resources :comments
     must.agree '/agree', :controller => 'agrees', :action => 'agree'
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
-  
-  map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
 
   # Favorites
   map.favorites '/favorites', :controller => 'favorites', :action => 'index'
@@ -69,8 +71,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==================================================================================================
   #map.resources :categories, :only => [:show]
   
-   map.resources :search, :only => [:index]
-  map.recents '/recents', :controller => 'musts', :action => 'recents'
+  map.resources :search, :only => [:index]
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
 end

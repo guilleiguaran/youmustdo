@@ -11,7 +11,6 @@ Rails::Initializer.run do |config|
   config.gem "jrails",    :version => '0.6.0'
   config.gem "twitter",   :version => '>= 0.9.8'
   config.gem "oauth",     :version => '>= 0.4.1'
-  config.gem "postageapp", :version => '1.0.8'
 
   # oauth2 and its dependencies
   #config.gem "addressable",     :version => '>= 2.2.2'
