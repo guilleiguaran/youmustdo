@@ -57,7 +57,6 @@ if (navigator.geolocation) {
     </li>
     <li id="attachments">
       <label>Please select the audio files you want to upload</label>
-      <br />
       <div id="files">
         <% fields_for :attachment do |attachment| %></span>
           <span><%= attachment.file_field :file %></span>
@@ -65,7 +64,7 @@ if (navigator.geolocation) {
       </div>
     </li>
     <li  id="url">
-    	<%= f.label :url %><br />
+    	<%= f.label :url %>
     	<span><%= f.text_field :url, :class => "text", :class => "input" %></span>
     	<%= error_message_on :must, :url%>
     </li>
@@ -95,7 +94,7 @@ if (navigator.geolocation) {
 
 	<li  id="tag_list">
 	  <label for="must[tag_list]">Tag List (comma separated)</label>
-	  <span><input class="text" type="text" class="input" name="must[tag_list]" id="must_tag_list" />
+	  <span><input type="text" class="input" name="must[tag_list]" id="must_tag_list" />
 	</li>
 
     <li  id="google_map">
@@ -112,9 +111,7 @@ if (navigator.geolocation) {
       <span><%= f.text_field :longitude, :class => "text", :readonly => "true" , :class => "input"%></span>
       <%= error_message_on :must,:longitude %>
     </li>
-    <li  id="submit">
-      <%= submit_or_cancel(f, 'Cancel') %>	
-    </li>
+    	<li id="submit"><%= f.submit "", :class => "btn_save" %></li>
   </ul>
   <% end %>
   <br class="spacer" />
