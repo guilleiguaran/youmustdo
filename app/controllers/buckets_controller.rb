@@ -8,6 +8,33 @@ class BucketsController < ApplicationController
     @buckets = current_user.buckets
   end
 
+  def update
+    bucket = Bucket.find_by_user_id_and_must_id(current_user.id, params[:must_id])
+    unless bucket.nil?
+      unless bucket.status
+        if bucket.update_attribute('status', true)
+          render :update do |page|
+            page << "new_notification('Great! keep like that!, you have already done this one.', 'success')"
+            page << "$('#bucket_list_tab span').remove()"
+            page << "$('#bucket_list_tab').append('<span>#{current_user.bucket_list_count}</span>')"
+          end
+        else
+          render :update do |page|
+            page << "new_notification('Ouch sorry, Something is not right down there, please verify and try again.', 'error')"
+          end
+        end
+      else
+        render :update do |page|
+          page << "new_notification('Uhm? You have already done this, Go get done the other Musts. :)', 'info')"
+        end
+      end
+    else
+      render :update do |page|
+        page << "new_notification('Ouch sorry, Something is not right down there, please verify and try again.', 'error')"
+      end
+    end
+  end
+
   def create
     bucket_check = Bucket.find_by_user_id_and_must_id(current_user.id, params[:must_id])
     if bucket_check.nil?
@@ -19,7 +46,7 @@ class BucketsController < ApplicationController
         render :update do |page|
           page << "new_notification('This Must was added to your Bucket List.', 'success')"
           page << "$('#bucket_list_tab span').remove()"
-          page << "$('#bucket_list_tab').append('<span>#{current_user.buckets.count}</span>')"
+          page << "$('#bucket_list_tab').append('<span>#{current_user.bucket_list_count}</span>')"
         end
       else
         # flash[:error] = "Ouch sorry, Something's not right down there, please verify and try again."
@@ -29,8 +56,8 @@ class BucketsController < ApplicationController
       end
     else
       render :update do |page|
-          page << "new_notification('Uhm? You Must see your Bucket List, I am pretty sure this Must is already there.', 'info')"
-        end
+        page << "new_notification('Uhm? You Must see your Bucket List, I am pretty sure this Must is already there.', 'info')"
+      end
     end
   end
 
