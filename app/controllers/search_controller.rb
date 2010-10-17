@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
-  layout "login"
+  
+  layout :get_layout
   
   def index
     search = params[:search].nil? ? "" : params[:search]
