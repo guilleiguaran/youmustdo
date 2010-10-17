@@ -1,4 +1,4 @@
-  <li>
+  <li id='must<%= must.id%>'>
  	  <div class="left">
 	      <%= link_to_remote "", { :url => must_agree_path(must) }, :class => "add" -%>
           <span class="add_count" id="agrees_count_<%=must.id%>"><%= must.total_agrees %></span>
