@@ -1,0 +1,15 @@
+<% title "Forgot your password?" %>
+
+<div id="login">
+  <% form_for :password, :url => passwords_path do |form| %>
+  <%= form.error_messages %>
+    <ul>
+      <li><h3>Forgot your password? Don't worry just type your email. We Must help you.</h3></li>
+      <li>
+        <%= form.label :email, "Email address" %>
+        <span><%= form.text_field :email, :class => "input" %></span>
+      </li>
+      <li><%= form.submit "Reset password", :class => "btn_login" %></li>
+    </ul>
+  <% end %>
+</div>
