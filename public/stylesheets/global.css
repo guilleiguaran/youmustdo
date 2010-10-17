@@ -1,4 +1,22 @@
+/*
+- Copyright (c) 2009, Koombea, Inc All rights reserved.
+- Version: 1.0       
 
+
+----- Table of Contents -----
+ 
+ 	1. General Classes
+	2. Body
+	4. Header
+	5. Content
+	6. Footer
+
+ -------------------------------
+ */
+
+
+/* General Classes
+ ============================================================ */
 @charset "utf-8";
 *{	font-family:Arial, Helvetica, sans-serif;
 	outline:medium none;
@@ -50,7 +68,7 @@ padding:0;
  /* Wrapper
  ============================================================ */
 #yield_container {
-	background:url("../images/backgrounds/background_right.jpg") repeat-y scroll right top transparent;
+	
 }
 #wrapper{
 display:block;
@@ -137,6 +155,7 @@ width:960px;
 	}
 	
 	#user_menu li img.profile{
+		border:1px solid #aaa;
 		margin-right:4px;
 	}
 /* Left
@@ -373,8 +392,8 @@ margin-bottom:20px;
 	}
 		.musts .right .title {
 			font-size:13px;
-			height:40px;
-			line-height:18px;
+			min-height:40px;
+			line-height:16px;
 		}	
 
 		.musts .right .title img{
@@ -433,7 +452,7 @@ margin-bottom:20px;
 		/*******   musts must   *****/
 				.musts.must .right .title{
 					font-size:16px;
-					line-height:28px;
+					line-height:18px;
 				}
 	
 			.musts.must .right p{
@@ -489,6 +508,72 @@ margin-bottom:20px;
 			#comments #comment_form textarea{
 				height:120px;
 				width:100%;
+			}
+			
+			/********** search ****************/
+			
+		#form_search{
+			clear:left;
+			margin-top:50px;
+		}	
+		#form_search li{
+			margin-bottom:20px;
+			text-align:right;
+		}	
+		
+		#form_search .input{
+			
+			border:1px solid #CCCCCC;
+			color:#454555;
+			display:block;
+			font-size:12px;
+			padding:8px;
+			width:90%;
+		}	
+		
+		#form_search #btn_search{
+			margin-right:20px;
+		}
+		
+		#search_result {
+			
+		}
+		#search_result li{
+			 
+				background:#FFF;
+				border-radius: 10px;
+				clear:left;
+				margin:0 0 20px 0;
+				min-height:120px;
+				padding:20px;
+				width:400px;	
+				-moz-border-radius: 10px;
+				-ms-border-radius: 10px;
+				-webkit-border-radius: 10px;
+		}
+		#search_result li img{
+			float:left;
+			margin:0 10px 10px 0;
+		}
+		#search_result li p,#search_result li small,#search_result li span{
+			display:block;
+			font-size:16px;
+			line-height:24px;
+		}
+		
+		#search_result li p a,#search_result li small a,#search_result li span a{
+			color:#0099FF;
+			text-decoration:none;
+		}
+		
+		#search_result li p a:hover,#search_result li small a:hover,#search_result li span a:hover{
+			text-decoration:underline;
+		}
+			#search_result li span a.follow{
+				color:#8FAE17;
+			}
+			#search_result li span a.unfollow{
+				color:#C8050E;
 			}
   /* Footer
  ============================================================ */
@@ -609,6 +694,17 @@ background:url(../images/buttons/sign_up_now.png) bottom left;
 #btn_comment:hover{
 background:url(../images/buttons/comment.png) bottom left;
 }
+
+#btn_search{
+	background:url(../images/buttons/search.png) top left;
+	border:none;
+	height:31px;
+	width:173px;
+
+}
+#btn_search:hover{
+background:url(../images/buttons/search.png) bottom left;
+}
 .facebook{
 	background:url(../images/icons/facebook.jpg) top left;
 	float:left;
@@ -663,15 +759,16 @@ background:url(../images/buttons/add.jpg) bottom left;
 background:url(../images/buttons/remove.jpg) bottom left;
 }
 
-#postamust{
-	background:url(../images/buttons/postmust.png) top left;
+#postamust {
+	background:url(../images/buttons/postamust.png) repeat scroll left top transparent;
+	cursor:pointer;
+	display:block;
 	float:left;
 	height:32px;
-	width:32px;
-
+	width:173px;
 }
 #postamust:hover{
-background:url(../images/buttons/postmust.png) bottom left;
+background:url(../images/buttons/postamust.png) bottom left;
 }
 
 .btn_save{

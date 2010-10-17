@@ -1,14 +1,8 @@
-<hr/>
+
 <% unless @must.comments.empty? %>
-	comments: <%=h @must.comments.count%>
-	<br/>
 	<% @must.comments.each do |comment| %>
-		<%=h comment.content%> - posted by <%=h comment.user.email%>
-		<% if current_user == comment.user%>
-			<%=h link_to 'delete', must_comment_path(comment.must, comment), :method => 'DELETE'%>
-		<%end%>
-	<hr/>
-	<% end %>
-<% else %>
-	be the first one to comment
-<% end %>
+<div class="comment">	<span><%=avatar_for(comment.user,40)%><small><%=link_to comment.must.user.username ,user_path( comment.must.user)%></small><small><%=time_ago_in_words(comment.created_at)%> ago</small></span>
+<p><%=h comment.content%> </p>
+</div> <!-- comment -->
+  <%end%>
+<%end%>

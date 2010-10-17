@@ -81,7 +81,6 @@ class MustsController < ApplicationController
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
-    render :layout => 'login'
   end
 
   def destroy
