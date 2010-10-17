@@ -59,11 +59,14 @@ class Must < ActiveRecord::Base
 
         # And finally, we update the top rated Musts and set their new top value
         top_musts.each do |must|
-          Must.find_by_id(must.id).update_attributes({
-            :top_value => must.top_value,
-            :top => true
-            })
-          end
+          
+            Must.find_by_id(must.must_id).update_attributes({
+              :top_value => must.top_value,
+              :top => true
+              })
+            end
+
+
         end
       end
-end
+    end

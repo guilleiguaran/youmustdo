@@ -27,7 +27,7 @@
 	<script type="text/javascript" src="../javascripts/ie6update/ie6update.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="home">
 
 	<div id="container_big">
 		<div id="wrapper">
@@ -38,7 +38,7 @@
 						<li><a href="#">Recent Musts</a></li>
 						<li><a href="#">Following</a></li>
 						<li><a href="#">My Musts</a></li>
-						<li><a href="#">Bucket List<span>3</span></a></li>
+						<li><a href="#">Bucket List<span>12</span></a></li>
 					</ul>
 					<ul id="user_menu">				
 
@@ -77,16 +77,15 @@
 					<%= render :partial => "shared/sidebar", :locals => {:musts => @musts_recent} %>
 
 					<div id="left">
-						<div id="header">
-							<p><a href="" id="sign_up"></a></p>
+						<div id="header" class="home">
+							<p class="home"><a href="" id="sign_up"></a></p>
 							<h1><a href="/"><img src="/images/misc/logo.png?1287290042" alt="Logo"></a></h1>
-							<h2>You Must try this site, here you will be able to post all kind of things that you consider everyone must do. </h2>
 						</div><!-- header --> 
 
 						<div id="content">
 							<ul id="must_bar">
 								<li class="main"><img src="/images/misc/bar_youmust.jpg?1287290042" alt="You Must"></li>
-								<li><a class="active" href="#">Read</a></li>
+								<li><a href="#">Read</a></li>
 								<li><a href="#">See</a></li>
 								<li><a href="#">Watch</a></li>
 								<li><a href="#">Listen</a></li>
@@ -95,70 +94,12 @@
 								<li><a href="#">Do</a></li>			
 							</ul>
 
-
 							<h3>These are the Top Must Read</h3>
 
 							<ul class="musts">
-								<li>
-									<div class="left">
-										<a class="add" href="#"></a>
-										<span class="add_count">1000</span>
-										<a class="remove" href="#"></a>
-										<span class="remove_count">1000</span>
-									</div><!-- left -->
-									<div class="right">
-										<ul class="icons">
-											<li><a title="" href="#" class="bookmark"></a></li>
-											<li><a title="" href="#" class="facebook"></a></li>
-											<li><a title="" href="#" class="twitter"></a></li>
-										</ul>
-										<div class="title"><img src="../images/misc/user_profile.jpg">
-											<span>You must watch</span> lorem ipsum Green Djhj jk  ffkfhk fk fk kkh fhk ff ikay singing burnout at Bogota's concert in Colombia <small>by mephius</small>
-										</div><!-- title -->
-
-										<div class="must_content">
-											<img src="../images/misc/image_preview.jpg">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make .</p>
-											<p><b>Tags:</b> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a></p>
-											<p>This must has <a>234 commments</a></p>        
-										</div> <!-- must_content -->
-										<div class="related">
-											<p><b>Related musts</b></p>
-											<p><span>You Must listen</span> <a href="#">When I Come Around from Green Day live at...</a></p>
-											<p><span>You Must watch</span> <a href="#">Metallica singing One live</a></p>
-										</div>
-									</div><!-- right -->
-								</li>
-								<li>
-									<div class="left">
-										<a class="add" href="#"></a>
-										<span class="add_count">1000</span>
-										<a class="remove" href="#"></a>
-										<span class="remove_count">1000</span>
-									</div><!-- left -->
-									<div class="right">
-										<ul class="icons">
-											<li><a title="" href="#" class="bookmark"></a></li>
-											<li><a title="" href="#" class="facebook"></a></li>
-											<li><a title="" href="#" class="twitter"></a></li>
-										</ul>
-										<div class="title"><img src="../images/misc/user_profile.jpg">
-											<span>You must watch</span> lorem ipsum Green Djhj jk  ffkfhk fk fk kkh fhk ff ikay singing burnout at Bogota's concert in Colombia <small>by mephius</small>
-										</div><!-- title -->
-
-										<div class="must_content">
-											<img src="../images/misc/image_preview.jpg">
-											<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make .</p>
-											<p><b>Tags:</b> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a> <a href="#">aaa</a></p>
-											<p>This must has <a>234 commments</a></p>        
-										</div> <!-- must_content -->
-										<div class="related">
-											<p><b>Related musts</b></p>
-											<p><span>You Must listen</span> <a href="#">When I Come Around from Green Day live at...</a></p>
-											<p><span>You Must watch</span> <a href="#">Metallica singing One live</a></p>
-										</div>
-									</div><!-- right -->
-								</li>
+								<% @musts.each do |must|%>
+									<%= render :partial => "musts/must_item", :locals => {:must => must} %>
+								<% end %>
 							</ul>
 
 							<script type="text/javascript">
