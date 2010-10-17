@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017023810) do
+ActiveRecord::Schema.define(:version => 20101017055146) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -70,12 +70,20 @@ ActiveRecord::Schema.define(:version => 20101017023810) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
+
     t.string   "url"
     t.string   "url_image"
     t.boolean  "top"
     t.float    "top_value"
+
+    t.string   "url_image"
+    t.boolean  "top"
+    t.float    "top_value"
+    t.string   "url_video"
+
   end
 
   create_table "users", :force => true do |t|

@@ -3,6 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+<<<<<<< HEAD
 	<title>You Must do<%= (":: " + yield(:title).to_s) unless yield(:title).blank? %></title>
 	<!--CSS  -->
 	<%= stylesheet_link_tag 'reset' %>
@@ -29,12 +30,22 @@
 </head>
 <body>
 	<div class="container_big">
+=======
+    <title>You Must do<%= (" :: " + yield(:title).to_s) unless yield(:title).blank? %></title>
+		<!--CSS  -->
+    <%= stylesheet_link_tag 'reset' %>
+    <%= stylesheet_link_tag 'global' %>
+    <%= stylesheet_link_tag 'mayo' %>
+    <%= stylesheet_link_tag 'bbto' %>
+    <%= stylesheet_link_tag 'german' %>
+    <%= yield :stylesheet %>
+>>>>>>> 270a45cd2b1bf04c3f9abe21b1b7771d7ff6dfb9
 
 		<div class="wrapper">
 			<div id="menu">
 				<ul id="top_menu">
 					<li><a href="#">Top Musts</a></li>
-					<li><a href="#">Recent Musts</a></li>
+					<li><a href="<%= recents_path %>">Recent Musts</a></li>
 					<li><a href="#">Following</a></li>
 					<li><a href="#">My Musts</a></li>
 					<li><a href="#">Bucket List<span>3</span></a></li>
@@ -66,11 +77,19 @@
 				<%= render :partial => "shared/sidebar", :locals => {:musts => @musts_recent} %>
 
 				<div id="left">
+<<<<<<< HEAD
 					<div id="header">
 						<p><a id="sign_up" href=""></a></p>
 						<h1><a href="<%= root_path %>"><%= image_tag("misc/logo.png", :alt => "Logo") %></a></h1>
 						<h2>You Must try this site, here you will be able to post all kind of things that you consider everyone must do. </h2>
 					</div><!-- header --> 
+=======
+				  <div id="header">
+						<p><a id="sign_up" href="<%= sign_up_path %>"></a></p>
+					  <h1><a href="<%= root_path %>"><%= image_tag("misc/logo.png", :alt => "Logo") %></a></h1>
+					  <h2>You Must try this site, here you will be able to post all kind of things that you consider everyone must do. </h2>
+				  </div><!-- header --> 
+>>>>>>> 270a45cd2b1bf04c3f9abe21b1b7771d7ff6dfb9
 
 					<div id="content">
 						<div id="flash">
@@ -80,13 +99,13 @@
 						</div>
 						<ul id="must_bar">
 							<li class="main"><%= image_tag("misc/bar_youmust.jpg", :alt => "You Must") %></li>
-							<li><a href="#" class="active">Read</a></li>
-							<li><a href="#">See</a></li>
-							<li><a href="#">Watch</a></li>
-							<li><a href="#">Listen</a></li>
-							<li><a href="#">Have</a></li>
-							<li><a href="#">Play</a></li>
-							<li><a href="#">Do</a></li>			
+							<li><a href="<%=categories_path('read')%>" class="<%=link_active(@category,"Read")%>">Read</a></li>
+							<li><a href="<%=categories_path('see')%>" class="<%=link_active(@category,"See")%>">See</a></li>
+							<li><a href="<%=categories_path('watch')%>" class="<%=link_active(@category,"Watch")%>">Watch</a></li>
+							<li><a href="<%=categories_path('listen')%>" class="<%=link_active(@category,"Listen")%>">Listen</a></li>
+							<li><a href="<%=categories_path('have')%>" class="<%=link_active(@category,"Have")%>">Have</a></li>
+							<li><a href="<%=categories_path('play')%>" class="<%=link_active(@category,"Play")%>">Play</a></li>
+							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>			
 						</ul>
 						<%= yield %>
 						<% flash.discard %>

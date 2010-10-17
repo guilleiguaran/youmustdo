@@ -42,6 +42,13 @@ module ApplicationHelper
     image_tag("https://graph.facebook.com/me/picture?access_token=#{user.fb_access_token}&type=large",:height => 48, :alt => 'user.username')
   end
 
+  def link_active(category,text)
+    unless category.nil?
+      return "active" if category.name== text
+    end
+    return ""
+  end
+  
   def twitter_avatar(user)
     return image_tag(user.avatar_url, :alt => user.screen_name)
   end

@@ -1,0 +1,11 @@
+<%if @videos[:type] == "youtube"%>
+  <object width="250" height="200"><param name="movie" value="<%=@videos[:url]%>"></param><param name="allowFullScreen"     value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<%=@videos[:url]%>" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="150" height="100"></embed></object>
+<%end%>
+<%puts @videos.inspect%>
+<%if @videos[:type] == "vimeo"%>
+<iframe src="<%=@videos[:url]%>" width="250" height="200" frameborder="0"></iframe>
+<%end%>
+<%if @videos[:type] == "dailymotion"%>
+<object width="250" height="200"><param name="movie" value="<%=@videos[:url]%>"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed type="application/x-shockwave-flash" src="<%=@videos[:url]%>" width="480" height="270" allowfullscreen="true" allowscriptaccess="always"></embed></object>
+<%end%>
+<input type="hidden" value= "<%=@videos[:url]%>" name="must[url_video]" id="must_url_video" />

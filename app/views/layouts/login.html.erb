@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-  <title>You Must do<%= (":: " + yield(:title).to_s) unless yield(:title).blank? %></title>
+  <title>You Must do<%= (" :: " + yield(:title).to_s) unless yield(:title).blank? %></title>
 	<!--CSS  -->
   <%= stylesheet_link_tag 'reset' %>
   <%= stylesheet_link_tag 'global' %>

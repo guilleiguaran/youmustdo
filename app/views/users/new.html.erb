@@ -1,6 +1,27 @@
+<% title "Sign up" %>
 
-
-<% form_for @user do |form| %>
-  <%= render :partial => '/users/form', :object => form %>
-  <%= form.submit 'Sign up', :disable_with => 'Please wait...' %>
-<% end %>
+<div id="login">
+  <% form_for @user do |form| %>
+    <%= form.error_messages %>
+    <ul>
+      <li><h3>"Sign up" is the first thing You Must do!</h3></li>
+      <li>
+        <%= form.label :username %>
+        <span><%= form.text_field :username, :class => "input" %></span>
+      </li>
+      <li>
+        <%= form.label :email %>
+        <span><%= form.text_field :email, :class => "input" %></span>
+      </li>
+      <li>
+        <%= form.label :password %>
+        <span><%= form.password_field :password, :class => "input" %></span>
+      </li>
+      <li>
+        <%= form.label :password_confirmation, "Confirm password" %>
+        <span><%= form.password_field :password_confirmation, :class => "input" %></span>
+      </li>
+      <li><%= form.submit "", :class => "btn_login" %></li>
+    </ul>
+  <% end %>
+</div>

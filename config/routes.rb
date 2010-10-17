@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session,   :controller => 'sessions',  :only => [:new, :create, :destroy]
   map.sign_in  'sign_in',   :controller => 'sessions',  :action => 'new'
   map.sign_out 'sign_out',  :controller => 'sessions',  :action => 'destroy', :method => :delete
+  map.sign_up  'sign_up',   :controller => 'users',     :action => 'new'
 
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
@@ -15,8 +16,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # Favorites
   map.favorites '/favorites', :controller => 'favorites', :action => 'index'
-  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'create'
-  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'destroy'
+  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'favorite'
+  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'unfavorite'
 
   map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
 
@@ -59,5 +60,9 @@ ActionController::Routing::Routes.draw do |map|
   end
   # ==================================================================================================
   #map.resources :categories, :only => [:show]
+  
+  
+  map.recents '/recents', :controller => 'musts', :action => 'recents'
+  
   map.categories '/:category', :controller => 'categories', :action => 'show'
 end
