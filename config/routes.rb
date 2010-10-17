@@ -36,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
 
   
   # Bucket List
+  map.buckets '/users/:id/bucket_list', :controller => 'buckets', :action => 'index', :conditions => { :method => :get }
   map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'create', :conditions => { :method => :post }
   map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'destroy', :conditions => { :method => :delete }
   

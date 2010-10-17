@@ -2,9 +2,13 @@ class BucketsController < ApplicationController
 
   before_filter :check_valid_user
   before_filter :login_required, :only =>[:create, :destroy]
+  layout :get_layout
+
+  def index
+    @buckets = current_user.buckets
+  end
 
   def create
-
     bucket_check = Bucket.find_by_user_id_and_must_id(current_user.id, params[:must_id])
     if bucket_check.nil?
       bucket = Bucket.new

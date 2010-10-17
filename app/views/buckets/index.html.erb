@@ -1,0 +1,7 @@
+<h3>You Must complete your Bucket List</h3>
+	
+<ul class="musts">
+  <% @buckets.each do |bucket| %>
+  	<%= render :partial => "musts/must_item", :locals => {:must => bucket.must} %>
+  <% end %>
+</ul>

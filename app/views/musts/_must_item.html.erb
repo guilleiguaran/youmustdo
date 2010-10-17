@@ -12,7 +12,9 @@
 				</span>
 				
 				<% if current_user %>
+				<% if controller.controller_name != "buckets"%>
 					<li><a class="bucket_add" title="Add this Must to your Bucket List" href="javascript:void(0)" onclick="add_must_to_my_bucket_list(<%= current_user.id%>, <%=must.id%>)" ></a></li>
+				<% end %>
 				<% end %>
 				
 				<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=<%= must_url(must)%>&t=<%= must.name %>', 'Share this on Facebook', 'width=540,height=480');"></a></li>

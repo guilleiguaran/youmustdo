@@ -22,6 +22,7 @@ function delete_must_from_my_bucket_list(id, must_id){
 }
 
 function change_profile_tabs(id){
+	$('#errorExplanation').hide();
 	$('#avatar').hide();
 	$('#info').hide();
 	$('#password').hide();
