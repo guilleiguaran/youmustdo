@@ -208,6 +208,40 @@ margin:10px 20px 0 0;
  ============================================================ */
   #content{
  }
+  #content #login{
+	margin:40px auto 80px auto;
+	width:500px;
+ }
+#content #login form ul li{
+	margin-bottom:20px;
+}
+  #content #login form ul li label{
+	display:block;
+	font-size:12px;
+	font-weight:bold;
+	line-height:30px;
+ }
+  #content #login form ul li label a{
+color:#0099FF;
+text-decoration:none;	
+}
+ #content #login form ul li label a:hover{
+text-decoration:underline;	
+}
+  #content #login form ul li span{
+	display:block;
+ }
+
+  #content #login form ul li span .input{
+	border:1px solid #CCCCCC;
+color:#454555;
+display:block;
+font-size:12px;
+height:30px;
+padding-left:10px;
+width:97%;
+ }
+
 #content #privacy_terms{
 	background:#FFF;
 	margin:0 20px 20px 0;
@@ -481,3 +515,14 @@ background:url(../images/buttons/add.jpg) bottom left;
 background:url(../images/buttons/remove.jpg) bottom left;
 }
 
+
+.btn_login{
+	background:url(../images/buttons/login.png) top left;
+	border:none;
+	height:31px;
+	width:173px;
+
+}
+.btn_login:active{
+background:url(../images/buttons/login.png) bottom left;
+}

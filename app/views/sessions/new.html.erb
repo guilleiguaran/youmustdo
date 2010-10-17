@@ -1,53 +1,21 @@
 <%  header"You Must Sign Up!" %>
 <% title "Sign Up!" %>
-<div id="left">
 
-  <br class="spacer" />
-<% form_for :session, :url => session_path do |form| %>
-<a href="<%= twitter_login_path %>" class="login">
-  <%= image_tag("buttons/btn_twitter_login.png", :alt => "Twitter login") %>
-</a>
 
-<a id="facebook_connect" href="javascript:void(0)" class="login">
-  <%= image_tag("buttons/btn_facebook_connect.png", :alt => "Facebook login") %>
-</a>
+<div id="login">
+  <% form_for :session, :url => session_path do |form| %>
   <%= form.error_messages %>
-  <ul>
-    <li>
-      <%= form.label :email %><br/>
-      <%= form.text_field :email, :class => "text" %>
-    </li>
-    <li>
-      <%= form.label :password %><br/>
-      <%= form.password_field :password, :class => "text" %>
-    </li>
-    <li>
-      <p><%= link_to "Forgot password?", new_password_path %></p>
-      <div class="button"><%= form.submit "Sign in" %></div>
-    </li>
-  </ul>
-<% end %>
-  <br class="spacer" />
+    <ul>
+      <li><h3>Login to your account</h3></li>
+      <li>
+        <%= form.label :email, "Username or email" %>
+        <span><%= form.text_field :email, :class => "input" %></span>
+      </li>
+      <li>
+        <label for="session_password">Password <%= link_to "(Forgot your password?)", new_password_path %></label>
+        <span><%= form.password_field :password, :class => "input" %></span>
+      </li>
+      <li><%= form.submit "", :class => "btn_login" %></li>
+    </ul>
+  <% end %>
 </div>
-
-<% content_for :javascript do %>
-  <script type="text/javascript">
-    /* <![CDATA[ */
-    fb_window = null;
-
-    jQuery(function(){
-      // Facebook connect
-      $("a#facebook_connect").click(function(obj) {
-        if(fb_window && !fb_window.closed) {
-          fb_window.focus()
-        } else {
-          fb_window = window.open("","holderWindow","resizable=no,width=640,height=480");
-          fb_window.moveTo(screen.availWidth/2 - 320, screen.availHeight/2 -240);
-          fb_window.focus();
-          fb_window.location = "<%= facebook_auth_url %>";
-        }
-      });
-    });
-    /* ]]> */
-	</script>
-<% end %>

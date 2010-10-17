@@ -12,3 +12,20 @@
 #right #search_form #search {
   padding:6px 4px 0 26px;
 }
+div#rr10sash {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  /* for ie */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+  opacity:0.6;
+  z-index:-1000 !important;
+}
+.wordcloud {
+  margin:30px 0;
+}
+#footer {
+  bottom:0;
+  position:absolute;
+  width:100%;  
+}
