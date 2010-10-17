@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
+  map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
 
   # Favorites
   map.favorites '/favorites', :controller => 'favorites', :action => 'index'

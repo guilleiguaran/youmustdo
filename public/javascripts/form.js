@@ -23,15 +23,15 @@ function hideAll(){
 }
 
 function readForm(){
-	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit", "external_images"];
-	for(i=0; i<8;i++){
+	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit", "external_images", "tag_list"];
+	for(i=0; i<9;i++){
 		$('#'+valids[i]).show();
 	}
 }
 
 function watchForm(){
-	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_video"];
-	for(i=0; i<8;i++){
+	var valids = ["category", "url", "url_button", "url_loader", "name", "description", "submit",  "external_video", "tag_list"];
+	for(i=0; i<9;i++){
 		$('#'+valids[i]).show();
 	}
 }
