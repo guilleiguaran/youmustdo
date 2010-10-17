@@ -5,7 +5,10 @@
   <title>You Must do<%= (":: " + yield(:title).to_s) unless yield(:title).blank? %></title>
   <%= stylesheet_link_tag 'reset' %>
   <%= stylesheet_link_tag 'global' %>
+  <%= stylesheet_link_tag 'mayo' %>
+  <%= stylesheet_link_tag 'bbto' %>
   <%= javascript_include_tag :defaults %>
+  <%= yield :stylesheet %>
   <%= yield :javascript %>
   <%= yield :additional_javascript %>
 </head>
@@ -29,7 +32,8 @@
       <span class="white">You must</span> try this site, here you will be able to post all kind of things that you consider everyone <span class="bg">must do</span>.
     </p>
 
-    <%= render :partial => "shared/sidebar"%>
+    <%= render :partial => "shared/sidebar", :locals => {:musts => @musts} %>
+
     <!--left panel start -->
     <div id="left">
       <div id="flash">

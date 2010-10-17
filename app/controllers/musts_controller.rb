@@ -1,12 +1,29 @@
 class MustsController < ApplicationController
+
   before_filter :login_required, :only =>[:create, :new, :edit, :update, :destroy]
+  include ApplicationHelper
+
   def index
     @musts = Must.all
   end
-  
+
   def new
     @user = current_user
     @must = Must.new(params[:must])
+    @must.category_id = params[:category] unless params[:category].nil?
+  end
+
+  def load_more
+    @must = Must.last
+    if last_must = @must.created_at > Time.parse(params[:date])
+      respond_to do |format|
+        format.js
+      end
+    else
+      render :update do |page|
+        page << "setTimeout(\"load_more_muts('#{@must.created_at}')\", 7000)"
+      end
+    end
   end
 
   def create
@@ -24,11 +41,11 @@ class MustsController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @must = Must.find(params[:id])
   end
-  
+
   def update
     @must = Must.find(params[:id])
     if @must.update_attributes(params[:must])
@@ -43,12 +60,12 @@ class MustsController < ApplicationController
       end
     end
   end
-  
+
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
   end
-  
+
   def destroy
     @must = Must.find(params[:id])
     if @must.destroy
@@ -59,16 +76,18 @@ class MustsController < ApplicationController
       render :action => "new"
     end
   end
-  
+
   def get_url_metadata
     if params[:url]
       data = Metadata.get(params[:url])
       @title = data[0]
       @description = data[1]
+      @images = data[2]
+      puts data.inspect
       respond_to do |wants|
         wants.js
       end
     end
   end
-  
+
 end

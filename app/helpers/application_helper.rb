@@ -13,7 +13,7 @@ module ApplicationHelper
     form.submit + " or " + link_to(name, 'javascript:history.go(-1);', :class => 'cancel')
   end
 
-  def avatar_for(user, pic = "avatar.png", options = {})
+  def avatar_for(user)
     case user.avatar_type
       when "1"
         facebook_avatar(user)

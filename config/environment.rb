@@ -19,9 +19,14 @@ Rails::Initializer.run do |config|
   config.gem "rack",      :version => '>= 1.2.1'
   config.gem "faraday",   :version => '>= 0.5.1'
   config.gem "oauth2",    :version => '>= 0.1.0'
+<<<<<<< HEAD
   config.gem "nokogiri",  :version => '1.4.3.1'
   config.gem "will_paginate", :version => "2.3.15"
   config.gem "acts_as_favorite", :version => "0.1.2"
+=======
+  config.gem "nokogiri", :version => '1.4.3.1'
+  config.gem "typhoeus"
+>>>>>>> 2354be1bbe6fc92964843e342b7534bc24f174aa
 
   config.time_zone = 'UTC'
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016202433) do
+ActiveRecord::Schema.define(:version => 20101017012939) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -64,6 +64,10 @@ ActiveRecord::Schema.define(:version => 20101016202433) do
     t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
+    t.boolean  "top"
+    t.float    "top_value"
+    t.string   "url"
+    t.string   "url_image"
   end
 
   create_table "users", :force => true do |t|
