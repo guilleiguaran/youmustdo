@@ -280,6 +280,13 @@ width:97%;
 	line-height:20px;
 	margin-bottom:20px;
 }
+#content #privacy_terms .ul_terms{
+  list-style-position:inside;
+  list-style-type:disc;
+}
+#content #privacy_terms .ul_terms li{
+  margin-bottom:10px;
+}
 	#content h3{
 		color:#666;
 		font-size:18px;
