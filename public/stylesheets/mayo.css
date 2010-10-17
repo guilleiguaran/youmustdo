@@ -136,3 +136,18 @@ width:32px;
 .done_button:hover{
 background-position:left bottom;
 }
+.postmust{
+	margin:16px 38px 0 0 !important;
+}
+
+
+.unbookmark{
+	background:url(../images/icons/unbookmark.jpg) top left;
+	float:left;
+	height:16px;
+	width:16px;
+
+}
+.unbookmark:hover{
+background:url(../images/icons/unbookmark.jpg) bottom left;
+}
