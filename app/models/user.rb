@@ -27,9 +27,6 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/uploads/avatars/:attachment/:id/:style.:extension",
     :bucket => AMAZON_S3['bucket']
-<<<<<<< HEAD
-  
-=======
 
   def post_to_facebook(content)
     feed_content = content.is_a?(Must) ? must.to_facebook_feed : content.to_s
@@ -49,5 +46,5 @@ class User < ActiveRecord::Base
     client = Twitter::Base.new(oauth)
     client
   end
->>>>>>> 2354be1bbe6fc92964843e342b7534bc24f174aa
+
 end
