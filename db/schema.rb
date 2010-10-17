@@ -73,10 +73,12 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "url"
+
     t.string   "url_image"
     t.string   "url_video"
     t.boolean  "top"
     t.float    "top_value"
+
   end
 
   create_table "taggings", :force => true do |t|

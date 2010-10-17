@@ -64,7 +64,7 @@ width:97%;
 #menu_lower {
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-background:none repeat scroll 0 0 #F0F0F0;
+background:none repeat scroll 0 0 #ACD21C;
 border:medium none;
 color:#000000;
 float:left;
@@ -94,12 +94,12 @@ float:left
 	border-color:#CCCCCC #EEEEEE #EEEEEE #CCCCCC;
 	border-style:solid;
 	border-width:1px;
-	color:#003867;
+	color:#0099FF;
 	font-weight:bold;
 	padding:6px 10px;
 }
 #menu_lower ul li a {
-	color:#666666;
+	color:#123456;
 	font-weight:bold;
 	height:24px;
 	margin:0 auto;
@@ -109,7 +109,7 @@ float:left
 	text-decoration:none;
 }
 #menu_lower ul li a:hover {
-	color:#222222;
+	color:#0071BD;
 }
 .form_left{
 	float:left;

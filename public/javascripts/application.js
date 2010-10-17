@@ -20,3 +20,11 @@ function delete_must_from_my_bucket_list(id, must_id){
 	data: "must_id="+must_id
 });
 }
+
+function change_profile_tabs(id){
+	$('#avatar').hide();
+	$('#info').hide();
+	$('#menu_lower a').removeClass();
+	$("#link_"+id).addClass('selected');
+    $("#"+id).show();
+}

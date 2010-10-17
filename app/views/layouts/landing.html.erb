@@ -67,12 +67,7 @@
 
 			<div id="yield_container">
 				<div class="post">
-					<div id="flash">
-						<% flash.each do |key, value| -%>
-						<div id="flash_<%= key %>"><%=h value %></div>
-						<% end -%>
-					</div>
-
+					<%= render :partial => "shared/flashes" %>
 					<%= render :partial => "shared/sidebar", :locals => {:musts => @musts_recent} %>
 
 					<div id="left">
@@ -135,6 +130,8 @@
 					<ul>
 						<li><a href="#">Home</a></li>
 						<li><a href="#">About</a></li>
+						<li><a href="<%= privacy_path %>">Privacy</a></li>
+						<li><a href="<%= terms_path %>">Terms</a></li>
 						<li class="last"><a href="#">Contact us</a></li>
 					</ul>
 					<p>Developed for Rails Rumble in 48 hours</p>

@@ -7,6 +7,8 @@ class HomeController < ApplicationController
     #Must.refresh_top_musts
     @musts = Must.find(:all, :conditions => ["top = ?", true], :order => "top_value DESC")
   end
-  
-  
+
+  def privacy
+    render :layout => "login"
+  end
 end

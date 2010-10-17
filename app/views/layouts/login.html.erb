@@ -51,8 +51,8 @@
 					</li>
         <% else %>
   				<li>
-  				  <%= image_tag("misc/top_user_profile.jpg", :class => "profile", :alt => "User avatar") %>
-  				  <a href="#"><span><%= current_user.username %></span></a>
+  				  <%= avatar_for(current_user, 20)%>
+				  <a href="/users/<%=h current_user.id%>/profile"><span><%= current_user.username %></span></a>
   				</li>
   				<li class="last"><a href="<%= sign_out_path %>"><span>Logout</span></a></li>
         <% end %>
@@ -63,11 +63,7 @@
     </div><!-- header --> 
     <div id="content">
       <br class="fclear" />
-      <div id="flash">
-        <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%=h value %></div>
-        <% end -%>
-      </div>
+			<%= render :partial => "shared/flashes" %>
       <%= yield %>
       <% flash.discard %>
     </div><!-- content --> 
@@ -77,6 +73,8 @@
 			<ul>
 				<li><a href="#">Home</a></li>
 				<li><a href="#">About</a></li>
+				<li><a href="<%= privacy_path %>">Privacy</a></li>
+				<li><a href="<%= terms_path %>">Terms</a></li>
 				<li class="last"><a href="#">Contact us</a></li>
 			</ul>
 			<p>Developed for Rails Rumble in 48 hours</p>
