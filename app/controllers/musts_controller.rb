@@ -1,6 +1,6 @@
 class MustsController < ApplicationController
 
-  before_filter :login_required, :only =>[:create, :new, :edit, :update, :destroy]
+  before_filter :login_required, :only => [:create, :new, :edit, :update, :destroy]
   include ApplicationHelper
 
   def index
@@ -10,19 +10,14 @@ class MustsController < ApplicationController
   def new
     @user = current_user
     @must = Must.new(params[:must])
-    @must.category_id = params[:category] unless params[:category].nil?
+    @must.category_id = params[:category] if params[:category]
   end
 
   def load_more
     @must = Must.last
-    if last_must = @must.created_at > Time.parse(params[:date])
-      respond_to do |format|
-        format.js
-      end
-    else
-      render :update do |page|
-        page << "setTimeout(\"load_more_muts('#{@must.created_at}')\", 7000)"
-      end
+    @update = true if last_must = @must.created_at > Time.parse(params[:date])
+    respond_to do |wants|
+      wants.js
     end
   end
 
