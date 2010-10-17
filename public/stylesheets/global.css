@@ -381,7 +381,13 @@ margin-bottom:20px;
 		.musts .right .title img{
 			float:left;
 			margin-right:5px;
-		}	
+		}
+		
+		.musts .right .title a{
+			color:#217CC5;
+font-weight:bold;
+text-decoration:none;
+		}
 
 		.musts .right .title span{
 			color:#698616;
