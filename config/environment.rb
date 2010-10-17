@@ -22,6 +22,9 @@ Rails::Initializer.run do |config|
   config.gem "nokogiri", :version => '1.4.3.1'
   config.gem "typhoeus"
 
+  config.gem 'whenever', :lib => false, :source => 'http://gems.github.com'
+  config.gem 'aaronh-chronic', :lib => false
+
   config.time_zone = 'UTC'
 
   NO_REPLY = "no-reply@youmustdo.r10.railsrumble.com"
