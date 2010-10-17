@@ -6,11 +6,6 @@ class ApplicationController < ActionController::Base
   layout :get_layout
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  def load_recent
-    @musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')
-    @date = Must.last.created_at unless @musts_recent.blank?
-  end
   
   def get_layout
     if signed_in?
