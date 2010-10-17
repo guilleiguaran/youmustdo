@@ -151,3 +151,10 @@ background-position:left bottom;
 .unbookmark:hover{
 background:url(../images/icons/unbookmark.jpg) bottom left;
 }
+
+#content p.description{
+color:#666666;
+font-size:13px;
+line-height:20px;
+margin-bottom:20px;
+}
