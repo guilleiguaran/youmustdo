@@ -2,3 +2,18 @@
 	max-width: 150px;
 	max-height: 100px;
 }
+
+.musts .right iframe{
+	float:left;
+	margin: 0 5px 5px 0;
+}
+
+.musts .right object{
+	float:left;
+	margin: 0 5px 5px 0;
+}
+
+.musts .right .must_content img.most_image{
+	max-width: 150px;
+	max-height: 100px;
+}
