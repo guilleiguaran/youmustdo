@@ -29,8 +29,12 @@ if category.nil?
 Category.create(:name => "Do", 
 :description => 'You already did that! cool, now is their turn, tell them what they Must do to complete they existence')
 end
-category = Category.find_by_name("Play")
+category = Category.find_by_name("Visit")
 if category.nil?
-Category.create(:name => "Play", 
-:description => 'You like games?, you must share all that passion to the world and see which games you must have to play!!!')
+Category.create(:name => "Vist", 
+:description => 'You already go ther? you want be in that special place?, tell everyone about this!')
+end
+category = Category.find_by_name("Play")
+unless category.nil?
+category.destroy
 end
