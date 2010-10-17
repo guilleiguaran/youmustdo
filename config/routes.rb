@@ -61,7 +61,7 @@ ActionController::Routing::Routes.draw do |map|
   # ==================================================================================================
   #map.resources :categories, :only => [:show]
   
-  
+   map.resources :search, :only => [:index]
   map.recents '/recents', :controller => 'musts', :action => 'recents'
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
