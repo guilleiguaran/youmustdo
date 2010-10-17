@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_layout
+    puts "*"*80
     if signed_in?
       "home"
     else

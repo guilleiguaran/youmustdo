@@ -1,6 +1,8 @@
 class MustsController < ApplicationController
 
   before_filter :login_required, :only => [:create, :new, :edit, :update, :destroy]
+  layout :get_layout
+  
   include ApplicationHelper
 
   def index
@@ -15,6 +17,7 @@ class MustsController < ApplicationController
     @user = current_user
     @must = Must.new(params[:must])
     @must.category_id = params[:category] if params[:category]
+    render :layout => 'login'
   end
 
   def load_more
