@@ -77,12 +77,12 @@ ActiveRecord::Schema.define(:version => 20101017094505) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
-    t.string   "url_image"
+    t.string   "url"
     t.boolean  "top"
     t.float    "top_value"
+    t.string   "url_image"
     t.string   "url_video"
   end
 
