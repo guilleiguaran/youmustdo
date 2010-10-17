@@ -25,7 +25,7 @@
       
       <div class="must_content">
 		<% if true %>
-        <img src="/images/misc/image_preview.jpg">
+        <%=show_content(must)%>
 		<% end %>
         <p><%=h must.description %></p>
 		<% unless must.tag_list.blank?%>
