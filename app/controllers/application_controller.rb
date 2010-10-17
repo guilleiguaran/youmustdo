@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  def load_recent
+    @musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')
+    @date = Must.last.created_at
+  end
+  
   def redirect_to_home
     redirect_to root_path 
   end
@@ -27,7 +32,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def check_valid_user
-    user = User.find(params[:id])
+  
+    user = User.find(params[:id]) 
     unless user.nil?
       if signed_in?
         if user != current_user
