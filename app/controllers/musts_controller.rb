@@ -56,6 +56,8 @@ class MustsController < ApplicationController
     @must.user = current_user
     if @must.save
       @must.should_process #Process attachments
+      current_user.post_to_facebook(@must, must_url(@must)) if params[:share][:facebook].eql?("1")
+      current_user.post_to_twitter(@must, must_url(@must)) if params[:share][:twitter].eql?("1")
       flash[:notice] = "Awesome, one more thing they must do!"
       respond_to do |wants|
         wants.html { redirect_to must_path(@must) }

@@ -31,7 +31,9 @@ function addNewFile() {
 }
 
 function hideAll(){
- $('#new_must ul li').each(function(index,element){$(element).hide()})
+ $('#new_must ul li').each(function(index,element){$(element).hide()});
+ $('#new_must ul li#fb_share').show();
+ $('#new_must ul li#tw_share').show();
 }
 
 function readForm(){
