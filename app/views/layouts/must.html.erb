@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>You Must do<%= (":: " + yield(:title).to_s) unless yield(:title).blank? %></title>
+    <title>You Must do<%= (" :: " + yield(:title).to_s) unless yield(:title).blank? %></title>
 		<!--CSS  -->
     <%= stylesheet_link_tag 'reset' %>
     <%= stylesheet_link_tag 'global' %>
@@ -65,7 +65,7 @@
 			
 				<div id="left">
 				  <div id="header">
-						<p><a id="sign_up" href=""></a></p>
+						<p><a id="sign_up" href="<%= sign_up_path %>"></a></p>
 					  <h1><a href="<%= root_path %>"><%= image_tag("misc/logo.png", :alt => "Logo") %></a></h1>
 					  <h2>You Must try this site, here you will be able to post all kind of things that you consider everyone must do. </h2>
 				  </div><!-- header --> 
