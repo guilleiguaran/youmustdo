@@ -1,7 +1,11 @@
 class UsersController < Clearance::UsersController
-
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:new, :create]
   before_filter :check_valid_user, :only => [:profile, :update]
+
+  def new
+    @user = ::User.new(params[:user])
+    render :layout => "login"
+  end
 
   def profile
     @user = User.find(params[:id])
