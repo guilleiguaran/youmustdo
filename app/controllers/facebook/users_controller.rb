@@ -9,9 +9,12 @@ class Facebook::UsersController < ApplicationController
   end
 
   def create
+    password = User.random_string(10)
     @user = ::User.new params[:user].merge({
       :facebook_uid => session[:facebook_session][:facebook_uid],
-      :email => session[:facebook_session][:email]
+      :email => session[:facebook_session][:email],
+      :password => password,
+      :password_confirmation => password
     })
     @user.avatar_type = 1
     if @user.save

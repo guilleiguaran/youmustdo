@@ -45,4 +45,14 @@ class User < ActiveRecord::Base
     client
   end
 
+  class << self
+    def random_string(len)
+      # This mehotd generates a random string consisting of characters and digits
+      chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+      string = ""
+      1.upto(len) { |i| string << chars[rand(chars.size-1)] }
+      chars = ("0".."9").to_a
+      return string + chars[rand(chars.size-1)]
+    end
+  end
 end
