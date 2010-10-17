@@ -19,7 +19,7 @@ class MustsController < ApplicationController
   
   def my_musts
     # @musts = current_user.musts.find(:all, :order => "created_at DESC", :limit => 10)
-        @musts = Must.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
+        @musts = current_user.musts.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
 
   end
 
