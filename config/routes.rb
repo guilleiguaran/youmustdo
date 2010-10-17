@@ -10,6 +10,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
   
+  # Bucket List
+  map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'create', :conditions => { :method => :post }
+  map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'destroy', :conditions => { :method => :delete }
+  
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
   map.privacy '/terms', :controller => 'home', :action => 'terms'
