@@ -1,26 +1,34 @@
 <ul class="musts must">
 	
-		  <li>
-<div class="left">
-<a class="add" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/agree'}); return false;"></a>          <span class="add_count" id="agrees_count_12">1</span>
-<a class="remove" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/disagree'}); return false;"></a>		  <span class="remove_count" id="disagrees_count_12">0</span>
-</div><!-- left -->
-<div class="right">
-<ul class="icons">
-<span id="favorite_12">
+		  <li id='must<%= @must.id%>'>
+		 	  <div class="left">
+			      <%= link_to_remote "", { :url => must_agree_path(@must) }, :class => "add" -%>
+		          <span class="add_count" id="agrees_count_<%=@must.id%>"><%= @must.total_agrees %></span>
+				  <%= link_to_remote "", { :url => must_disagree_path(@must) }, :class => "remove" -%>
+				  <span class="remove_count" id="disagrees_count_<%=@must.id%>"><%= @must.total_disagrees %></span>
+				<% if controller.controller_name == "buckets"%>  
+				<a title="Have you Done it?" href="javascript:update_a_must_in_my_bucket_list('<%=current_user.id%>', '<%= @must.id%>')" class="done_button"></a>
+				<% end %>
+				</div><!-- left -->
+		    <div class="<% if @must.is_done(current_user)%>right done<% else %>right <% end %>">
+		      <ul class="icons">
+						<span id="favorite_<%=@must.id%>">
+						<%= render :partial => "musts/favorite", :locals => {:must => @must} %>
+						</span>
 
+						<% if current_user %>
+						<% if controller.controller_name != "buckets"%>
+							<li><a class="bucket_add" title="Add this Must to your Bucket List" href="javascript:void(0)" onclick="add_must_to_my_bucket_list(<%= current_user.id%>, <%=@must.id%>)" ></a></li>
+						<% end %>
+						<% end %>
 
-<li><a class="bookmark" href="#" onclick="jQuery.ajax({data:'authenticity_token=' + encodeURIComponent('qVHw9IMewsroWEa2MuS3BYKz1nHlxj2+PhwuKEhsqKM='), dataType:'script', type:'post', url:'/musts/12/favorite'}); return false;"></a></li>
-
-
-</span>
-<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=http://youmustdo.local/musts/12&amp;t=Palo Alto International Airport', 'Share this on Facebook', 'width=540,height=480');"></a></li>
-<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=http://youmustdo.local/musts/12&amp;text=Palo Alto International Airport&amp;via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
-</ul>
-<div class="title"><%=avatar_for(@must.user, 30)%>
-<span>You must <%=@must.category_name%></span> 
-<a href="http://youmustdo.local/musts/12"><%=@must.name%></a>
-</div><!-- title -->
+						<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=<%= must_url(@must)%>&t=<%= @must.name %>', 'Share this on Facebook', 'width=540,height=480');"></a></li>
+						<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=<%= must_url(@must)%>&text=<%= @must.name %>&via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
+		      </ul>
+		      <div class="title"><%=h avatar_for(@must.user,30) %>
+		        <span>You must <%= @must.category_name %></span> 
+				<%=link_to @must.name, must_path(@must) %> <small>by <%=h link_to @must.user.username, user_musts_path(@must.user.username) %></small>
+		      </div><!-- title -->
 
 <div class="must_content">
 <% if @must.listen? %>

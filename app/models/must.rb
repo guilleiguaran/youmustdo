@@ -1,4 +1,5 @@
 class Must < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
   acts_as_favorite
   acts_as_taggable
 
@@ -50,12 +51,12 @@ class Must < ActiveRecord::Base
   end
 
   def to_facebook_feed
-    "Share with facebook: #{self.name}. http://youmustdo.com/"
+    "You Must #{category_name}: #{self.name} at YouMustDo. http://youmustdo.com/"
   end
 
-  def to_tweet
+  def to_tweet(must_url)
     short_url = UrlShortener.shorten(must_url)
-    tweet = truncate("#{self.name}", :length => (139 - short_url.to_s.length))
+    tweet = truncate("You Must #{category_name}: #{self.name}", :length => (139 - short_url.to_s.length))
     "#{tweet} #{short_url}"
   end
 
