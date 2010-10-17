@@ -1,4 +1,9 @@
-<br class="spacer" />
+<h3>People think You Must <%=h @category.name%> the following Musts</h3>
+
+<p class="description">
+	<%=h @category.description%>
+</p>
+
 <%unless @musts.blank? %>
 <ul class="musts">
   <%@musts.each do |must|%>

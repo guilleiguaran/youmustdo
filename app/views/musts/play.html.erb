@@ -1,0 +1,68 @@
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag 'audio_js/audio-js' %>
+  <%= stylesheet_link_tag 'audio_js/skins/hu.css' %>
+  <%= stylesheet_link_tag 'audio_js/skins/tube.css' %>
+  <%= stylesheet_link_tag 'audio_js/skins/vim.css' %>
+<% end %>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag "audio" %>
+  <script type="text/javascript" charset="utf-8">
+    // Run the script on page load.
+
+    // If using jQuery
+    $(function(){
+      AudioJS.setup();
+    })
+
+    // If using Prototype
+    // document.observe("dom:loaded", function() {
+    //   AudioJS.setup();
+    // });
+
+    // If not using a JS library
+    // window.onload = function(){
+    //   AudioJS.setup();
+    // }
+  </script>
+<% end %>
+
+<div>
+
+  <!-- Begin AudioJS -->
+  <div class="audio-js-box tube-css">
+    <!-- Using the Audio for Everybody Embed Code http://camendesign.com/code/audio_for_everybody -->
+    <audio class="audio-js" controls preload>
+      <source src="http://files.youmustdo.local.s3.amazonaws.com/upload2.mp3">
+    </audio>
+  </div>
+  <!-- End AudioJS -->
+
+  <!-- Begin AudioJS -->
+  <div class="audio-js-box vim-css">
+    <!-- Using the Audio for Everybody Embed Code http://camendesign.com/code/audio_for_everybody -->
+    <audio class="audio-js" controls preload>
+      <source src="http://files.youmustdo.local.s3.amazonaws.com/upload2.mp3">
+    </audio>
+  </div>
+  <!-- End AudioJS -->
+  
+    <!-- Begin AudioJS -->
+  <div class="audio-js-box hu-css">
+    <!-- Using the Audio for Everybody Embed Code http://camendesign.com/code/audio_for_everybody -->
+    <audio class="audio-js" controls preload>
+      <source src="http://files.youmustdo.local.s3.amazonaws.com/upload2.mp3">
+    </audio>
+  </div>
+  <!-- End AudioJS -->
+  
+    <!-- Begin AudioJS -->
+  <div class="audio-js-box">
+    <!-- Using the Audio for Everybody Embed Code http://camendesign.com/code/audio_for_everybody -->
+    <audio class="audio-js" controls preload>
+      <source src="http://files.youmustdo.local.s3.amazonaws.com/upload2.mp3">
+    </audio>
+  </div>
+  <!-- End AudioJS -->
+
+</div>

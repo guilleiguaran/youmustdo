@@ -4,9 +4,11 @@
           <span class="add_count" id="agrees_count_<%=must.id%>"><%= must.total_agrees %></span>
 		  <%= link_to_remote "", { :url => must_disagree_path(must) }, :class => "remove" -%>
 		  <span class="remove_count" id="disagrees_count_<%=must.id%>"><%= must.total_disagrees %></span>
-		  <a title="Have you Done it?" href="javascript:update_a_must_in_my_bucket_list('<%=current_user.id%>', '<%= must.id%>')" class="done"></a>
+		<% if controller.controller_name == "buckets"%>  
+		<a title="Have you Done it?" href="javascript:update_a_must_in_my_bucket_list('<%=current_user.id%>', '<%= must.id%>')" class="done_button"></a>
+		<% end %>
 		</div><!-- left -->
-    <div class="right">
+    <div class="<% if must.is_done(current_user)%>right done<% else %>right <% end %>">
       <ul class="icons">
 				<span id="favorite_<%=must.id%>">
 				<%= render :partial => "musts/favorite", :locals => {:must => must} %>

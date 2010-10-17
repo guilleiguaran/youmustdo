@@ -759,6 +759,7 @@ background:url(../images/buttons/add.jpg) bottom left;
 background:url(../images/buttons/remove.jpg) bottom left;
 }
 
+
 #postamust {
 	background:url(../images/buttons/postamust.png) repeat scroll left top transparent;
 	cursor:pointer;
@@ -766,6 +767,7 @@ background:url(../images/buttons/remove.jpg) bottom left;
 	float:left;
 	height:32px;
 	width:173px;
+
 }
 #postamust:hover{
 background:url(../images/buttons/postamust.png) bottom left;

@@ -17,6 +17,9 @@ ActionController::Routing::Routes.draw do |map|
   map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
   map.recents '/recents', :controller => 'musts', :action => 'recents'
   
+  # This url is temporal
+  map.play_audio '/play_audio', :controller => 'musts', :action => 'play'
+
   map.resources :musts do |must|
     must.resources :comments
     must.agree '/agree', :controller => 'agrees', :action => 'agree'
@@ -44,6 +47,8 @@ ActionController::Routing::Routes.draw do |map|
   
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
+  map.terms '/terms', :controller => 'home', :action => 'terms'
+  map.about '/about', :controller => 'home', :action => 'terms'  
   map.terms '/terms', :controller => 'home', :action => 'terms'
   
   # User Routes
@@ -77,7 +82,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:index]
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
-  
-  
-    map.user_musts '/musts/:username', :controller => 'musts', :action => 'user_musts'
+  map.user_musts '/u/:username', :controller => 'musts', :action => 'user_musts'
 end

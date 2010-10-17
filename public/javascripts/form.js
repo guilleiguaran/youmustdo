@@ -1,33 +1,33 @@
 function selectCategory(value){
 	hideAll();
-	switch(value){
+	switch(value.toLowerCase()){
 		case "Read" :
-			readForm();
-		break;
 		case "read" :
 			readForm();
 		break;
 		case "Watch" :
-			watchForm();
-		break;
 		case "watch" :
 			watchForm();
 		break;
 		case "Have" :
-			haveForm();
-		break;
 		case "have" :
 			haveForm();
 		break;
+		case "listen":
+			listenForm();
+  		break;
 		case "Visit" :
-			haveVisit();
-		break;
 		case "visit" :
 			haveVisit();
 		break;
 		default:
 		  alert(value);
 	}
+}
+
+function addNewFile() {
+  var new_item = $("#files span:last").html();
+  $("#files").append(new_item)
 }
 
 function hideAll(){
@@ -58,6 +58,13 @@ function haveForm(){
 function haveVisit(){
 	var valids = ["category",  "name", "description", "submit","tag_list","google_map", "longitude", "latitude"];
 	for(i=0; i<8;i++){
+		$('#'+valids[i]).show();
+	}
+}
+
+function listenForm(){
+  var valids = ["category", "attachments", "name", "description", "submit",  "external_images","external_video"];
+	for(i=0; i<9;i++){
 		$('#'+valids[i]).show();
 	}
 }

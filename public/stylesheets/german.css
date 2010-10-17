@@ -18,8 +18,8 @@ div#rr10sash {
   /* for ie */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
-  opacity:0.6;
-  z-index:-1000 !important;
+  opacity:0.85;
+
 }
 .wordcloud {
   margin:30px 0;
