@@ -14,7 +14,7 @@ class MustsController < ApplicationController
   
   def tags
     # @musts = Must.tagged_with(params[:tag]).by_creation_date
-    @musts = Must.tagged_with(params[:tag]).by_creation_date.paginate(:page => params[:page], :per_page => 3)
+    @musts = Must.tagged_with(params[:tag]).by_creation_date.paginate(:page => params[:page], :per_page => 20)
     @tag = params[:tag]
   end
   
