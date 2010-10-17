@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  
   layout "login"
   
   def index

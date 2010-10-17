@@ -1,22 +1,29 @@
-<div id="login">
-    <% form_tag search_index_path, :method => :get do %>
+
+
+</div>
+
+<div id="left">
+
+  <div id="content">
+    <% form_tag search_index_path, :method => :get, :id => "form_search" do %>
     <ul>
-      <li>
-      <label for="search">Search</label>
-      <span>
-      <input type="text" name="search" id="search" class="input" />
-      </span>
-      <li><input type="submit" value="" id="submit" class="btn_search" /></li>
-        </li>
-      </ul>
+      <li><input name="search" class="input" type="text" /></li>
+      <li><input id="btn_search" type="submit" value=""></li>
+    </ul>
     <%end%>
 
-<ul>
-  	<% @users.each do |user|%>
-  	<li>
-  	  <%=avatar_for(user, 40)%>
-  		<%=user.username%>
-  	</li>
-  	<%end%>
-</ul>
+
+    <ul id="search_result">
+      <% @users.each do |user|%>
+      <li>
+        <%=avatar_for(user,120)%>
+        <p><%=link_to user.username, user_path(user)%></p>
+        <small><%=user.musts.count%> musts</small>
+        <span><a href="javascript:void(0)" onclick="javascript:unfinished()" class="follow">Follow</a></span>
+      </li>
+      <%end%>
+
+    </ul>
+  </div><!-- content --> 
 </div>
+
