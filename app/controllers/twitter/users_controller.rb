@@ -1,6 +1,7 @@
 class Twitter::UsersController < ApplicationController
   before_filter :redirect_home_if_signed_in, :only => [:new, :create]
-
+  layout "login"
+  
   def new
     @user = User.new({
       :screen_name => session[:twitter_session][:screen_name],
