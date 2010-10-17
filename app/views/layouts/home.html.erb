@@ -84,13 +84,7 @@
   							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>	
 							</ul>
 
-							<h3>These are the Top Must Read</h3>
-
-							<ul class="musts">
-								<% @musts.each do |must|%>
-									<%= render :partial => "musts/must_item", :locals => {:must => must} %>
-								<% end %>
-							</ul>
+							<%= yield %>
 
 							<script type="text/javascript">
 							var rumbleUrl = 'http://railsrumble.com/teams/the-riders-of-the-lost-crusade';
