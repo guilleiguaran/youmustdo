@@ -8,7 +8,7 @@ require 'config/boot'
 #set :environment, :whatever
 
 every 1.hours do
-  runner "Must.refresh_top_musts", :environment => RAILS_ENV
+  runner "Must.refresh_top_musts", :environment => 'production'
 end
 
 # Example:

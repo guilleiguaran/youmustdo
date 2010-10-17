@@ -1,4 +1,5 @@
 class Facebook::SessionsController < ApplicationController
+  layout "login"
 
   def new
     options = {

@@ -32,7 +32,7 @@ namespace :deploy do
      run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   task :update_crontab, :roles => :db do
-    run "cd #{release_path} && whenever --update-crontab #{application}"
+    run "cd #{release_path} && whenever --set environment=production && whenever --update-crontab #{application}"
   end
 end
 

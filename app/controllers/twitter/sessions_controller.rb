@@ -1,6 +1,7 @@
 class Twitter::SessionsController < ApplicationController
   before_filter :redirect_home_if_signed_in, :only => [:new]
-
+  layout "login"
+  
   def create
     session[:return_after_oauth] = request.referrer
     begin

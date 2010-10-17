@@ -35,6 +35,15 @@ class Must < ActiveRecord::Base
     return self.latitude + " - " + self.longitude unless self.latitude.nil? or self.longitude.nil?
     return ""
   end
+  
+  def is_done(u)
+      bucket = Bucket.find_by_user_id_and_must_id(u.id, self.id)
+      unless bucket.nil?
+        return bucket.status
+      else
+        return false
+      end
+  end
 
   def category_name
     self.category.name
@@ -61,6 +70,9 @@ class Must < ActiveRecord::Base
         SELECT must_id, COUNT(id) * ((7 - top_factor) / 7) AS top_value
         FROM (#{top_factor_query}) as top_factors
         GROUP BY must_id}, Time.now - 7.days])
+        
+      logger.info top_musts.inspect
+      puts top_musts.inspect
 
       # Then we reset the previous Musts top rated
       Must.update_all ["top = ?", false], ["top = ?", true]

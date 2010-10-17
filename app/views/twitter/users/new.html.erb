@@ -1,37 +1,26 @@
 <% title "Twitter Sign Up" %>
 <% header "Almost done!" %>
 
-
+<div id="login" class="form_left">
 <% form_for [:twitter,@user], :url => twitter_users_path, :html => { :id => 'form' } do |form| -%>
-  <%= form.error_messages %>
-  <ul>
-    <li>
-		  <%= form.label :username %><br/>
-      <%= form.text_field :username, :class => 'text' %>
-      <%= error_message_on :user, :username %>
-		</li>
-		<li>
-		  <%= form.label :email, 'Please provide your email so we can know how to contact you' %><br/>
-      <%= form.text_field :email, :class => 'text' %>
-      <%= error_message_on :user, :email %>
-		</li>
-		<li>
-		  <p>If you want to login using your email/username, you'll have to reset your password in your profile settings.</p>
-		</li>
-		<%#
-		<li>
-		  <%= form.label :password % ><br/>
-      <%= form.password_field :password, :class => 'text' % >
-      <%= error_message_on :user, :password % >
-		</li>
-		<li>
-		  <%= form.label :password_confirmation, "Confirm password" % ><br/>
-      <%= form.password_field :password_confirmation, :class => 'text' % >
-       <%= error_message_on :user, :password % >
-		</li>
-		%>
-		<li>
-		 <div class="button"> <%= form.submit "Sign up"%> </div>
-		</li>
-	</ul>
+<%= form.error_messages %>
+
+<ul class="left">
+	<li><h3>You are almost done, just finish your signup process and then Tell the world what you think they Must do</h3></li>
+	<li>
+		<%= form.label :username %>
+		<span><%= form.text_field :username, :class => "input" %></span>
+		<%= error_message_on :user, :username %>
+	</li>
+	<li>
+		<%= form.label :email, 'Please provide your email so we can know how to contact you' %>
+		<span><%= form.text_field :email, :class => 'input' %></span>
+		<%= error_message_on :user, :email %>
+	</li>		
+
+	<li><%= form.submit "", :class => "btn_save" %></li>
+</ul>
+
 <% end %>
+</div>
+

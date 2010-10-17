@@ -1,22 +1,4 @@
-/*
-- Copyright (c) 2009, Koombea, Inc All rights reserved.
-- Version: 1.0       
 
-
------ Table of Contents -----
- 
- 	1. General Classes
-	2. Body
-	4. Header
-	5. Content
-	6. Footer
-
- -------------------------------
- */
-
-
-/* General Classes
- ============================================================ */
 @charset "utf-8";
 *{	font-family:Arial, Helvetica, sans-serif;
 	outline:medium none;
@@ -108,9 +90,6 @@ width:960px;
 		padding:13px 20px;
 		text-decoration:none;
 	}
-		#top_menu li a.active{
-		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
-	}
 	#top_menu li a:hover{
 		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
 	}
@@ -154,10 +133,7 @@ width:960px;
 		padding-top:4px;
 	}
 	#user_menu li img{
-background:none repeat scroll 0 0 #666666;
-float:left;
-margin-right:5px;
-padding:2px;
+		float:left;
 	}
 	
 	#user_menu li img.profile{
@@ -180,6 +156,23 @@ min-height:300px;
 padding:20px;
 width:236px;
 }
+ #right .wordcloud a{
+	color:#0099FF;
+	text-decoration:none;
+	}
+	
+ #right .wordcloud a:hover{
+	text-decoration:underline;
+	}
+	#right #recent_must a{
+	color:#0099FF;
+	text-decoration:none;
+	}
+	
+	#right #recent_must a:hover{
+	text-decoration:underline;
+	}
+	
 #right h2{
 	background:#DCD8B3;
 	color:#FFF;
@@ -233,10 +226,7 @@ width:236px;
 
 #header p.home{
 margin:10px 20px 0 0;
-}
-#header p.postmust{
-margin:16px 40px 0 0;
-}
+}	
 
  /* Content
  ============================================================ */
@@ -370,6 +360,9 @@ margin-bottom:20px;
 		-webkit-box-shadow:2px 2px 10px #C4BCA0;
 	}	
 	
+	.musts .right.done{
+		background:url(../images/backgrounds/done.png) no-repeat top right #fff;
+	}
 	.musts .right .icons{
 		float:right;
 	}
@@ -387,14 +380,7 @@ margin-bottom:20px;
 		.musts .right .title img{
 			float:left;
 			margin-right:5px;
-		}
-		
-		.musts .right .title a{
-color:#217CC5;
-font-size:14px;
-font-weight:bold;
-text-decoration:none;
-		}
+		}	
 
 		.musts .right .title span{
 			color:#698616;
@@ -405,7 +391,7 @@ text-decoration:none;
 		}	
 
 		.musts .right .must_content{
-			margin:10px 0;
+			margin:0 0 10px 0;
 		}	
 
 		.musts .right .must_content img{
@@ -418,11 +404,11 @@ text-decoration:none;
 			line-height:13px;
 			margin-bottom:5px;			
 		}
-		.musts .right .must_content p a{
+		.musts .right  a{
 			color:#0099FF;
 			text-decoration:none;			
 		}	
-		.musts .right .must_content p a:hover{
+		.musts .right  a:hover{
 			text-decoration:underline;			
 		}	
 		.musts .right .related {
@@ -444,7 +430,66 @@ text-decoration:none;
 			text-decoration:underline;			
 		}
 		
+		/*******   musts must   *****/
+				.musts.must .right .title{
+					font-size:16px;
+					line-height:28px;
+				}
+	
+			.musts.must .right p{
+				font-size:14px;
+				line-height:18px;
+			}	
+		.musts.must .right p{
+			font-size:14px;
+			line-height:18px;
+		}
 		
+		.musts.must .right .tags{
+			clear:left;
+		}
+		
+		.musts.must .right .tags p{
+			font-size:11px;
+		}
+		/******* comments ******/
+		#comments{
+			
+		}
+		#comments .comment{
+			background:#FFFEF2;
+			margin:0 0 10px 0;
+			padding:10px;
+		}
+		#comments .comment p{
+			color:#999;
+			font-size:12px;
+			line-height:16px;
+			min-height:70px;
+		}	
+		#comments .comment span{
+			float:left;
+			margin:0 10px 5px 0;
+		}
+		
+		#comments .comment span small{
+			display:block;
+			text-align:center;
+			padding-top:5px;
+		}
+		#comments #comment_form{
+			
+			
+		}
+		
+		#comments #comment_form ul li{
+			text-align:right;
+			
+		}	
+			#comments #comment_form textarea{
+				height:120px;
+				width:100%;
+			}
   /* Footer
  ============================================================ */
 
@@ -543,16 +588,7 @@ width:265px;
 #sign_up:hover{
 	background-position:left bottom;
 }
-#postamust{
-background:url("../images/buttons/postamust.png") repeat scroll left top transparent;
-float:right;
-height:32px;
-width:173px;
 
-}
-#postamust:hover{
-	background-position:left bottom;
-}
 #sign_up_now{
 	background:url(../images/buttons/sign_up_now.png) top left;
 	float:right;
@@ -563,7 +599,16 @@ width:173px;
 #sign_up_now:hover{
 background:url(../images/buttons/sign_up_now.png) bottom left;
 }
+#btn_comment{
+	background:url(../images/buttons/comment.png) top left;
+	border:none;
+	height:31px;
+	width:173px;
 
+}
+#btn_comment:hover{
+background:url(../images/buttons/comment.png) bottom left;
+}
 .facebook{
 	background:url(../images/icons/facebook.jpg) top left;
 	float:left;
@@ -584,16 +629,7 @@ background:url(../images/icons/facebook.jpg) bottom left;
 .twitter:hover{
 background:url(../images/icons/twitter.jpg) bottom left;
 }
-.unbookmark{
-	background:url(../images/icons/unbookmark.jpg) top left;
-	float:left;
-	height:16px;
-	width:16px;
 
-}
-.unbookmark:hover{
-background:url(../images/icons/unbookmark.jpg) bottom left;
-}
 .bookmark{
 	background:url(../images/icons/bookmark.jpg) top left;
 	float:left;
@@ -627,6 +663,18 @@ background:url(../images/buttons/add.jpg) bottom left;
 background:url(../images/buttons/remove.jpg) bottom left;
 }
 
+#postamust{
+background:url("../images/buttons/postamust.png") repeat scroll left top transparent;
+cursor:pointer;
+display:block;
+float:left;
+height:32px;
+width:173px;
+}
+#postamust:hover{
+background:url(../images/buttons/postamust.png) bottom left;
+}
+
 .btn_save{
 background:url("../images/buttons/save.png") repeat scroll left top transparent;
 border:medium none;
@@ -638,19 +686,6 @@ width:173px;
 .btn_save:hover{
 	background-position:left bottom;
 }
-
-.btn_search{
-background:url("../images/buttons/search.png") repeat scroll left top transparent;
-border:medium none;
-cursor:pointer;
-height:32px;
-width:173px;
-
-}
-.btn_search:hover{
-	background-position:left bottom;
-}
-
 
 .btn_login{
 background:url("../images/buttons/login.png") repeat scroll left top transparent;

@@ -5,10 +5,6 @@ class MustsController < ApplicationController
   layout :get_layout
   
   include ApplicationHelper
-
-  def index
-    @musts = Must.all
-  end
   
   def recents
     @musts = Must.find(:all, :order => "created_at DESC", :limit => 10)
@@ -53,7 +49,7 @@ class MustsController < ApplicationController
     if @must.save
       flash[:notice] = "Awesome, one more thing they must do!"
       respond_to do |wants|
-        wants.html { redirect_to musts_path }
+        wants.html { redirect_to must_path(@must) }
       end
     else
       flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
@@ -63,29 +59,12 @@ class MustsController < ApplicationController
     end
   end
 
-  def edit
-    @must = Must.find(params[:id])
-  end
-
-  def update
-    @must = Must.find(params[:id])
-    if @must.update_attributes(params[:must])
-      flash[:notice] = "Must edited"
-      respond_to do |wants|
-        wants.html { redirect_to musts_path }
-      end
-    else
-      flash[:error] = "Ouch sorry, Something's not right down there, please verify your information and try again."
-      respond_to do |wants|
-        wants.html { render :action => "edit" }
-      end
-    end
-  end
 
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
-    render :layout => 'login'
+    #render :layout => 'login'
+    render :action => "show"
   end
 
   def destroy

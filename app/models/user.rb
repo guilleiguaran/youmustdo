@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_uniqueness_of :email
   
+  has_many :buckets
+  
   validates_format_of :username, :with => /^[a-z][\w\-]+$/i, :message => "cannot contain special characters or spaces"
   validates_exclusion_of :username, :in => %w( support blog www billing help api dev test production prod staging qa stage docs samples koombea examples status account doc docs), :message => "is not available"
   validates_length_of :username, :maximum => 20
@@ -43,6 +45,10 @@ class User < ActiveRecord::Base
 
     client = Twitter::Base.new(oauth)
     client
+  end
+  
+  def bucket_list_count
+    self.buckets.find(:all, :conditions => {:status => false}).count
   end
 
   class << self

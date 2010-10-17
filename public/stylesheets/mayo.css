@@ -115,3 +115,47 @@ float:left
 	float:left;
 	margin:0 !important;
 }
+
+.bucket_add:hover{
+	background-position:left bottom;
+}
+.bucket_add{
+	background:url(../images/bucket_list.png) top left;
+	float:left;
+	height:16px;
+	width:16px;
+
+}
+
+.done_button{
+background:url("../images/buttons/doneit.png") repeat scroll left top transparent;
+float:left;
+height:32px;
+width:32px;
+}
+.done_button:hover{
+background-position:left bottom;
+}
+.postmust{
+	margin:16px 38px 0 0 !important;
+}
+
+
+.unbookmark{
+	background:url(../images/icons/unbookmark.jpg) top left;
+	float:left;
+	height:16px;
+	width:16px;
+
+}
+.unbookmark:hover{
+background:url(../images/icons/unbookmark.jpg) bottom left;
+}
+
+#content p.description{
+color:#666666;
+font-size:13px;
+line-height:20px;
+margin-bottom:25px;
+width:75%;
+}

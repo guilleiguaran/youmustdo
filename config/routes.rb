@@ -39,8 +39,11 @@ ActionController::Routing::Routes.draw do |map|
 
   
   # Bucket List
+  map.buckets '/users/:id/bucket_list', :controller => 'buckets', :action => 'index', :conditions => { :method => :get }
   map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'create', :conditions => { :method => :post }
   map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'destroy', :conditions => { :method => :delete }
+  map.update_bucket '/users/:id/bucket_done', :controller => 'buckets', :action => 'update', :conditions => { :method => :put }
+
   
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
@@ -77,7 +80,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:index]
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
-  
-  
-    map.user_musts '/musts/:username', :controller => 'musts', :action => 'user_musts'
+  map.user_musts '/u/:username', :controller => 'musts', :action => 'user_musts'
 end
