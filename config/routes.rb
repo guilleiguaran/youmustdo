@@ -55,5 +55,9 @@ ActionController::Routing::Routes.draw do |map|
   end
   # ==================================================================================================
   #map.resources :categories, :only => [:show]
+  
+  
+  map.recent '/recent', :controller => 'home', :action => 'recent'
+  
   map.categories '/:category', :controller => 'categories', :action => 'show'
 end
