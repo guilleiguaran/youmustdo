@@ -77,7 +77,8 @@ class MustsController < ApplicationController
       data = Metadata.get(params[:url])
       @title = data[0]
       @description = data[1]
-      @images = data[2]
+      @images      = data[2]
+      @videos      = {:url => data[4], :type => data[3]}
       puts data.inspect
       respond_to do |wants|
         wants.js

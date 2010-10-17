@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session,   :controller => 'sessions',  :only => [:new, :create, :destroy]
   map.sign_in  'sign_in',   :controller => 'sessions',  :action => 'new'
   map.sign_out 'sign_out',  :controller => 'sessions',  :action => 'destroy', :method => :delete
+  map.sign_up  'sign_up',   :controller => 'users',     :action => 'new'
 
   Clearance::Routes.draw(map)
   map.root :controller => 'home', :action => 'index'
