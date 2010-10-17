@@ -27,7 +27,7 @@
 		      </ul>
 		      <div class="title"><%=h avatar_for(@must.user,30) %>
 		        <span>You must <%= @must.category_name %></span> 
-				<%=link_to @must.name, must_path(@must) %> <small>by <%=h link_to must.user.username, user_musts_path(must.user.username) %></small>
+				<%=link_to @must.name, must_path(@must) %> <small>by <%=h link_to @must.user.username, user_musts_path(@must.user.username) %></small>
 		      </div><!-- title -->
 
 <div class="must_content">
