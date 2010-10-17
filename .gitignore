@@ -3,4 +3,3 @@ log/development.log
 log/test.log
 log/production.log
 .DS_Store
-config/initializers/paperclip.rb
