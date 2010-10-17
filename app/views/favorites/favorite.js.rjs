@@ -1,2 +1,2 @@
 page.replace_html "favorite_#{@must.id}", :partial => "musts/favorite", :locals => {:must => @must}
-page << "alert('Favorited!');"
+page << "alert('#{controller.action_name}!');"

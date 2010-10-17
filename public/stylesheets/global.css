@@ -108,6 +108,9 @@ width:960px;
 		padding:13px 20px;
 		text-decoration:none;
 	}
+		#top_menu li a.active{
+		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
+	}
 	#top_menu li a:hover{
 		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
 	}
@@ -581,7 +584,16 @@ background:url(../images/icons/facebook.jpg) bottom left;
 .twitter:hover{
 background:url(../images/icons/twitter.jpg) bottom left;
 }
+.unbookmark{
+	background:url(../images/icons/unbookmark.jpg) top left;
+	float:left;
+	height:16px;
+	width:16px;
 
+}
+.unbookmark:hover{
+background:url(../images/icons/unbookmark.jpg) bottom left;
+}
 .bookmark{
 	background:url(../images/icons/bookmark.jpg) top left;
 	float:left;
@@ -626,6 +638,19 @@ width:173px;
 .btn_save:hover{
 	background-position:left bottom;
 }
+
+.btn_search{
+background:url("../images/buttons/search.png") repeat scroll left top transparent;
+border:medium none;
+cursor:pointer;
+height:32px;
+width:173px;
+
+}
+.btn_search:hover{
+	background-position:left bottom;
+}
+
 
 .btn_login{
 background:url("../images/buttons/login.png") repeat scroll left top transparent;
