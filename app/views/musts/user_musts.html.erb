@@ -6,6 +6,7 @@
   	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
   <% end %>
 </ul>
+<%= will_paginate @musts %>
 <% else %>
 <h3>The user <%= @user.username %> hasn't written any Must yet</h3>
 <% end %>
