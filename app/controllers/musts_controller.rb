@@ -12,6 +12,11 @@ class MustsController < ApplicationController
   def recents
     @musts = Must.find(:all, :order => "created_at DESC", :limit => 10)
   end
+  
+  def tags
+    @musts = Must.tagged_with(params[:tag]).by_creation_date
+    @tag = params[:tag]
+  end
 
   def new
     @user = current_user
