@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   include Clearance::User
   acts_as_followable
   acts_as_follower
+  acts_as_favorite_user
   
-  has_many :musts, :dependent => :destroy
-  has_many :comments
+  has_many :musts, :dependent => :nullify
+  has_many :comments, :dependent => :nullify
   
   validates_presence_of :username
   validates_uniqueness_of :username
@@ -26,5 +27,5 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/uploads/avatars/:attachment/:id/:style.:extension",
     :bucket => AMAZON_S3['bucket']
-    
+  
 end

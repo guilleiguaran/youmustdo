@@ -16,10 +16,12 @@ Rails::Initializer.run do |config|
   # oauth2 and its dependencies
   #config.gem "addressable",     :version => '>= 2.2.2'
   #config.gem "multipart-post",  :version => '>= 1.0.1'
-  config.gem "rack",            :version => '>= 1.2.1'
-  config.gem "faraday",         :version => '>= 0.5.1'
+  config.gem "rack",      :version => '>= 1.2.1'
+  config.gem "faraday",   :version => '>= 0.5.1'
   config.gem "oauth2",    :version => '>= 0.1.0'
-  config.gem "nokogiri", :version => '1.4.3.1'
+  config.gem "nokogiri",  :version => '1.4.3.1'
+  config.gem "will_paginate", :version => "2.3.15"
+  config.gem "acts_as_favorite", :version => "0.1.2"
 
   config.time_zone = 'UTC'
 
