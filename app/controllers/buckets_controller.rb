@@ -6,7 +6,7 @@ class BucketsController < ApplicationController
 
   def index
     # @buckets = current_user.buckets
-            @buckets = current_user.buckets.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
+            @buckets = current_user.buckets.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
 
   end
 
