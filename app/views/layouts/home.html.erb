@@ -85,13 +85,13 @@
 						<div id="content">
 							<ul id="must_bar">
 								<li class="main"><img src="/images/misc/bar_youmust.jpg?1287290042" alt="You Must"></li>
-								<li><a href="#">Read</a></li>
-								<li><a href="#">See</a></li>
-								<li><a href="#">Watch</a></li>
-								<li><a href="#">Listen</a></li>
-								<li><a href="#">Have</a></li>
-								<li><a href="#">Play</a></li>
-								<li><a href="#">Do</a></li>			
+  							<li><a href="<%=categories_path('read')%>" class="<%=link_active(@category,"Read")%>">Read</a></li>
+  							<li><a href="<%=categories_path('see')%>" class="<%=link_active(@category,"See")%>">See</a></li>
+  							<li><a href="<%=categories_path('watch')%>" class="<%=link_active(@category,"Watch")%>">Watch</a></li>
+  							<li><a href="<%=categories_path('listen')%>" class="<%=link_active(@category,"Listen")%>">Listen</a></li>
+  							<li><a href="<%=categories_path('have')%>" class="<%=link_active(@category,"Have")%>">Have</a></li>
+  							<li><a href="<%=categories_path('play')%>" class="<%=link_active(@category,"Play")%>">Play</a></li>
+  							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>	
 							</ul>
 
 							<h3>These are the Top Must Read</h3>
