@@ -4,9 +4,9 @@ $(window).load(function(){
   $('#slider1').tinycarousel();	
   <% unless @must.category_id.nil? %>
     selectCategory("<%=@must.category_name%>");
-    <%else%>
+  <% else %>
     selectCategory("<%=Category.first.name%>");
-  <%end%>
+  <% end %>
   $("#must_category_id").change(function() {
     var src = $("option:selected", this).text();
     selectCategory(src);
@@ -54,6 +54,17 @@ if (navigator.geolocation) {
     <%= f.label :category_id, "You Must " %>
     <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}, html_options =  { :onchange => "selectCategory(this.value)"}) %>
     <%#= f.text_field :category_id, :class => "text" %>
+    </li>
+    <li id="attachments">
+      <label>Please select the audio files you want to upload</label>
+      <br />
+      <% fields_for @must.attachments do |attachment| %>
+        <%= attachment.file_field :file %>
+      <% end %>
+      <div id="files">
+        <span><input type="file" name="" class="input" /></span>
+      </div>
+      <a href="javascript:void(0)" onclick="addNewFile();">Add</a>
     </li>
     <li  id="url">
     	<%= f.label :url %><br />
