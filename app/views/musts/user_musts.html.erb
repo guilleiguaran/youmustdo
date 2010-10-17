@@ -1,5 +1,7 @@
-<% unless @musts.blank? %>
+
 <h3>These are the Musts posted by <%= @user.username %></h3>
+
+<% unless @musts.blank? %>
 	
 <ul class="musts">
   <% @musts.each do |must| %>

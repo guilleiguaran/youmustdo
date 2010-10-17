@@ -13,7 +13,8 @@ class MustsController < ApplicationController
   end
   
   def tags
-    @musts = Must.tagged_with(params[:tag]).by_creation_date
+    # @musts = Must.tagged_with(params[:tag]).by_creation_date
+    @musts = Must.tagged_with(params[:tag]).by_creation_date.paginate(:page => params[:page], :per_page => 3)
     @tag = params[:tag]
   end
   
@@ -28,7 +29,7 @@ class MustsController < ApplicationController
   def user_musts
     @user = User.find_by_username(params[:username])
     # @musts = @user.musts.find(:all, :order => "created_at DESC", :limit => 10)
-    @musts = @user.musts.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
+    @musts = @user.musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
 
   end
 
