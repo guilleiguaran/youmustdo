@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
+  map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
+  
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
   map.privacy '/terms', :controller => 'home', :action => 'terms'

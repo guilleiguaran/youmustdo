@@ -1,0 +1,4 @@
+page.insert_html :top, "recent_must", :partial => "/shared/li", :locals => {:must => @must} 
+page << "setTimeout(\"load_more_muts('#{@must.created_at}')\", 7000)"
+
+
