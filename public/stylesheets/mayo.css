@@ -142,14 +142,14 @@ background-position:left bottom;
 
 
 .unbookmark{
-	background:url(../images/icons/unbookmark.jpg) top left;
+	background:url(../images/icons/bookmark.png) top left;
 	float:left;
 	height:16px;
 	width:16px;
 
 }
 .unbookmark:hover{
-background:url(../images/icons/unbookmark.jpg) bottom left;
+background:url(../images/icons/bookmark.png) bottom left;
 }
 
 #content p.description{
