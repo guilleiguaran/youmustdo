@@ -23,7 +23,6 @@ Rails::Initializer.run do |config|
   config.gem "acts_as_favorite", :version => "0.1.2"
   config.gem "nokogiri", :version => '1.4.3.1'
   config.gem "typhoeus"
-
   config.gem 'whenever', :lib => false, :source => 'http://gems.github.com'
   config.gem 'aaronh-chronic', :lib => false
 
