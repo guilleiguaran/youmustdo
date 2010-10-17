@@ -16,13 +16,14 @@
     <ul id="search_result">
       <% @users.each do |user|%>
       <li>
-        <%avatar_for(user,120)%>
-        <p><%=link_to user.name, user_path(user)%></p>
-        <small><%=user.musts.count%></small>
-        <span><a href="#" class="follow">Follow</a></span>
+        <%=avatar_for(user,120)%>
+        <p><%=link_to user.username, user_path(user)%></p>
+        <small><%=user.musts.count%> musts</small>
+        <span><a href="javascript:void(0)" onclick="javascript:unfinished()" class="follow">Follow</a></span>
       </li>
       <%end%>
 
     </ul>
   </div><!-- content --> 
 </div>
+
