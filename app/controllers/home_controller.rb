@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     #Must.refresh_top_musts
     # @musts = Must.find(:all, :conditions => ["top = ?", true], :order => "top_value DESC")
     # @musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')
-    @musts = Must.paginate :page => params[:page], :per_page => 3, :conditions => ["top = ?", true], :order => 'top_value DESC'
+    @musts = Must.paginate :page => params[:page], :per_page => 20, :conditions => ["top = ?", true], :order => 'top_value DESC'
 
   end
 
