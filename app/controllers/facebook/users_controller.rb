@@ -1,5 +1,6 @@
 class Facebook::UsersController < ApplicationController
-
+  layout "login"
+  
   def new
     @user = User.new({
       :facebook_uid => session[:facebook_session][:facebook_uid],
