@@ -45,6 +45,7 @@ class Facebook::SessionsController < ApplicationController
   private
 
   def oauth
-    @oauth ||= OAuth2::Client.new(FACEBOOK['app_id'], FACEBOOK['app_secret'], :site => "https://graph.facebook.com")
+    @oauth ||= OAuth2::Client.new(FACEBOOK['app_id'], FACEBOOK['app_secret'], :site => FACEBOOK['site'])
+    # "https://graph.facebook.com"
   end
 end

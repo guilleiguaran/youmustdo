@@ -6,7 +6,9 @@
   <%= stylesheet_link_tag 'reset' %>
   <%= stylesheet_link_tag 'global' %>
   <%= stylesheet_link_tag 'mayo' %>
+  <%= stylesheet_link_tag 'bbto' %>
   <%= javascript_include_tag :defaults %>
+  <%= yield :stylesheet %>
   <%= yield :javascript %>
   <%= yield :additional_javascript %>
 </head>

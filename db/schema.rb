@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016202433) do
+ActiveRecord::Schema.define(:version => 20101017012939) do
 
   create_table "agrees", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20101016202433) do
     t.integer  "must_id"
   end
 
+  create_table "followers", :force => true do |t|
+    t.integer  "following_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
     t.string   "followable_type",                    :null => false
@@ -54,9 +61,16 @@ ActiveRecord::Schema.define(:version => 20101016202433) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
+<<<<<<< HEAD
+    t.boolean  "top"
+    t.float    "top_value"
+=======
     t.string   "url"
+    t.string   "url_image"
+>>>>>>> 893db95fb0ccc4eef8238df2e0bc5e0cad579ce8
   end
 
   create_table "users", :force => true do |t|

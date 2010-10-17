@@ -10,6 +10,7 @@ class MustsController < ApplicationController
   def new
     @user = current_user
     @must = Must.new(params[:must])
+    @must.category_id = params[:category] unless params[:category].nil?
   end
 
   def load_more
@@ -81,6 +82,8 @@ class MustsController < ApplicationController
       data = Metadata.get(params[:url])
       @title = data[0]
       @description = data[1]
+      @images = data[2]
+      puts data.inspect
       respond_to do |wants|
         wants.js
       end

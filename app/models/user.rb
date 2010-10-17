@@ -26,5 +26,23 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/uploads/avatars/:attachment/:id/:style.:extension",
     :bucket => AMAZON_S3['bucket']
-    
+
+  def post_to_facebook(content)
+    feed_content = content.is_a?(Must) ? must.to_facebook_feed : content.to_s
+    MustShare.post_to_facebook(self.fb_access_token, feed_content)
+  end
+
+  def post_to_twitter(content)
+    tweet = content.is_a?(Must) ? must.to_tweet : content.to_s
+    MustShare.post_to_twitter(self.twitter_client, tweet)
+  end
+
+  # I'm not sure if this method should be private
+  def twitter_client
+    oauth = Twitter::OAuth.new(TWITTER_AUTH['key'], TWITTER_AUTH['secret'])
+    oauth.authorize_from_access(self.access_token, self.access_secret)
+
+    client = Twitter::Base.new(oauth)
+    client
+  end
 end
