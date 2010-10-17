@@ -11,4 +11,8 @@ class HomeController < ApplicationController
   def privacy
     render :layout => "login"
   end
+
+  def terms
+    render :layout => "login"
+  end
 end
