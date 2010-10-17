@@ -2,21 +2,29 @@ class BucketsController < ApplicationController
 
   before_filter :check_valid_user
   before_filter :login_required, :only =>[:create, :destroy]
-    
+
   def create
-    bucket = Bucket.new
-    bucket.user_id = current_user.id
-    bucket.must_id = params[:must_id]
-    if bucket.save
-      # flash[:notice] = "You just add this Must to your Bucket List"
-      render :update do |page|
-        page << "alert('bucket created')"
+
+    bucket_check = Bucket.find_by_user_id_and_must_id(current_user.id, params[:must_id])
+    if bucket_check.nil?
+      bucket = Bucket.new
+      bucket.user_id = current_user.id
+      bucket.must_id = params[:must_id]
+      if bucket.save
+        # flash[:notice] = "You just add this Must to your Bucket List"
+        render :update do |page|
+          page << "new_notification('This Must was added to your Bucket List.', 'success')"
+        end
+      else
+        # flash[:error] = "Ouch sorry, Something's not right down there, please verify and try again."
+        render :update do |page|
+          page << "new_notification('Ouch sorry, Something is not right down there, please verify and try again.', 'error')"
+        end
       end
     else
-      flash[:error] = "Ouch sorry, Something's not right down there, please verify and try again."
       render :update do |page|
-        page << "alert('Error, bucket not created')"
-      end
+          page << "new_notification('Uhm? You Must see your Bucket List, I am pretty sure this Must is already there.', 'info')"
+        end
     end
   end
 
