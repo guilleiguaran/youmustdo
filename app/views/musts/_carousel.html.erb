@@ -1,0 +1,15 @@
+<div id="slider1">
+	<a class="buttons prev" href="#">left</a>
+	<div class="viewport">
+		<ul class="overview">
+		  <% elem = nil %>
+		  <%@images.each do |image|%>
+		    <% #REMOVE THIS SHIT!!! %>
+		    <% elem = image.to_s if elem.nil?%>
+			  <li class="pagenum"><img src="<%=image.to_s%>" /></li>
+			<%end%>
+		</ul>
+	</div>
+	<a class="buttons next" href="#">right</a>
+</div>
+<input type="hidden" value= "<%=elem unless elem.nil?%>" name="must[url_image]" id="must_url_image" />
