@@ -5,6 +5,7 @@
   	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
   <% end %>
 </ul>
+<%= will_paginate @musts %>
 <% else %>
 <h3>You don't have favorite Musts yet</h3>
 <% end %>

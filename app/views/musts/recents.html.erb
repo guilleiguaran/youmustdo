@@ -5,3 +5,5 @@
   	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
   <% end %>
 </ul>
+
+<%= will_paginate @musts %>
