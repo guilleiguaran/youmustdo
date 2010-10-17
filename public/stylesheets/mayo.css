@@ -126,3 +126,13 @@ float:left
 	width:16px;
 
 }
+
+.done{
+background:url("../images/buttons/doneit.png") repeat scroll left top transparent;
+float:left;
+height:32px;
+width:32px;
+}
+.done:hover{
+background-position:left bottom;
+}

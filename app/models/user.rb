@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
     client = Twitter::Base.new(oauth)
     client
   end
+  
+  def bucket_list_count
+    self.buckets.find(:all, :conditions => {:status => true}).count
+  end
 
   class << self
     def random_string(len)
