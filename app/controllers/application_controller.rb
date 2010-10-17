@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def load_recent
     @musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')
-    @date = Must.last.created_at
+    @date = Must.last.created_at unless @musts_recent.blank?
   end
   
   def redirect_to_home
