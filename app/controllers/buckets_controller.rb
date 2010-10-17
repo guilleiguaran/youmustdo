@@ -14,6 +14,8 @@ class BucketsController < ApplicationController
         # flash[:notice] = "You just add this Must to your Bucket List"
         render :update do |page|
           page << "new_notification('This Must was added to your Bucket List.', 'success')"
+          page << "$('#bucket_list_tab span').remove()"
+          page << "$('#bucket_list_tab').append('<span>#{current_user.buckets.count}</span>')"
         end
       else
         # flash[:error] = "Ouch sorry, Something's not right down there, please verify and try again."
