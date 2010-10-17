@@ -1,14 +1,21 @@
 <script>
 $(window).load(function(){
-initialize();
+  initialize();
+  $('#slider1').tinycarousel();	
+  <% unless @must.category_id.nil? %>
+    selectCategory("<%=@must.category_name%>");
+    <%else%>
+    selectCategory("<%=Category.first.name%>");
+  <%end%>
+  $("#must_category_id").change(function() {
+    var src = $("option:selected", this).text();
+    selectCategory(src);
+});
+
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
-    /*var options = { position: new google.maps.LatLng(lat, lng) }
-    var marker = new google.maps.Marker(options);
-    marker.setMap(map);
-    marker.setDraggable(true);*/
     var myLatlng = new google.maps.LatLng(lat, lng);
     if(marker == null){
         marker = new google.maps.Marker({
@@ -34,9 +41,6 @@ if (navigator.geolocation) {
   });
 }
 });
-/*document.observe("dom:loaded", function() {
-  // initially load all the google maps functions
-});*/ 
 </script>
 <div id="left">
   <br class="spacer" />
@@ -44,50 +48,52 @@ if (navigator.geolocation) {
   <% form_for(@must, :html => {:method => :post}) do |f| %>
 
   <ul>
-    <li><%= f.label :category_id, "You Must " %>
-    <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}) %>
+    <li id="category">
+    <%= f.label :category_id, "You Must " %>
+    <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}, html_options =  { :onchange => "selectCategory(this.value)"}) %>
     <%#= f.text_field :category_id, :class => "text" %>
     </li>
-    <li>
+    <li  id="url">
     	<%= f.label :url %><br />
     	<%= f.text_field :url, :class => "text" %>
     	<%= error_message_on :must, :url%>
     </li>
-    <li>
+    <li  id="url_button">
     	<%= button_to_remote 'Attach', { :loading => "$('#loader').show()", :complete => "$('#loader').hide()",
     									 :url => { :action => 'get_url_metadata' }, :with => "'url='+$('#must_url').val()"} %>
     </li>									 
-    <li>
+    <li  id="url_loader">
     	<div class="loader" id="loader" style="display:none;">
     		<%= image_tag 'ajax_waiting.gif' %>
     	</div>
-    	
     </li>
-    <li>
+    <li id="external_images">
+    </li>
+    <li  id="name">
       <%= f.label :name %><br />
       <%= f.text_field :name, :class => "text"%>
       <%= error_message_on :must,:name%>
     </li>
-    <li>
+    <li  id="description">
       <%= f.label :description %><br />
       <%= f.text_area :description, :class => "textarea" %>
       <%= error_message_on :must,:description %>
     </li>
-    <li>
+    <li  id="google_map">
       <p>Click in the map your desired location. Remember only the last position will be added</p>
       <div id="map_canvas" style="width:380px; height:200px;"></div>
     </li>
-    <li>
+    <li  id="latitude">
       <%= f.label :latitude %><br />
       <%= f.text_field :latitude, :class => "text", :readonly => "true" %>
       <%= error_message_on :must,:latitude %>
     </li>
-    <li>
+    <li  id="longitude">
       <%= f.label :longitude %><br />
       <%= f.text_field :longitude, :class => "text", :readonly => "true" %>
       <%= error_message_on :must,:longitude %>
     </li>
-    <li>
+    <li  id="submit">
       <%= submit_or_cancel(f, 'Cancel') %>	
     </li>
   </ul>
@@ -145,9 +151,15 @@ function placeMarker(location) {
   });
 }
 </script>
+<% content_for :stylesheet do%>
+  <%= stylesheet_link_tag 'tinycarousel' %>
+<%end%>
+
 <% content_for :additional_javascript do %>
+  <%= javascript_include_tag "jquery.tinycarousel.min" %>
+  <%= javascript_include_tag "form" %>
   <script type="text/javascript"
     src="http://maps.google.com/maps/api/js?sensor=true">
-    </script>
+  </script>
 <%end%>
 

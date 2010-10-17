@@ -1,2 +1,8 @@
 page[:must_name].value = @title
 page[:must_description].value = @description
+page.replace_html 'external_images', ''
+page.insert_html :bottom, 'external_images', :partial => 'carousel', :object => @images
+page << "var carousel = $('#slider1').tinycarousel({ pager: true});"
+# @images.each do |image|
+#   page.insert_html :bottom, 'external_images', '<img src="'+image.to_s+'" />'
+# end
