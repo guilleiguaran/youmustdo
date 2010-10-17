@@ -17,6 +17,10 @@
 
 /* General Classes
  ============================================================ */
+@charset "utf-8";
+*{	font-family:Arial, Helvetica, sans-serif;
+	outline:medium none;
+}
 
 #container_big{
 	min-height:100%;
@@ -254,12 +258,11 @@ text-decoration:underline;
  }
 
   #content #login form ul li span .input{
-	border:1px solid #CCCCCC;
+border:1px solid #CCCCCC;
 color:#454555;
 display:block;
 font-size:12px;
-height:30px;
-padding-left:10px;
+padding:8px;
 width:97%;
  }
 
@@ -541,10 +544,11 @@ background:url(../images/buttons/remove.jpg) bottom left;
 
 
 .btn_login{
-	background:url(../images/buttons/login.png) top left;
-	border:none;
-	height:31px;
-	width:173px;
+background:url("../images/buttons/login.png") repeat scroll left top transparent;
+border:medium none;
+cursor:pointer;
+height:31px;
+width:173px;
 
 }
 .btn_login:active{
