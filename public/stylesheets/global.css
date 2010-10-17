@@ -406,14 +406,14 @@ margin-bottom:20px;
   /* Buttons
  ============================================================ */
 #sign_up{
-	background:url(../images/buttons/sign_up.png) top left;
-	float:right;
-	height:58px;
-	width:242px;
+background:url("../images/signup_now.png") repeat scroll left top transparent;
+float:right;
+height:56px;
+width:265px;
 
 }
 #sign_up:hover{
-background:url(../images/buttons/sign_up.png) bottom left;
+	background-position:left bottom;
 }
 
 #sign_up_now{
