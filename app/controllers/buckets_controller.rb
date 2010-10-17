@@ -5,7 +5,9 @@ class BucketsController < ApplicationController
   layout :get_layout
 
   def index
-    @buckets = current_user.buckets
+    # @buckets = current_user.buckets
+            @buckets = current_user.buckets.paginate :page => params[:page], :per_page => 3, :order => 'created_at DESC'
+
   end
 
   def update

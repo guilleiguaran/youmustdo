@@ -4,8 +4,11 @@
 	We are sure you have heard about that list of things to do before you go away...So here it is!, let's see how many things you can do
 </p>
 
+
 <ul class="musts">
   <% @buckets.each do |bucket| %>
   	<%= render :partial => "musts/must_item", :locals => {:must => bucket.must} %>
   <% end %>
 </ul>
+
+<%= will_paginate @musts %>
