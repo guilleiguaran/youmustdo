@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20101017012939) do
     t.integer  "must_id"
   end
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "favorable_type", :limit => 30
+    t.integer  "favorable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "followers", :force => true do |t|
     t.integer  "following_id"
     t.integer  "follower_id"
@@ -64,10 +72,9 @@ ActiveRecord::Schema.define(:version => 20101017012939) do
     t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
+    t.string   "url_image"
     t.boolean  "top"
     t.float    "top_value"
-    t.string   "url"
-    t.string   "url_image"
   end
 
   create_table "users", :force => true do |t|
