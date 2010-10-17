@@ -604,6 +604,17 @@ background:url(../images/buttons/remove.jpg) bottom left;
 background:url(../images/buttons/postmust.png) bottom left;
 }
 
+.btn_save{
+background:url("../images/buttons/save.png") repeat scroll left top transparent;
+border:medium none;
+cursor:pointer;
+height:31px;
+width:173px;
+
+}
+.btn_save:hover{
+	background-position:left bottom;
+}
 
 .btn_login{
 background:url("../images/buttons/login.png") repeat scroll left top transparent;

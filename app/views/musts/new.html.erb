@@ -42,7 +42,9 @@ if (navigator.geolocation) {
 }
 });
 </script>
-<div id="left">
+
+	<div id="login" class="form_left">
+
   <br class="spacer" />
   <% title "Sign Up!" %>
   <% form_for(@must, :html => {:method => :post}) do |f| %>
@@ -55,7 +57,7 @@ if (navigator.geolocation) {
     </li>
     <li  id="url">
     	<%= f.label :url %><br />
-    	<%= f.text_field :url, :class => "text" %>
+    	<span><%= f.text_field :url, :class => "text", :class => "input" %></span>
     	<%= error_message_on :must, :url%>
     </li>
     <li  id="url_button">
@@ -72,19 +74,19 @@ if (navigator.geolocation) {
     <li id="external_video">
     </li>
     <li  id="name">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, :class => "text"%>
+      <%= f.label :name %>
+      <span><%= f.text_field :name, :class => "text", :class => "input"%></span>
       <%= error_message_on :must,:name%>
     </li>
     <li  id="description">
-      <%= f.label :description %><br />
-      <%= f.text_area :description, :class => "textarea" %>
+      <%= f.label :description %>
+      <span><%= f.text_area :description, :class => "textarea" , :class => "input_area"%>
       <%= error_message_on :must,:description %>
     </li>
 
 	<li  id="tag_list">
 	  <label for="must[tag_list]">Tag List (comma separated)</label>
-	  <input class="text" type="text" name="must[tag_list]" id="must_tag_list" />
+	  <span><input class="text" type="text" class="input" name="must[tag_list]" id="must_tag_list" />
 	</li>
 
     <li  id="google_map">
@@ -92,13 +94,13 @@ if (navigator.geolocation) {
       <div id="map_canvas" style="width:380px; height:200px;"></div>
     </li>
     <li  id="latitude">
-      <%= f.label :latitude %><br />
-      <%= f.text_field :latitude, :class => "text", :readonly => "true" %>
+      <%= f.label :latitude %>
+      <span><%= f.text_field :latitude, :class => "text", :readonly => "true" , :class => "input_area"%>
       <%= error_message_on :must,:latitude %>
     </li>
     <li  id="longitude">
-      <%= f.label :longitude %><br />
-      <%= f.text_field :longitude, :class => "text", :readonly => "true" %>
+      <%= f.label :longitude %>
+      <<span>%= f.text_field :longitude, :class => "text", :readonly => "true" , :class => "input_area"%></span>
       <%= error_message_on :must,:longitude %>
     </li>
     <li  id="submit">

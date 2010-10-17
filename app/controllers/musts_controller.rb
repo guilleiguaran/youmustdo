@@ -1,6 +1,7 @@
 class MustsController < ApplicationController
 
   before_filter :login_required, :only => [:create, :new, :edit, :update, :destroy]
+
   layout :get_layout
   
   include ApplicationHelper
@@ -71,6 +72,7 @@ class MustsController < ApplicationController
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
+    render :layout => 'login'
   end
 
   def destroy
