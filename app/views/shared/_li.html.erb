@@ -1,0 +1,11 @@
+<% unless @must.nil? %>
+<li style='display:none'><div class="avatar_img"><%= avatar_for(@must.user)%></div>
+	<span><%=h @must.user.username %></span><br/>
+	<span><%=h link_to @must.name, must_path(@must) %></span><br/>
+	<small><%=time_ago_in_words(@must.updated_at)%> ago</small>
+</li>
+<script type="text/javascript">
+$('#recent_must li:first').fadeIn();
+</script>
+
+<% end %>

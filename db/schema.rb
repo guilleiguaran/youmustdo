@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(:version => 20101017012939) do
     t.string   "latitude"
     t.boolean  "top"
     t.float    "top_value"
+<<<<<<< HEAD
+=======
+    t.string   "url"
+>>>>>>> 39f27a7fc517b0dad10ad07a1df5dbf23a41334b
     t.string   "url_image"
   end
 

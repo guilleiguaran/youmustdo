@@ -8,9 +8,18 @@ ActionController::Routing::Routes.draw do |map|
     must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
   end
   
+
+  # Favorites
+  map.favorites '/favorites', :controller => 'favorites', :action => 'index'
+  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'create'
+  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'destroy'
+
+  map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
+
+  
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
-  map.privacy '/terms', :controller => 'home', :action => 'terms'
+  map.terms '/terms', :controller => 'home', :action => 'terms'
   
   # User Routes
   map.user_profile     '/users/:id/profile', :controller => 'users', :action => 'profile'

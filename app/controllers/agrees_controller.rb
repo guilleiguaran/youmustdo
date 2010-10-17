@@ -1,5 +1,5 @@
 class AgreesController < ApplicationController
-
+  before_filter :login_required
   def agree
     @agree = Agree.create(:user_id => current_user.id, :must_id => params[:must_id], :calification => 1)
     if @agree.save
