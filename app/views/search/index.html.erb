@@ -1,0 +1,22 @@
+<div id="login">
+    <% form_tag search_index_path, :method => :get do %>
+    <ul>
+      <li>
+      <label for="search">Search</label>
+      <span>
+      <input type="text" name="search" id="search" class="input" />
+      </span>
+      <li><input type="submit" value="search" id="submit" class="btn_login" /></li>
+        </li>
+      </ul>
+    <%end%>
+
+<ul>
+  	<% @users.each do |user|%>
+  	<li>
+  	  <%=avatar_for(user, 40)%>
+  		<%=user.username%>
+  	</li>
+  	<%end%>
+</ul>
+</div>
