@@ -29,18 +29,10 @@
 	<![endif]-->
 </head>
 <body class="home">
+
 	<div id="wrapper">
 		<div id="menu">
-			<ul id="top_menu">
-				<li><a href="#">Top Musts</a></li>
-				<li><a href="#">Recent Musts</a></li>
-				<% if signed_in? %>
-				<li><a href="#">People</a></li>
-				<li><a href="#">Following</a></li>
-				<li><a href="#">My Musts</a></li>
-				<li><a href="#">Bucket List<span>12</span></a></li>
-				<%end%>
-			</ul>
+			<%= render :partial => 'layouts/toptabs' %>
 			<ul id="user_menu">				
 				<% unless signed_in? %>
 				<li><a href="<%= sign_in_path %>"><span>Login</span></a></li>

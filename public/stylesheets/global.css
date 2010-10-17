@@ -108,6 +108,9 @@ width:960px;
 		padding:13px 20px;
 		text-decoration:none;
 	}
+		#top_menu li a.active{
+		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
+	}
 	#top_menu li a:hover{
 		background:url(../images/backgrounds/main_menu_active.jpg) no-repeat top right;
 	}
@@ -151,7 +154,10 @@ width:960px;
 		padding-top:4px;
 	}
 	#user_menu li img{
-		float:left;
+background:none repeat scroll 0 0 #666666;
+float:left;
+margin-right:5px;
+padding:2px;
 	}
 	
 	#user_menu li img.profile{
@@ -227,7 +233,10 @@ width:236px;
 
 #header p.home{
 margin:10px 20px 0 0;
-}	
+}
+#header p.postmust{
+margin:16px 40px 0 0;
+}
 
  /* Content
  ============================================================ */
@@ -378,7 +387,14 @@ margin-bottom:20px;
 		.musts .right .title img{
 			float:left;
 			margin-right:5px;
-		}	
+		}
+		
+		.musts .right .title a{
+color:#217CC5;
+font-size:14px;
+font-weight:bold;
+text-decoration:none;
+		}
 
 		.musts .right .title span{
 			color:#698616;
@@ -527,7 +543,16 @@ width:265px;
 #sign_up:hover{
 	background-position:left bottom;
 }
+#postamust{
+background:url("../images/buttons/postamust.png") repeat scroll left top transparent;
+float:right;
+height:32px;
+width:173px;
 
+}
+#postamust:hover{
+	background-position:left bottom;
+}
 #sign_up_now{
 	background:url(../images/buttons/sign_up_now.png) top left;
 	float:right;
@@ -559,7 +584,16 @@ background:url(../images/icons/facebook.jpg) bottom left;
 .twitter:hover{
 background:url(../images/icons/twitter.jpg) bottom left;
 }
+.unbookmark{
+	background:url(../images/icons/unbookmark.jpg) top left;
+	float:left;
+	height:16px;
+	width:16px;
 
+}
+.unbookmark:hover{
+background:url(../images/icons/unbookmark.jpg) bottom left;
+}
 .bookmark{
 	background:url(../images/icons/bookmark.jpg) top left;
 	float:left;
@@ -593,17 +627,6 @@ background:url(../images/buttons/add.jpg) bottom left;
 background:url(../images/buttons/remove.jpg) bottom left;
 }
 
-#postamust{
-	background:url(../images/buttons/postmust.png) top left;
-	float:left;
-	height:32px;
-	width:32px;
-
-}
-#postamust:hover{
-background:url(../images/buttons/postmust.png) bottom left;
-}
-
 .btn_save{
 background:url("../images/buttons/save.png") repeat scroll left top transparent;
 border:medium none;
@@ -615,6 +638,19 @@ width:173px;
 .btn_save:hover{
 	background-position:left bottom;
 }
+
+.btn_search{
+background:url("../images/buttons/search.png") repeat scroll left top transparent;
+border:medium none;
+cursor:pointer;
+height:32px;
+width:173px;
+
+}
+.btn_search:hover{
+	background-position:left bottom;
+}
+
 
 .btn_login{
 background:url("../images/buttons/login.png") repeat scroll left top transparent;

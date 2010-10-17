@@ -106,12 +106,12 @@ if (navigator.geolocation) {
     </li>
     <li  id="latitude">
       <%= f.label :latitude %>
-      <span><%= f.text_field :latitude, :class => "text", :readonly => "true" , :class => "input_area"%>
+      <span><%= f.text_field :latitude, :class => "text", :readonly => "true" , :class => "input"%></span>
       <%= error_message_on :must,:latitude %>
     </li>
     <li  id="longitude">
       <%= f.label :longitude %>
-      <<span>%= f.text_field :longitude, :class => "text", :readonly => "true" , :class => "input_area"%></span>
+      <span><%= f.text_field :longitude, :class => "text", :readonly => "true" , :class => "input"%></span>
       <%= error_message_on :must,:longitude %>
     </li>
     <li  id="submit">

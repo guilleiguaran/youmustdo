@@ -34,17 +34,7 @@
 		<div id="wrapper">
 			<div class="header">
 				<div id="menu">
-					<ul id="top_menu">
-
-						<li><a href="<%= root_path %>">Top Musts</a></li>
-						<li><a href="<%= recents_path %>">Recent Musts</a></li>
-						<% if signed_in? %>
-						<li><a href="#">People</a></li>
-						<li><a href="#">Following</a></li>
-						<li><a href="#">My Musts</a></li>
-						<li><a href="#">Bucket List<span>12</span></a></li>
-						<%end%>
-					</ul>
+					<%= render :partial => 'layouts/toptabs' %>
 					<ul id="user_menu">				
 
 						<% unless signed_in? %>
@@ -78,7 +68,7 @@
 
 					<div id="left">
 						<div id="header" class="home">
-							<p class="home"><a href="/musts/new" id="sign_up"></a></p>
+							<p class="postmust"><a href="/musts/new" id="postamust"></a></p>
 							<h1><a href="/"><img src="/images/misc/logo.png?1287290042" alt="Logo"></a></h1>
 						</div><!-- header --> 
 
@@ -94,13 +84,7 @@
   							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>	
 							</ul>
 
-							<h3>These are the Top Must Read</h3>
-
-							<ul class="musts">
-								<% @musts.each do |must|%>
-									<%= render :partial => "musts/must_item", :locals => {:must => must} %>
-								<% end %>
-							</ul>
+							<%= yield %>
 
 							<script type="text/javascript">
 							var rumbleUrl = 'http://railsrumble.com/teams/the-riders-of-the-lost-crusade';

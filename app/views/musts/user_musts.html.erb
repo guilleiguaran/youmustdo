@@ -1,0 +1,11 @@
+<% unless @musts.blank? %>
+<h3>These are the Musts of <%= @user.username %></h3>
+	
+<ul class="musts">
+  <% @musts.each do |must| %>
+  	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
+  <% end %>
+</ul>
+<% else %>
+<h3>The user <%= @user.username %> hasn't written any Must yet</h3>
+<% end %>
