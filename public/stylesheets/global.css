@@ -151,7 +151,10 @@ width:960px;
 		padding-top:4px;
 	}
 	#user_menu li img{
-		float:left;
+background:none repeat scroll 0 0 #666666;
+float:left;
+margin-right:5px;
+padding:2px;
 	}
 	
 	#user_menu li img.profile{
@@ -384,7 +387,8 @@ margin-bottom:20px;
 		}
 		
 		.musts .right .title a{
-			color:#217CC5;
+color:#217CC5;
+font-size:14px;
 font-weight:bold;
 text-decoration:none;
 		}

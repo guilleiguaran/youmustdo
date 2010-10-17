@@ -10,7 +10,6 @@
 		<% end %>
 	</p>
 
-	<h2>Recent musts</h2>
 	<h3 class='peoplemusting'>RECENT ACTIVITY </h3>
 	
 	<% musts_recent = Must.find(:all, :order => "created_at desc", :limit => '5')%>
