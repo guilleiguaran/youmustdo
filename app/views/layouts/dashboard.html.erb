@@ -73,50 +73,9 @@
 						<div id="flash_<%= key %>"><%=h value %></div>
 						<% end -%>
 					</div>
-					<div id="right">
-						<form id="search_form">
-							<input type="text" value="search ..." name="search" id="search">
-						</form>
 
-						<p class="wordcloud">
-							<span style="font-size: 1.3em;">cookie</span>
-							<span style="font-size: 0.8em;">travel</span>
-							<span>buy</span>
-							<span style="font-size: 1.6em;">software</span>
-							<span style="font-size: 1.2em;">macbook</span>
-							<span style="font-size: 2em;">rails rumble</span>
-							<span>playstation</span>
-							<span style="font-size: 1.6em;">awards</span>
-							<span>iphone</span>
-							<span style="font-size: 1.1em;">kindle</span>
-							<span>food</span>
-							<span style="font-size: 1.4em;">test</span>
-							<span style="font-size: 1.3em;">cookie</span>
-							<span style="font-size: 0.8em;">travel</span>
-							<span>buy</span>
-							<span style="font-size: 1.6em;">software</span>
-							<span style="font-size: 1.2em;">macbook</span>
-							<span style="font-size: 2em;">rails rumble</span>
-							<span>playstation</span>
-							<span style="font-size: 1.6em;">awards</span>
-							<span>iphone</span>
-							<span style="font-size: 1.1em;">kindle</span>
-							<span>food</span>
-							<span style="font-size: 1.4em;">test</span>
-						</p>
+					<%= render :partial => "shared/sidebar", :locals => {:musts => @musts_recent} %>
 
-						<h2>Recent musts</h2>
-						<h3 class="peoplemusting">RECENT ACTIVITY </h3>
-
-						<p>There is no recent activity.</p>
-
-
-						<script type="text/javascript">
-						$(window).load(function(){
-
-						});
-						</script>
-					</div> 
 					<div id="left">
 						<div id="header">
 							<p><a href="" id="sign_up"></a></p>
