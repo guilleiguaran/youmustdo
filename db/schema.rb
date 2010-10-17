@@ -50,13 +50,6 @@ ActiveRecord::Schema.define(:version => 20101017023810) do
     t.datetime "updated_at"
   end
 
-  create_table "followers", :force => true do |t|
-    t.integer  "following_id"
-    t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
     t.string   "followable_type",                    :null => false
@@ -80,9 +73,9 @@ ActiveRecord::Schema.define(:version => 20101017023810) do
     t.string   "longitude"
     t.string   "latitude"
     t.string   "url"
+    t.string   "url_image"
     t.boolean  "top"
     t.float    "top_value"
-    t.string   "url_image"
   end
 
   create_table "users", :force => true do |t|

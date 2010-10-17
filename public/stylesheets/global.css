@@ -18,6 +18,11 @@
 /* General Classes
  ============================================================ */
 
+#container_big{
+	min-height:100%;
+	position:relative;
+}
+
 .clear { 
 	clear:both;; 
 }
@@ -47,22 +52,34 @@ clear:right;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
  }
+html, body {
+height:100%;
+margin:0;
+padding:0;
+}
  
  body.home{
  	background:#FFFDE7 url(../images/backgrounds/background_home.jpg) repeat-x   ;
  }
  /* Wrapper
  ============================================================ */
-
-.wrapper{
-	margin:0 auto;
-	width:960px;
+#yield_container {
+	background:url("../images/backgrounds/background_right.jpg") repeat-y scroll right top transparent;
+}
+#wrapper{
+display:block;
+margin:0 auto 90px;
+overflow:hidden;
+width:960px;
  }	
 /* Container
 ============================================================ */
 
  #container{
 	background:url(../images/backgrounds/background_right.jpg) repeat-y top right;
+overflow:hidden;
+position:relative;
+width:960px;
 }
 
 /* Menu
@@ -143,11 +160,15 @@ clear:right;
 }	 
 /* Right
 ============================================================ */
+.button_twitter{
+	
+}
  #right{
-	float:right;
-	min-height:300px;
-	padding:20px;
-	width:236px;
+background:none repeat scroll 0 0 white;
+float:right;
+min-height:300px;
+padding:20px;
+width:236px;
 }
 #right h2{
 	background:#DCD8B3;
@@ -400,16 +421,19 @@ margin-bottom:20px;
 		
   /* Footer
  ============================================================ */
-  #footer{
-	background:#000;
-	font-size:11px;
-	
+#footer {
+background:none repeat scroll 0 0 #363736;
+bottom:0;
+height:80px;
+margin-top:15px;
+position:absolute;
+width:100%;
 }
 
 #footer .wrapper{
-	margin:0 auto;
-	padding:20px 0 30px 0;
-	width:960px;
+margin:0 auto;
+padding-top:25px;
+width:960px;
  }
   #footer ul{
 	margin-bottom:8px;
