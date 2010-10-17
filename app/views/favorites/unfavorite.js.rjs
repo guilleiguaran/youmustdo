@@ -1,2 +1,2 @@
 page.replace_html "favorite_#{@must.id}", :partial => "musts/favorite", :locals => {:must => @must}
-page << "alert('Unfavorited');"
+page << "if($('#top_menu li a.active').html()=='Favorites')$('#must#{@must.id}').fadeOut()"
