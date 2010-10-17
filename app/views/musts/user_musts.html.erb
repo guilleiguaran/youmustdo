@@ -1,11 +1,14 @@
-<% unless @musts.blank? %>
+
 <h3>These are the Musts posted by <%= @user.username %></h3>
+
+<% unless @musts.blank? %>
 	
 <ul class="musts">
   <% @musts.each do |must| %>
   	<%= render :partial => "musts/must_item", :locals => {:must => must} %>
   <% end %>
 </ul>
+<%= will_paginate @musts %>
 <% else %>
 <h3>The user <%= @user.username %> hasn't written any Must yet</h3>
 <% end %>
