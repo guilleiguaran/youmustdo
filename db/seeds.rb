@@ -31,7 +31,7 @@ Category.create(:name => "Do",
 end
 category = Category.find_by_name("Visit")
 if category.nil?
-Category.create(:name => "Vist", 
+Category.create(:name => "Visit", 
 :description => 'You already go ther? you want be in that special place?, tell everyone about this!')
 end
 category = Category.find_by_name("Play")

@@ -29,13 +29,14 @@
 	<![endif]-->
 </head>
 <body class="home">
+
 	<div id="wrapper">
 		<div id="menu">
 			<ul id="top_menu">
 				<li><a href="<%= root_path %>">Top Musts</a></li>
 				<li><a href="<%= recents_path %>">Recent Musts</a></li>
 				<% if signed_in? %>
-				<li><a href="#">People</a></li>
+        <li><a href="<%=search_index_path%>">People</a></li>
 				<li><a href="#">Following</a></li>
 				<li><a href="#">My Musts</a></li>
 				<li><a href="#">Bucket List<span>12</span></a></li>

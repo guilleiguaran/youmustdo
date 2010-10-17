@@ -227,7 +227,10 @@ width:236px;
 
 #header p.home{
 margin:10px 20px 0 0;
-}	
+}
+#header p.postmust{
+margin:16px 40px 0 0;
+}
 
  /* Content
  ============================================================ */
@@ -527,7 +530,16 @@ width:265px;
 #sign_up:hover{
 	background-position:left bottom;
 }
+#postamust{
+background:url("../images/buttons/postamust.png") repeat scroll left top transparent;
+float:right;
+height:32px;
+width:173px;
 
+}
+#postamust:hover{
+	background-position:left bottom;
+}
 #sign_up_now{
 	background:url(../images/buttons/sign_up_now.png) top left;
 	float:right;
@@ -591,17 +603,6 @@ background:url(../images/buttons/add.jpg) bottom left;
 }
 .remove:hover{
 background:url(../images/buttons/remove.jpg) bottom left;
-}
-
-#postamust{
-	background:url(../images/buttons/postmust.png) top left;
-	float:left;
-	height:32px;
-	width:32px;
-
-}
-#postamust:hover{
-background:url(../images/buttons/postmust.png) bottom left;
 }
 
 .btn_save{
