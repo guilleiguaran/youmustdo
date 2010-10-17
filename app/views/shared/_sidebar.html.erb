@@ -1,7 +1,10 @@
 <!--right panel start -->
 <div id="right">
-	<span class="green"><h2>Recent Musts</h2></span>
-
+	<form id="search_form">
+		<input type="text" id="search" name="search" value="search ...">
+	</form>
+		
+	<h2>Recent musts</h2>
 	<h3 class='peoplemusting'>RECENT ACTIVITY </h3>
 	<% unless musts.nil? %>
 	<ul id="recent_must">
@@ -26,8 +29,6 @@
 	});
 	</script>
 
-
-	<br class="spacer" />
 	<p class="wordcloud">
 		<span style="font-size:1.3em;">cookie</span>
 		<span style="font-size:0.8em;">travel</span>
@@ -54,14 +55,4 @@
 		<span>food</span>
 		<span style="font-size:1.4em;">test</span>
 	</p>
-	<div id="quicksearch">
-		<h2>Quicksearch</h2>
-		<form name="email" action="#" method="post">
-			<input type="text" name="search_terms" value="You must..." />
-			<input type="submit" name="signup" value="Search" />
-			<br class="spacer" />
-		</form>
-		<br class="spacer" />
-	</div>
-</div>
-<!--right panel end -->
+</div><!-- right -->

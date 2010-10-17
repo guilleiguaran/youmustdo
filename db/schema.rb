@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(:version => 20101017012939) do
     t.string   "url"
     t.string   "longitude"
     t.string   "latitude"
-    t.string   "url_image"
     t.boolean  "top"
     t.float    "top_value"
+    t.string   "url_image"
   end
 
   create_table "users", :force => true do |t|
