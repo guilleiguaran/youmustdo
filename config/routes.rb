@@ -48,7 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   # Other Routes
   map.privacy '/privacy', :controller => 'home', :action => 'privacy'
   map.terms '/terms', :controller => 'home', :action => 'terms'
-  map.about '/about', :controller => 'home', :action => 'terms'  
+  map.about '/about', :controller => 'home', :action => 'about'  
   map.terms '/terms', :controller => 'home', :action => 'terms'
   
   # User Routes

@@ -42,7 +42,7 @@
 			</p>
 		<% end %>
 		
-        <p>This must has <a><%= pluralize(must.comments.count, 'comment') %></a></p>        
+        <p>This must has <a href="<%= must_path(must) %>#comments"><%= pluralize(must.comments.count, 'comment') %></a></p>        
       </div> <!-- must_content -->
       <div class="related">
         <p><b>Related musts</b></p>
