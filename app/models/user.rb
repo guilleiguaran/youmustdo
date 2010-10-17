@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
+
   acts_as_followable
   acts_as_follower
   acts_as_favorite_user
@@ -28,13 +29,13 @@ class User < ActiveRecord::Base
     :path => "/uploads/avatars/:attachment/:id/:style.:extension",
     :bucket => AMAZON_S3['bucket']
 
-  def post_to_facebook(content)
-    feed_content = content.is_a?(Must) ? must.to_facebook_feed : content.to_s
-    MustShare.post_to_facebook(self.fb_access_token, feed_content)
+  def post_to_facebook(content, must_url=nil)
+    feed_content = content.is_a?(Must) ? content.to_facebook_feed : content.to_s
+    MustShare.post_to_facebook(self.fb_access_token, feed_content, must_url)
   end
 
-  def post_to_twitter(content)
-    tweet = content.is_a?(Must) ? must.to_tweet : content.to_s
+  def post_to_twitter(content, must_url=nil)
+    tweet = content.is_a?(Must) ? content.to_tweet(must_url) : content.to_s
     MustShare.post_to_twitter(self.twitter_client, tweet)
   end
 

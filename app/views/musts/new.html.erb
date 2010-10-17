@@ -111,6 +111,18 @@ if (navigator.geolocation) {
       <span><%= f.text_field :longitude, :class => "text", :readonly => "true" , :class => "input"%></span>
       <%= error_message_on :must,:longitude %>
     </li>
+    <% unless current_user.facebook_uid.nil? %>
+  	  <li id="fb_share">
+  	    <%= check_box :share, :facebook, :checked => true %>
+  	    <label for="share_facebook" style="display:inline-block;">Post this Must to Facebook</label>
+  	  </li>
+    <% end %>
+    <% unless current_user.twitter_id.nil? %>
+  	  <li id="tw_share">
+  	    <%= check_box :share, :twitter, :checked => true %>
+  	    <label for="share_twitter" style="display:inline-block;">Post this Must to Twitter</label>
+  	  </li>
+    <% end %>
     	<li id="submit"><%= f.submit "", :class => "btn_save" %></li>
   </ul>
   <% end %>
