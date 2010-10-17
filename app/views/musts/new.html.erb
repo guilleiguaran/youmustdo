@@ -47,7 +47,7 @@ if (navigator.geolocation) {
 
   <br class="spacer" />
   <% title "Sign Up!" %>
-  <% form_for(@must, :html => {:method => :post}) do |f| %>
+  <% form_for(@must, :html => {:method => :post, :multipart => true}) do |f| %>
 
   <ul>
     <li id="category">
@@ -58,13 +58,11 @@ if (navigator.geolocation) {
     <li id="attachments">
       <label>Please select the audio files you want to upload</label>
       <br />
-      <% fields_for @must.attachments do |attachment| %>
-        <%= attachment.file_field :file %>
-      <% end %>
       <div id="files">
-        <span><input type="file" name="" class="input" /></span>
+        <% fields_for :attachment do |attachment| %></span>
+          <span><%= attachment.file_field :file %></span>
+        <% end %>
       </div>
-      <a href="javascript:void(0)" onclick="addNewFile();">Add</a>
     </li>
     <li  id="url">
     	<%= f.label :url %><br />

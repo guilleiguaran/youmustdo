@@ -22,6 +22,9 @@ class MustsController < ApplicationController
   def my_musts
     @musts = current_user.musts.find(:all, :order => "created_at DESC", :limit => 10)
   end
+
+  def play
+  end
   
   def user_musts
     @user = User.find_by_username(params[:username])
@@ -45,6 +48,7 @@ class MustsController < ApplicationController
 
   def create
     @must = Must.new(params[:must])
+    @must.build_attachment(params[:attachment]) unless params[:attachment][:file].blank?
     @must.user = current_user
     if @must.save
       flash[:notice] = "Awesome, one more thing they must do!"

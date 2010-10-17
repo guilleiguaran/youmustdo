@@ -24,6 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "typhoeus"
   config.gem 'whenever', :lib => false, :source => 'http://gems.github.com'
   config.gem 'aaronh-chronic', :lib => false
+  config.gem 'zencoder'
 
   config.time_zone = 'UTC'
 

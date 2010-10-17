@@ -26,7 +26,7 @@ function selectCategory(value){
 }
 
 function addNewFile() {
-  var new_item = '<span><input type="file" name="" class="input" /></span>';
+  var new_item = $("#files span:last").html();
   $("#files").append(new_item)
 }
 
