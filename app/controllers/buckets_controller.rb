@@ -14,9 +14,12 @@ class BucketsController < ApplicationController
       unless bucket.status
         if bucket.update_attribute('status', true)
           render :update do |page|
-            page << "new_notification('Great! keep like that!, you have already done this one.', 'success')"
+            page.replace_html "must#{bucket.must.id}", :partial => 'musts/must_item', :locals => {:must => bucket.must}
             page << "$('#bucket_list_tab span').remove()"
+            if current_user.bucket_list_count > 0
             page << "$('#bucket_list_tab').append('<span>#{current_user.bucket_list_count}</span>')"
+            end
+            page << "new_notification('Great! keep like that!, you have already done this one.', 'success')"
           end
         else
           render :update do |page|

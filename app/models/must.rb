@@ -30,6 +30,15 @@ class Must < ActiveRecord::Base
     return self.latitude + " - " + self.longitude unless self.latitude.nil? or self.longitude.nil?
     return ""
   end
+  
+  def is_done(u)
+      bucket = Bucket.find_by_user_id_and_must_id(u.id, self.id)
+      unless bucket.nil?
+        return bucket.status
+      else
+        return false
+      end
+  end
 
   def category_name
     self.category.name

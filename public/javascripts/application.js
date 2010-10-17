@@ -42,5 +42,5 @@ function new_notification(message, class_name){
 	$('#flash').html('');	
 	$('#flash').append("<p class='"+class_name+"'><img src='/images/icons/"+class_name+".png'>"+message+"</p>");
 	$('#flash').hide();
-	$('#flash').fadeIn(500).delay(7000).fadeOut(400);
+	$('#flash').fadeIn(500).delay(5000).fadeOut(400);
 }

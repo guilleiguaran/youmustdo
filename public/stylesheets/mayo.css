@@ -127,12 +127,12 @@ float:left
 
 }
 
-.done{
+.done_button{
 background:url("../images/buttons/doneit.png") repeat scroll left top transparent;
 float:left;
 height:32px;
 width:32px;
 }
-.done:hover{
+.done_button:hover{
 background-position:left bottom;
 }

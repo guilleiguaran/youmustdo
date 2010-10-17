@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
   
   def bucket_list_count
-    self.buckets.find(:all, :conditions => {:status => true}).count
+    self.buckets.find(:all, :conditions => {:status => false}).count
   end
 
   class << self
