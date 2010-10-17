@@ -1,7 +1,7 @@
 
 <% unless @must.comments.empty? %>
 	<% @must.comments.each do |comment| %>
-<div class="comment">	<span><%=avatar_for(comment.user,40)%><small><%=link_to comment.user.username ,user_path( comment.must.user)%></small><small><%=time_ago_in_words(comment.created_at)%> ago</small></span>
+<div class="comment">	<span><%=avatar_for(comment.user,40)%><small><%=link_to comment.user.username ,user_path( comment.must.user)%></small><small><%=time_ago_in_words(comment.created_at)%> <br /> ago</small></span>
 <p><%=h comment.content%> </p>
 </div> <!-- comment -->
   <%end%>
