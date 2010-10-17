@@ -77,7 +77,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :search, :only => [:index]
   
   map.categories '/:category', :controller => 'categories', :action => 'show'
-  
-  
-    map.user_musts '/musts/:username', :controller => 'musts', :action => 'user_musts'
+  map.user_musts '/u/:username', :controller => 'musts', :action => 'user_musts'
 end
