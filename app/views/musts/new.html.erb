@@ -81,6 +81,12 @@ if (navigator.geolocation) {
       <%= f.text_area :description, :class => "textarea" %>
       <%= error_message_on :must,:description %>
     </li>
+
+	<li  id="tag_list">
+	  <label for="must[tag_list]">Tag List (comma separated)</label>
+	  <input class="text" type="text" name="must[tag_list]" id="must_tag_list" />
+	</li>
+
     <li  id="google_map">
       <p>Click in the map your desired location. Remember only the last position will be added</p>
       <div id="map_canvas" style="width:380px; height:200px;"></div>
