@@ -12,7 +12,7 @@ set :branch, "master"
 set :repository, "git@github.com:youmustdo/youmustdo.com.git"
 set :deploy_via, :remote_cache
 
-set :unicorn_binary, "/usr/local/bin/unicorn"
+set :unicorn_binary, "/usr/local/bin/unicorn_rails"
 set :unicorn_config, "#{current_path}/config/unicorn/unicorn.rb"
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
