@@ -5,14 +5,14 @@
 # http://unicorn.bogomips.org/SIGNALS.html
  
 rails_env = ENV['RAILS_ENV'] || 'production'
-rails_root = ENV['RAILS_ROOT'] || "/var/www/apps/youmustdo.com/current/public"
+rails_root = ENV['RAILS_ROOT'] || "/var/www/apps/youmustdo.com/current"
  
 God.watch do |w|
   w.name = "unicorn"
   w.interval = 30.seconds # default
  
   # unicorn needs to be run from the rails root
-  w.start = "cd #{rails_root} && /usr/local/bin/unicorn_rails -c #{rails_root}/config/unicorn/unicorn.rb -E #{rails_env} -D"
+  w.start = "cd #{rails_root} && sudo /usr/local/bin/unicorn_rails -c #{rails_root}/config/unicorn/unicorn.rb -E #{rails_env} -D"
  
   # QUIT gracefully shuts down workers
   w.stop = "kill -QUIT `cat #{rails_root}/tmp/pids/unicorn.pid`"
