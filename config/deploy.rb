@@ -27,10 +27,10 @@ ssh_options[:forward_agent] = true
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do 
-      run "cd #{current_path} && sudo #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+    run "cd #{current_path} && sudo #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
   end
   task :stop, :roles => :app, :except => { :no_release => true } do 
-    run "sudo kill `cat #{unicorn_pid}`"
+    run "sudo kill `cat #{unicorn_pid}` && rm -f #{unicorn_pid}"
   end
   task :graceful_stop, :roles => :app, :except => { :no_release => true } do
     run "sudo kill -s QUIT `cat #{unicorn_pid}`"

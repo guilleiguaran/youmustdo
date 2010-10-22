@@ -1,4 +1,4 @@
-require 'config/boot' 
+File.expand_path(File.join(File.dirname(__FILE__), 'config', 'boot'))
 
 # Use this file to easily define all of your cron jobs.
 #
