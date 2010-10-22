@@ -9,7 +9,7 @@ set :keep_releases, 5
 
 set :scm, :git
 set :branch, "master"
-set :repository, "git@github.com:railsrumble/rr10-team-167.git"
+set :repository, "git@github.com:youmustdo/youmustdo.com.git"
 set :deploy_via, :remote_cache
 
 set :unicorn_binary, "/usr/local/bin/unicorn"
