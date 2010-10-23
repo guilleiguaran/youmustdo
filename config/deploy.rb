@@ -5,7 +5,6 @@ set :user, "www-data"
 set :runner, user
 set :admin_runner, user
 set :rails_env, "production"
-set :keep_releases, 5
 
 set :scm, :git
 set :branch, "master"
@@ -26,6 +25,28 @@ default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 namespace :deploy do
+  desc "Deploy the MFer"
+  task :default do
+    update
+    restart
+    cleanup
+  end
+
+  desc "Setup a GitHub-style deployment."
+  task :setup, :except => { :no_release => true } do
+    run "git clone #{repository} #{current_path}"
+  end
+
+  desc "Update the deployed code."
+  task :update_code, :except => { :no_release => true } do
+    run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+  end
+
+  desc "Rollback a single commit."
+  task :rollback, :except => { :no_release => true } do
+    set :branch, "HEAD^"
+    default
+  end
   task :start, :roles => :app, :except => { :no_release => true } do 
     run "cd #{current_path} && sudo #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
   end
