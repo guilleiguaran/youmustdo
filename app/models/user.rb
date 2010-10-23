@@ -7,16 +7,15 @@ class User < ActiveRecord::Base
   
   has_many :musts, :dependent => :nullify
   has_many :comments, :dependent => :nullify
+  has_many :buckets
   
   validates_presence_of :username
   validates_uniqueness_of :username
-  validates_uniqueness_of :email
-  
-  has_many :buckets
-  
+  validates_uniqueness_of :email  
   validates_format_of :username, :with => /^[a-z][\w\-]+$/i, :message => "cannot contain special characters or spaces"
   validates_exclusion_of :username, :in => %w( support blog www billing help api dev test production prod staging qa stage docs samples koombea examples status account doc docs), :message => "is not available"
   validates_length_of :username, :maximum => 20
+  before_save :downcase_email
   
   has_attached_file :avatar,
     :styles => {
@@ -28,6 +27,11 @@ class User < ActiveRecord::Base
     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
     :path => "/uploads/avatars/:attachment/:id/:style.:extension",
     :bucket => AMAZON_S3['bucket']
+    
+  def self.authenticate(email, password)
+    user = find_by_username(email) || find_by_email(email.to_s.downcase)
+    user && user.authenticated?(password) ? user : nil
+  end
 
   def post_to_facebook(content, must_url=nil)
     feed_content = content.is_a?(Must) ? content.to_facebook_feed : content.to_s
@@ -38,8 +42,13 @@ class User < ActiveRecord::Base
     tweet = content.is_a?(Must) ? content.to_tweet(must_url) : content.to_s
     MustShare.post_to_twitter(self.twitter_client, tweet)
   end
+  
+  def bucket_list_count
+    self.buckets.find(:all, :conditions => {:status => false}).count
+  end
 
-  # I'm not sure if this method should be private
+  protected
+  
   def twitter_client
     oauth = Twitter::OAuth.new(TWITTER_AUTH['key'], TWITTER_AUTH['secret'])
     oauth.authorize_from_access(self.access_token, self.access_secret)
@@ -48,9 +57,10 @@ class User < ActiveRecord::Base
     client
   end
   
-  def bucket_list_count
-    self.buckets.find(:all, :conditions => {:status => false}).count
+  def downcase_email
+    self.email = self.email.downcase
   end
+  
 
   class << self
     def random_string(len)
