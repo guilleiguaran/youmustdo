@@ -27,7 +27,7 @@
 		      </ul>
 		      <div class="title"><%=h avatar_for(@must.user,30) %>
 		        <span>You must <%= @must.category_name %></span> 
-				<%=link_to @must.name, must_path(@must) %> <small>by <%=h link_to @must.user.username, user_musts_path(@must.user.username) %></small>
+				<%=h link_to @must.name, must_path(@must) %> <small>by <%=h link_to @must.user.username, user_musts_path(@must.user.username) %></small>
 		      </div><!-- title -->
 
 <div class="must_content">
@@ -45,7 +45,7 @@
   <%=show_big_content(@must)%>
 <% end %>
 
-<p><%=@must.description%></p>
+<p><%=auto_link(simple_format(must.description), :urls, :target => "_blank")%></p>
 
 <div class="tags">
 <p>
@@ -86,22 +86,9 @@
   <% content_for :javascript do %>
     <%= javascript_include_tag "audio" %>
     <script type="text/javascript" charset="utf-8">
-      // Run the script on page load.
-
-      // If using jQuery
       $(function(){
         AudioJS.setup();
       })
-
-      // If using Prototype
-      // document.observe("dom:loaded", function() {
-      //   AudioJS.setup();
-      // });
-
-      // If not using a JS library
-      // window.onload = function(){
-      //   AudioJS.setup();
-      // }
     </script>
   <% end %>
 <% end %>
