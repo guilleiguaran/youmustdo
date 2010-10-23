@@ -36,14 +36,18 @@ namespace :deploy do
   task :setup, :except => { :no_release => true } do
     run "git clone #{repository} #{current_path}"
   end
+  
+  task :symlink, :except => { :no_release => true } do
+    
+  end
 
   desc "Update the deployed code."
   task :update_code, :except => { :no_release => true } do
-    run "cd #{current_path}; git fetch origin; git reset --hard #{branch}"
+    run "cd #{current_path}; git pull origin master"
   end
 
   desc "Rollback a single commit."
-  task :rollback, :except => { :no_release => true } do
+  task :rollback_last, :except => { :no_release => true } do
     set :branch, "HEAD^"
     default
   end
@@ -64,10 +68,10 @@ namespace :deploy do
     start
   end
   task :symlink_shared do
-     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+     run "ln -nfs #{shared_path}/config/database.yml #{current_path}/config/database.yml"
   end
   task :update_crontab, :roles => :db do
-    run "cd #{release_path} && whenever --set environment=production && whenever --update-crontab #{application}"
+    run "cd #{current_path} && whenever --set environment=production && whenever --update-crontab #{application}"
   end
 end
 
