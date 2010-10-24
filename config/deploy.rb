@@ -9,7 +9,7 @@ set :rails_env, "production"
 set :scm, :git
 set :branch, "master"
 set :repository, "git@github.com:youmustdo/youmustdo.com.git"
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache
 
 set :unicorn_binary, "/usr/local/bin/unicorn_rails"
 set :unicorn_config, "#{current_path}/config/unicorn/unicorn.rb"
@@ -29,7 +29,6 @@ namespace :deploy do
   task :default do
     update
     restart
-    cleanup
   end
 
   desc "Setup a GitHub-style deployment."
@@ -38,7 +37,7 @@ namespace :deploy do
   end
   
   task :symlink, :except => { :no_release => true } do
-    
+     run "ln -nfs #{shared_path}/log #{current_path}/log && ln -nfs #{shared_path}/pids #{current_path}/tmp/pids"
   end
 
   desc "Update the deployed code."
