@@ -7,7 +7,7 @@ set :admin_runner, user
 set :rails_env, "production"
 
 set :scm, :git
-set :branch, "master"
+set :branch, "origin/master"
 set :repository, "git@github.com:youmustdo/youmustdo.com.git"
 #set :deploy_via, :remote_cache
 
@@ -46,7 +46,7 @@ namespace :deploy do
   end
 
   desc "Rollback a single commit."
-  task :rollback_last, :except => { :no_release => true } do
+  task :rollback_commit, :except => { :no_release => true } do
     set :branch, "HEAD^"
     default
   end
@@ -65,9 +65,6 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     stop
     start
-  end
-  task :symlink_shared do
-     run "ln -nfs #{shared_path}/config/database.yml #{current_path}/config/database.yml"
   end
   task :update_crontab, :roles => :db do
     run "cd #{current_path} && whenever --set environment=production && whenever --update-crontab #{application}"
