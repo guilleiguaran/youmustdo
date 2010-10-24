@@ -23,7 +23,7 @@
 			<div class="avatar_content_right">
 				<span><%=h must.user.username %></span><br/>
 				<span><%=h link_to must.name, must_path(must) %></span><br/>
-				<small><%=time_ago_in_words(must.updated_at)%> ago</small>
+				<small><%=time_ago_in_words(must.created_at)%> ago</small>
 			</div>
 		</li>
 		<% end %>
