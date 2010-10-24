@@ -51,7 +51,7 @@ class Must < ActiveRecord::Base
   end
 
   def to_facebook_feed
-    "You Must #{category_name}: #{self.name} at YouMustDo. http://youmustdo.com/"
+    "You Must #{category_name}: #{self.name} at YouMustDo. #{short_url}"
   end
 
   def to_tweet(must_url)
