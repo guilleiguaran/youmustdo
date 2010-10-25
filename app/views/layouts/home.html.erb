@@ -84,28 +84,7 @@
   							<li><a href="<%=categories_path('visit')%>" class="<%=link_active(@category,"Visit")%>">Visit</a></li>
   							<li><a href="<%=categories_path('do')%>" class="<%=link_active(@category,"Do")%>">Do</a></li>	
 							</ul>
-
 							<%= yield %>
-
-							<script type="text/javascript">
-							var rumbleUrl = 'http://railsrumble.com/teams/the-riders-of-the-lost-crusade';
-							</script>
-							<script type="text/javascript">
-							var rumbleSash = document.createElement('DIV');
-							rumbleSash.setAttribute('id', 'rr10sash');
-							rumbleSash.setAttribute('style', 'position: absolute; top: 0; left: 0; z-index: 1000; background: url(\'http://blog.railsrumble.com/images/rumble-r10-sash.png\'); width: 226px; height: 225px;');
-
-							if (typeof rumbleUrl != 'undefined') {
-								var rumbleLink = document.createElement('A');
-								rumbleLink.setAttribute('href', rumbleUrl);
-								rumbleLink.appendChild(rumbleSash);
-								document.body.appendChild(rumbleLink);
-							} else {
-								document.body.appendChild(rumbleSash);
-							}
-							</script>
-
-
 						</div><!-- content --> 
 					</div>
 

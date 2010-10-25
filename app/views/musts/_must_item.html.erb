@@ -32,7 +32,7 @@
 		<% if true %>
         <%=show_content(must)%>
 		<% end %>
-        <p><%=h must.description %></p>
+        <p><%=auto_link(simple_format(must.description), :urls, :target => "_blank")%></p>
 		<% unless must.tag_list.blank?%>
         	<p>
 			<b>Tags:</b>
