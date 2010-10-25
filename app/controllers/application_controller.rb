@@ -1,12 +1,9 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   include Clearance::Authentication
   layout :get_layout
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  
+
   def get_layout
     if signed_in?
       "home"
@@ -14,7 +11,7 @@ class ApplicationController < ActionController::Base
       "landing"
     end
   end
-  
+
   def redirect_to_home
     redirect_to root_path 
   end
@@ -22,7 +19,7 @@ class ApplicationController < ActionController::Base
   def redirect_home_if_signed_in
     redirect_to_home if signed_in?
   end
-  
+
 
   def login_required
     unless signed_in?
@@ -30,12 +27,12 @@ class ApplicationController < ActionController::Base
       redirect_to sign_in_path 
     end
   end
-  
+
 
   protected
 
   def check_valid_user
-  
+
     user = User.find(params[:id]) 
     unless user.nil?
       if signed_in?
@@ -45,7 +42,7 @@ class ApplicationController < ActionController::Base
         end
       end
     else
-      render(:file => "#{RAILS_ROOT}/public/404.html", :head => 404)
+      render(:file => "#{Rails.root}/public/404.html", :head => 404)
     end
   end
 

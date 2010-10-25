@@ -1,86 +1,86 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resource  :session,   :controller => 'sessions',  :only => [:new, :create, :destroy]
-  map.sign_in  'sign_in',   :controller => 'sessions',  :action => 'new'
-  map.sign_out 'sign_out',  :controller => 'sessions',  :action => 'destroy', :method => :delete
-  map.sign_up  'sign_up',   :controller => 'users',     :action => 'new'
-
-  map.resources :passwords, :controller => 'passwords', :only => [:new, :create]
-  map.resource  :session,   :controller => 'sessions',  :only => [:new, :create, :destroy]
-  map.resources :users,     :controller => 'users' do |users|
-    users.resource :password,     :controller => 'passwords', :only => [:create, :edit, :update]
-    users.resource :confirmation, :controller => 'clearance/confirmations', :only => [:new, :create]
-  end
-
-  Clearance::Routes.draw(map)
-  map.root :controller => 'home', :action => 'index'
-  map.my_musts '/musts/me', :controller => 'musts', :action => 'my_musts'
-  map.tags '/tags/:tag', :controller => 'musts', :action => 'tags'
-  map.recents '/recents', :controller => 'musts', :action => 'recents'
+YouMustDo::Application.routes.draw do
   
-  # This url is temporal
-  map.play_audio '/play_audio', :controller => 'musts', :action => 'play'
-
-  map.resources :musts do |must|
-    must.resources :comments
-    must.agree '/agree', :controller => 'agrees', :action => 'agree'
-    must.disagree '/disagree', :controller => 'agrees', :action => 'disagree'
+  # User & Clearance Routes
+  # ==========================================================================================
+  match '/sign_in', :to => 'sessions#new', :as => "sign_in"
+  match '/sign_out', :to => 'sessions#destroy', :via => :delete, :as => 'sign_out'
+  match '/sign_up'  => 'users#new', :as => 'sign_up'
+  resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
+  resources :passwords, :controller => 'passwords', :only => [:new, :create]
+  resources :users, :controller => 'users', :only => [:new, :create] do
+    resource :password, :controller => 'passwords', :only => [:create, :edit, :update]
+    resource :confirmation, :controller => 'clearance/confirmations', :only => [:new, :create]
+    member do
+      get :profile
+      put :update_profile
+    end
   end
   
-  # Must Routes
-  map.get_url_metadata '/musts/get_url_metadata', :controller => 'musts', :action => 'get_url_metadata'
   
+  # Sections Routes
+  # ==========================================================================================
+  root :to => 'home#index'
+  match '/musts/me', :to => 'musts#my_musts', :as => 'my_musts'
+  match '/u/:username', :to => 'musts#user_musts', :as => 'user_musts'
+  match '/tags/:tag', :to => 'musts#tags', :as => 'tags'
+  match '/recents', :to => 'musts#recents', :as => 'recents'
+  match '/favorites', :to => 'favorites#index', :as => 'favorites'
+  match '/privacy', :to => 'home#privacy', :as => 'privacy'
+  match '/terms', :to => 'home#terms', :as => 'terms'
+  match '/about', :to => 'home#about', :as => 'about'
 
-  # Favorites
-  map.favorites '/favorites', :controller => 'favorites', :action => 'index'
-  map.favorite '/musts/:must_id/favorite', :controller => 'favorites', :action => 'favorite'
-  map.unfavorite '/musts/:must_id/unfavorite', :controller => 'favorites', :action => 'unfavorite'
 
-  map.load_more_must '/musts/load_more/:date', :controller => 'musts', :action => 'load_more'
+  # Musts Routes
+  # ==========================================================================================
+  resources :musts do
+    resources :comments
+    match '/agree', :to => 'agrees#agree', :as => 'agree'
+    match '/disagree', :to => 'agrees#disagree', :as => 'disagree'
+    match '/favorite', :to => 'favorites#favorite', :as => 'favorite'
+    match '/unfavorite', :to => 'favorites#unfavorite', :as => 'unfavorite'
+  end
+  match '/musts/get_url_metadata', :to => 'musts#get_url_metadata', :as => 'get_url_metadata'
 
-  
-  # Bucket List
-  map.buckets '/users/:id/bucket_list', :controller => 'buckets', :action => 'index', :conditions => { :method => :get }
-  map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'create', :conditions => { :method => :post }
-  map.create_bucket '/users/:id/buckets', :controller => 'buckets', :action => 'destroy', :conditions => { :method => :delete }
-  map.update_bucket '/users/:id/bucket_done', :controller => 'buckets', :action => 'update', :conditions => { :method => :put }
 
-  
-  # Other Routes
-  map.privacy '/privacy', :controller => 'home', :action => 'privacy'
-  map.terms '/terms', :controller => 'home', :action => 'terms'
-  map.about '/about', :controller => 'home', :action => 'about'  
-  map.terms '/terms', :controller => 'home', :action => 'terms'
-  
-  # User Routes
-  map.user_profile     '/users/:id/profile', :controller => 'users', :action => 'profile'
-  map.user_update_profile "/users/:id/update_profile", :controller => 'users', :action => 'update', :conditions => { :method => :put }
-  
+  # Bucket List Routes
+  # ==========================================================================================
+  match '/users/:id/bucket_list', :to => 'buckets#index', :via => :get, :as => 'buckets'
+  match '/users/:id/buckets', :to => 'buckets#create', :via => :post, :as => 'create_bucket'
+  match '/users/:id/buckets', :to => 'buckets#destroy', :via => :delete, :as => 'create_bucket'
+  match '/users/:id/bucket_done', :to => 'buckets#update', :via => :put, :as => 'update_bucket'
+
+
+
   # Follow/Unfollow
-  map.followers '/followers', :controller => 'follows', :action => 'followers'
-  map.followings '/followings', :controller => 'follows', :action => 'followings'
-  map.follow '/follow/:user_id', :controller => 'follows', :action => 'follow'
-  map.unfollow '/unfollow/:user_id', :controller => 'follows', :action => 'unfollow'
-
+  # ==========================================================================================
+  match '/followers', :to => 'follows#followers', :as => 'followers'
+  match '/followings', :to => 'follows#followings', :as => 'followings'
+  match '/follow/:user_id', :to => 'follows#follow', :as => 'follow'
+  match '/ufollow/:user_id', :to => 'follows#unfollow', :as => 'unfollow'
   
+
   # Routes for social networks
-  # ==================================================================================================
+  # ==========================================================================================
   # Facebook
-  map.facebook_auth     '/facebook/auth',       :controller => 'facebook/sessions', :action => 'new'
-  map.facebook_connect  '/facebook/connect',    :controller => 'facebook/sessions', :action => 'create'
-  map.namespace :facebook do |facebook|
-    facebook.resource :users, :only => [:new, :create]
+  match '/facebook/auth', :to => 'facebook/sessions#new', :as => 'facebook_auth'
+  match '/facebook/connect', :to => 'facebook/sessions#create', :as => 'facebook_connect'
+  namespace :facebook do
+    resource :users, :only => [:new, :create]
   end
   # Twitter
-  map.twitter_login   '/twitter/login',     :controller => 'twitter/sessions',  :action => 'create'
-  map.twitter_session '/twitter/connect',   :controller => 'twitter/sessions',  :action => 'connect'
-  map.namespace :twitter do |twitter|
-    twitter.resource :users, :only => [:new, :create]
+  match '/twitter/login', :to => 'twitter/sessions#create', :as => 'twitter_login'
+  match '/twitter/connect', :to => 'twitter/sessions#connect', :as => 'twitter_session'
+  namespace :twitter do
+    resource :users, :only => [:new, :create]
   end
-  # ==================================================================================================
-  #map.resources :categories, :only => [:show]
+
+
+  # Routes for searching
+  # ==========================================================================================
+  resources :search, :only => [:index]
   
-  map.resources :search, :only => [:index]
   
-  map.categories '/:category', :controller => 'categories', :action => 'show'
-  map.user_musts '/u/:username', :controller => 'musts', :action => 'user_musts'
+  # Routes for categories
+  # ==========================================================================================
+  match '/:category', :to => 'categories#show', :as => 'categories'
 end

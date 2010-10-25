@@ -1,4 +1,3 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   include ActsAsTaggableOn::TagsHelper
 
@@ -34,7 +33,7 @@ module ApplicationHelper
   end
 
   def gravatar_for(user, size)
-    RAILS_ENV == 'development' ? default = "http://youmustdo.local/images/avatar.png" : default = "#{request.protocol}#{request.host}/images/avatar.png"
+    Rails.env == 'development' ? default = "http://youmustdo.local/images/avatar.png" : default = "#{request.protocol}#{request.host}/images/avatar.png"
     subdomain = (request.protocol == "https://") ? "secure" : "www"
     return link_to image_tag("#{request.protocol}#{subdomain}.gravatar.com/avatar.php?default=#{default}&gravatar_id=#{Digest::MD5.hexdigest(user.email)}", :alt => user.username, :height => size), 'http://en.gravatar.com/site/login'
   end
@@ -49,13 +48,12 @@ module ApplicationHelper
     end
     return ""
   end
-  
+
   def twitter_avatar(user, size)
     return image_tag(user.avatar_url, :alt => user.screen_name,:height => size)
   end
-  
+
   def uploaded_avatar(user, size)
     image_tag(user.avatar.url,:height => size)
   end
-
 end

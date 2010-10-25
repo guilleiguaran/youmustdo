@@ -12,7 +12,7 @@ class UsersController < Clearance::UsersController
     render :layout => "login"
   end
 
-  def update
+  def update_profile
     @user = current_user
     before_name = current_user.username
     before_email = current_user.email
