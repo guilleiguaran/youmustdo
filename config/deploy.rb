@@ -7,7 +7,7 @@ set :admin_runner, user
 set :rails_env, "production"
 
 set :scm, :git
-set :branch, "origin/master"
+set :branch, "master"
 set :repository, "git@github.com:youmustdo/youmustdo.com.git"
 #set :deploy_via, :remote_cache
 
@@ -42,7 +42,7 @@ namespace :deploy do
 
   desc "Update the deployed code."
   task :update_code, :except => { :no_release => true } do
-    run "cd #{current_path} && git fetch origin && git reset --hard"
+    run "cd #{current_path} && git pull origin #{branch}"
   end
 
   desc "Rollback a single commit."
