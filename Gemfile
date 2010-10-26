@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
+gem 'mysql'
 gem 'clearance', '0.9.0.rc9'
 gem 'paperclip', '2.3.4'
 gem 'aws-s3', '0.6.2', :require => "aws/s3"
