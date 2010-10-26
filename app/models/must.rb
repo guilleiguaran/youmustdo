@@ -38,9 +38,13 @@ class Must < ActiveRecord::Base
   end
   
   def is_done(u)
-      bucket = Bucket.find_by_user_id_and_must_id(u.id, self.id)
-      unless bucket.nil?
-        return bucket.status
+      if u
+        bucket = Bucket.find_by_user_id_and_must_id(u.id, self.id)
+        unless bucket.nil?
+          return bucket.status
+        else
+          return false
+        end
       else
         return false
       end
