@@ -1,7 +1,7 @@
 <% title "Forgot your password?" %>
 
 <div id="login">
-  <% form_for(:user, :url => user_password_path(@user, :token => @user.confirmation_token),
+  <%= form_for(:user, :url => user_password_path(@user, :token => @user.confirmation_token),
               :html => { :method => :put }) do |form| %>
   <%= form.error_messages %>
     <ul>

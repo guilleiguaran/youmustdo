@@ -14,7 +14,7 @@ class Must < ActiveRecord::Base
   has_many :agrees, :dependent => :destroy
 
   after_create :agree_must
-  named_scope :by_creation_date, :order => "created_at DESC"
+  scope :by_creation_date, :order => "created_at DESC"
 
   def calification
     self.total_agrees - self.total_disagrees

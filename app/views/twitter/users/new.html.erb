@@ -2,7 +2,7 @@
 <% header "Almost done!" %>
 
 <div id="login" class="form_left">
-<% form_for [:twitter,@user], :url => twitter_users_path, :html => { :id => 'form' } do |form| -%>
+<%= form_for [:twitter,@user], :url => twitter_users_path, :html => { :id => 'form' } do |form| -%>
 <%= form.error_messages %>
 
 <ul class="left">

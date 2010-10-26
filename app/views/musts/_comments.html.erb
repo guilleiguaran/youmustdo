@@ -1,4 +1,4 @@
-<% form_for([@must, @comment], :html => {:method => :post, :id => "comment_form"}) do |f| %>
+<%= form_for([@must, @comment], :html => {:method => :post, :id => "comment_form"}) do |f| %>
 <ul>
 	<li>
 		<%= f.text_area :content %>

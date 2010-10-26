@@ -1,7 +1,7 @@
 <% title "Sign in" %>
 
 <div id="login">
-  <% form_for :session, :url => session_path do |form| %>
+  <%= form_for :session, :url => session_path do |form| %>
   <%= form.error_messages %>
     <ul>
       <li><h3>Login to your account</h3></li>
