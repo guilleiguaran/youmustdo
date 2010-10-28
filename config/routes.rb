@@ -3,8 +3,8 @@ YouMustDo::Application.routes.draw do
   # User & Clearance Routes
   # ==========================================================================================
   match '/sign_in', :to => 'sessions#new', :as => "sign_in"
-  match '/sign_out', :to => 'sessions#destroy', :via => :delete, :as => 'sign_out'
-  match '/sign_up'  => 'users#new', :as => 'sign_up'
+  match '/sign_out', :to => 'sessions#destroy', :as => 'sign_out'
+  match '/sign_up', :to  => 'users#new', :as => 'sign_up'
   resource  :session, :controller => 'sessions', :only => [:new, :create, :destroy]
   resources :passwords, :controller => 'passwords', :only => [:new, :create]
   resources :users, :controller => 'users', :only => [:new, :create] do
