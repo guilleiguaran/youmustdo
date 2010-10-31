@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
 $(window).load(function(){
   initialize();
   $('#slider1').tinycarousel();	
@@ -52,8 +52,7 @@ if (navigator.geolocation) {
   <ul>
     <li id="category">
     <%= f.label :category_id, "You Must " %>
-    <%= f.select ( :category_id, Category.all.map {|u| [u.name,u.id]}, html_options =  { :onchange => "selectCategory(this.value)"}) %>
-    <%#= f.text_field :category_id, :class => "text" %>
+    <%= select(:must, :category_id, Category.all.map {|u| [u.name, u.id]}, html_options = {:onchange => "selectCategory(this.value)"}) %>
     </li>
     <li id="attachments">
       <label>Please select the audio files you want to upload</label>
