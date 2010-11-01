@@ -19,6 +19,8 @@ gem 'whenever', :require => false
 
 
 group :development, :test do
+  gem 'autotest'
+  gem 'autotest-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
