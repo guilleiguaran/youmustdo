@@ -10,7 +10,7 @@
 
 	<div id="login" class="form_left">
 
-		<%= form_for @user, :html => {:method => :put, :multipart => true}, :url => user_update_profile_path(current_user) do |form| -%>
+		<%= form_for @user, :html => {:method => :put, :multipart => true}, :url => update_profile_user_path(current_user) do |form| -%>
 
 		<%= form.error_messages %>
 		<ul class="left">
@@ -67,7 +67,7 @@
 <div id="info">
 
 	<div id="login" class="form_left">
-		<%= form_for @user, :html => {:method => :put}, :url => user_update_profile_path(current_user) do |form| -%>
+		<%= form_for @user, :html => {:method => :put}, :url => update_profile_user_path(current_user) do |form| -%>
 
 		<%= form.error_messages %>
 
@@ -105,7 +105,7 @@
 <div id="password" style="display:none">
 
 	<div id="login" class="form_left">
-		<%= form_for @user, :html => {:method => :put}, :url => user_update_profile_path(current_user) do |form| -%>
+		<%= form_for @user, :html => {:method => :put}, :url => update_profile_user_path(current_user) do |form| -%>
 
 		<%= form.error_messages %>
 
