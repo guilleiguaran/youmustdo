@@ -1,10 +1,9 @@
 class MustsController < ApplicationController
+  include ApplicationHelper
 
   before_filter :login_required, :only => [:create, :new, :edit, :update, :destroy]
-
+  protect_from_forgery :except => :get_url_metadata
   layout :get_layout
-  
-  include ApplicationHelper
   
   def recents
     # @musts = Must.find(:all, :order => "created_at DESC", :limit => 10)

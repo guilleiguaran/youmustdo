@@ -1,3 +1,0 @@
-page.replace_html "favorite_#{@must.id}", :partial => "musts/favorite", :locals => {:must => @must}
-page << "if($('#top_menu li a.active').html()=='Favorites')$('#must#{@must.id}').fadeOut()"
-page << "new_notification('That Must is no longer part of your favorite list.', 'info')"

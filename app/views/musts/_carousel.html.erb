@@ -3,7 +3,7 @@
 	<div class="viewport">
 		<ul class="overview">
 		  <% elem = nil %>
-		  <%@images.each do |image|%>
+		  <% images.each do |image|%>
 		    <% #REMOVE THIS SHIT!!! %>
 		    <% elem = image.to_s if elem.nil?%>
 			  <li class="pagenum"><img src="<%=image.to_s%>" /></li>

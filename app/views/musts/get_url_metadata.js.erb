@@ -1,0 +1,7 @@
+$('#must_name').val('<%= escape_javascript(@title) %>');
+$('#must_description').val('<%= escape_javascript(@description) %>');
+$('#external_images').html('');
+$('#external_images').append("<%= escape_javascript(render(:partial => 'carousel', :locals => {:images => @images}))%>");
+$('#external_videos').html('');
+$('#external_videos').append("<%= escape_javascript(render(:partial => 'videos', :locals => {:videos => @videos}))%>");
+var carousel = $('#slider1').tinycarousel({ pager: true});

@@ -69,8 +69,10 @@ if (navigator.geolocation) {
     	<%= error_message_on :must, :url%>
     </li>
     <li id="url_button">
-    	<%= button_to 'Attach', {:loading => "$('#loader').show()", :complete => "$('#loader').hide()",
-    							  :url => {:action => 'get_url_metadata'}, :with => "'url='+$('#must_url').val()"}, {:remote => true} %>
+	 <!--- Replace this with unobstrusive Javascript -->
+     <input onclick="jQuery.ajax({beforeSend:function(request){$('#loader').show();}, complete:function(request){$('#loader').hide()}, data:'url='+$('#must_url').val(), dataType:'script', type:'post', url:'/musts/get_url_metadata'});" type="button" value="Attach" />
+
+
     </li>									 
     <li  id="url_loader">
     	<div class="loader" id="loader" style="display:none;">
