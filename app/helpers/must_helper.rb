@@ -10,7 +10,6 @@ module MustHelper
     unless must.longitude.blank? or must.latitude.blank?
       return return_map(must)
     end
-    puts image_tag('YouMustDoTwitter watermark.jpg')
     return image_tag('YouMustDoTwitter watermark.jpg')
   end
     

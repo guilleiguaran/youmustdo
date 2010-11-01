@@ -1,3 +1,3 @@
-$("favorite_<%=@must.id%>").html("<%= escape_javascript(render(:partial => 'must/favorite', :locals => {:must => @must}))%>");
+$("#favorite_<%=@must.id%>").html("<%= escape_javascript(render(:partial => 'musts/favorite', :locals => {:must => @must}))%>");
 if($('#top_menu li a.active').html()=='Favorites')$('#must#{@must.id}').fadeOut();
 new_notification('That Must is no longer part of your favorite list.', 'info');

@@ -1,7 +1,7 @@
 <% if current_user %>
 <% if current_user.has_favorite?(must)%>
-<li><%= link_to "", { :url => must_unfavorite_path(must) }, :remote => true, :class => "unbookmark" -%></li>
+<li><%= link_to "", must_unfavorite_path(must), :remote => true, :class => "unbookmark" -%></li>
 <% else %>
-<li><%= link_to "", { :url => must_favorite_path(must) }, :remote => true, :class => "bookmark" -%></li>
+<li><%= link_to "", must_favorite_path(must), :remote => true, :class => "bookmark" -%></li>
 <% end %>
 <% end %>

@@ -42,7 +42,7 @@
   </div>
   <!-- End AudioJS -->
 <% else %>
-  <%=show_big_content(@must)%>
+  <%=raw(show_big_content(@must))%>
 <% end %>
 
 <p><%= auto_link(simple_format(@must.description), :urls, :target => "_blank") %><br/><%= link_to("#{@must.category_name} more...", @must.url) unless @must.url.nil? || ["Have","Do"].include?(@must.category_name) %></p><br/><br/>
