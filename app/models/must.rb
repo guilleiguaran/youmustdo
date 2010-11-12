@@ -17,15 +17,15 @@ class Must < ActiveRecord::Base
   scope :by_creation_date, :order => "created_at DESC"
 
   def calification
-    self.total_agrees - self.total_disagrees
+    (self.total_agrees - self.total_disagrees).to_i
   end
 
   def total_agrees
-    self.agrees.sum(:calification, :conditions => ['calification = ?', 1])
+    self.agrees.sum(:calification, :conditions => ['calification = ?', 1]).to_i
   end
 
   def total_disagrees
-    self.agrees.sum(:calification, :conditions => ['calification = ?', -1])
+    self.agrees.sum(:calification, :conditions => ['calification = ?', -1]).to_i
   end
 
   def agree_must
