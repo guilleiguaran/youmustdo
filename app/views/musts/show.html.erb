@@ -2,9 +2,9 @@
 	
 		  <li id='must<%= @must.id%>'>
 		 	  <div class="left">
-			      <%= link_to "", { :url => must_agree_path(@must) }, :remote => true, :class => "add" -%>
+			      <%= link_to "", must_agree_path(@must), :remote => true, :class => "add" -%>
 		          <span class="add_count" id="agrees_count_<%=@must.id%>"><%= @must.total_agrees %></span>
-				  <%= link_to "", { :url => must_disagree_path(@must) }, :remote => true, :class => "remove" -%>
+				  <%= link_to "", must_disagree_path(@must), :remote => true, :class => "remove" -%>
 				  <span class="remove_count" id="disagrees_count_<%=@must.id%>"><%= @must.total_disagrees %></span>
 				<% if controller.controller_name == "buckets"%>  
 				<a title="Have you Done it?" href="javascript:update_a_must_in_my_bucket_list('<%=current_user.id%>', '<%= @must.id%>')" class="done_button"></a>
