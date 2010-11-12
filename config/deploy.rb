@@ -1,4 +1,4 @@
-set :domain, "new.youmustdo.com"
+set :domain, "youmustdo.com"
 set :application, "youmustdo.com"
 set :deploy_to, "/var/www/apps/#{application}"
 set :user, "www-data"
