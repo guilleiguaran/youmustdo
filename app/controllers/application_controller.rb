@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless signed_in?
-      flash[:error]="Sorry, You must be logged"
+      flash[:error] = "Sorry, You must be logged"
       redirect_to sign_in_path 
     end
   end
@@ -32,14 +32,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def check_valid_user
-
     user = User.find(params[:id]) 
-    unless user.nil?
-      if signed_in?
-        if user != current_user
-         flash[:error] = "Ouch sorry, Something's not right, please verify your information and try again."
-         redirect_to root_path
-        end
+    if user
+      if signed_in? && user != current_user
+        flash[:error] = "Ouch sorry, Something's not right, please verify your information and try again."
+        redirect_to root_path
       end
     else
       render(:file => "#{Rails.root}/public/404.html", :head => 404)
