@@ -1,0 +1,13 @@
+<% if flash[:success] %>
+	$('#must<%=bucket.must.id%>').html("<%= escape_javascript(render(:partial => 'musts/must_item', :locals => {:must => @bucket.must}))%>");
+	$('#bucket_list_tab span').remove();
+	<% if current_user.bucket_list_count > 0 %>
+		$('#bucket_list_tab').append('<span><%=current_user.bucket_list_count}</span>%>');
+	<% end %>
+    new_notification('<%= flash[:success] %>', 'success');
+<% elsif flash[:notice] %>
+	new_notification('<%= flash[:notice] %>', 'info');
+<% else %>
+	new_notification('<%= flash[:error] %>', 'error');
+<% end %>
+flash.discard

@@ -1,9 +1,7 @@
 class FavoritesController < ApplicationController
   
   def index
-    # @musts = current_user.favorite_musts
-        @musts = current_user.favorite_musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
-
+    @musts = current_user.favorite_musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
     respond_to do |wants|
       wants.html
     end
@@ -26,6 +24,5 @@ class FavoritesController < ApplicationController
       wants.js
     end
   end
-  
   
 end

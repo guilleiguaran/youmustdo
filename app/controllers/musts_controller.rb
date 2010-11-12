@@ -6,19 +6,15 @@ class MustsController < ApplicationController
   layout :get_layout
   
   def recents
-    # @musts = Must.find(:all, :order => "created_at DESC", :limit => 10)
     @musts = Must.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
-
   end
   
   def tags
-    # @musts = Must.tagged_with(params[:tag]).by_creation_date
     @musts = Must.tagged_with(params[:tag]).by_creation_date.paginate(:page => params[:page], :per_page => 20)
     @tag = params[:tag]
   end
   
   def my_musts
-    # @musts = current_user.musts.find(:all, :order => "created_at DESC", :limit => 10)
     @musts = current_user.musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
   end
 
@@ -27,9 +23,7 @@ class MustsController < ApplicationController
   
   def user_musts
     @user = User.find_by_username(params[:username])
-    # @musts = @user.musts.find(:all, :order => "created_at DESC", :limit => 10)
     @musts = @user.musts.paginate :page => params[:page], :per_page => 20, :order => 'created_at DESC'
-
   end
 
   def new
@@ -73,8 +67,6 @@ class MustsController < ApplicationController
   def show
     @comment = Comment.new
     @must = Must.find(params[:id])
-
-    #render :layout => 'login'
     render :action => "show"
   end
 
@@ -96,7 +88,6 @@ class MustsController < ApplicationController
       @description = data[1]
       @images      = data[2]
       @videos      = {:url => data[4], :type => data[3]}
-      puts data.inspect
       respond_to do |wants|
         wants.js
       end

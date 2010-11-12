@@ -1,0 +1,8 @@
+<% if flash[:notice] %>
+	new_notification('<%= flash[:notice]%>', 'success');
+	$('#bucket_list_tab span').remove();
+	$('#bucket_list_tab').append('<span><%= current_user.bucket_list_count %></span>');
+<% else %>
+	new_notification('<%= flash[:error]', 'info');
+<% end %>
+flash.discard
