@@ -1,2 +1,3 @@
 $("#favorite_<%=@must.id%>").html("<%= escape_javascript(render(:partial => 'musts/favorite', :locals => {:must => @must}))%>");
 new_notification('This Must was added to your favorite list.', 'success');
+<% flash.discard %>

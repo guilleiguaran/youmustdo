@@ -1,7 +1,0 @@
-if flash[:notice]
-  page.replace_html("disagrees_count_#{@must.id}", @must.total_disagrees)
-  page << "new_notification('#{flash[:notice]}', 'success')"
-else
-  page << "new_notification('#{flash[:error]}', 'error')"
-end
-flash.discard
