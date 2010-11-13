@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-  $("agrees_count_<%= @must.id %>").html(<%= @must.total_agrees %>);
+  $("agrees_count_<%= @must.id %>").html("<%= @must.total_agrees %>");
   new_notification('<%= flash[:notice] %>', 'success');
 <% else %>
   new_notification('<%= flash[:error] %>', 'error');
