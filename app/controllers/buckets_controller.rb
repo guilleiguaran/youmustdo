@@ -1,6 +1,4 @@
 class BucketsController < ApplicationController
-
-  before_filter :check_valid_user
   before_filter :login_required, :only =>[:create, :destroy]
   layout :get_layout
 

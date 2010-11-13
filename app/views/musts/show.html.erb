@@ -7,7 +7,7 @@
 				  <%= link_to "", must_disagree_path(@must), :remote => true, :class => "remove" -%>
 				  <span class="remove_count" id="disagrees_count_<%=@must.id%>"><%= @must.total_disagrees %></span>
 				<% if controller.controller_name == "buckets"%>  
-				<a title="Have you Done it?" href="javascript:update_a_must_in_my_bucket_list('<%=current_user.id%>', '<%= @must.id%>')" class="done_button"></a>
+					<%= link_to "", must_done_bucket_path(@must), :remote => true, :class => "done_button" %>
 				<% end %>
 				</div><!-- left -->
 		    <div class="<% if @must.is_done(current_user)%>right done<% else %>right <% end %>">
@@ -16,14 +16,12 @@
 						<%= render :partial => "musts/favorite", :locals => {:must => @must} %>
 						</span>
 
-						<% if current_user %>
-						<% if controller.controller_name != "buckets"%>
-							<li><a class="bucket_add" title="Add this Must to your Bucket List" href="javascript:void(0)" onclick="add_must_to_my_bucket_list(<%= current_user.id%>, <%=@must.id%>)" ></a></li>
-						<% end %>
+						<% if current_user && controller.controller_name != "buckets"%>
+							<li><%= link_to "", must_add_bucket_path(@must), :remote => true, :class => "bucket_add" %></li>
 						<% end %>
 
 						<li><a class="facebook" href="javascript:void(0);" title="" onclick="window.open('http://www.facebook.com/sharer.php?u=<%= must_url(@must)%>&t=<%= @must.name %>', 'Share this on Facebook', 'width=540,height=480');"></a></li>
-						<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=<%= must_url(@must)%>&text=<%= @must.name %>&via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
+						<li><a class="twitter" href="javascript:void(0);" title="" onclick="window.open('http://twitter.com/share?url=<%= must_url(@must)%>&text=<%= CGI.escape(@must.name) %>&via=you_must_do', 'Share this on Twitter', 'width=540,height=480');"></a></li>
 		      </ul>
 		      <div class="title"><%= avatar_for(@must.user,30) %>
 		        <span>You must <%= @must.category_name %></span> 

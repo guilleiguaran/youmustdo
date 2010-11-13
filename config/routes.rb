@@ -25,6 +25,7 @@ YouMustDo::Application.routes.draw do
   match '/tags/:tag', :to => 'musts#tags', :as => 'tags'
   match '/recents', :to => 'musts#recents', :as => 'recents'
   match '/favorites', :to => 'favorites#index', :as => 'favorites'
+  match '/bucket_list', :to => 'buckets#index', :as => 'buckets'
   match '/privacy', :to => 'home#privacy', :as => 'privacy'
   match '/terms', :to => 'home#terms', :as => 'terms'
   match '/about', :to => 'home#about', :as => 'about'
@@ -38,17 +39,10 @@ YouMustDo::Application.routes.draw do
     match '/disagree', :to => 'agrees#disagree', :as => 'disagree'
     match '/favorite', :to => 'favorites#favorite', :as => 'favorite'
     match '/unfavorite', :to => 'favorites#unfavorite', :as => 'unfavorite'
+    match '/bucket/add', :to => 'buckets#create', :as => 'add_bucket'
+    match '/bucket/done', :to => 'buckets#update', :as => 'done_bucket'
   end
   match '/musts/get_url_metadata', :to => 'musts#get_url_metadata', :as => 'get_url_metadata'
-
-
-  # Bucket List Routes
-  # ==========================================================================================
-  match '/users/:id/bucket_list', :to => 'buckets#index', :via => :get, :as => 'buckets'
-  match '/users/:id/buckets', :to => 'buckets#create', :via => :post, :as => 'create_bucket'
-  match '/users/:id/buckets', :to => 'buckets#destroy', :via => :delete, :as => 'create_bucket'
-  match '/users/:id/bucket_done', :to => 'buckets#update', :via => :put, :as => 'update_bucket'
-
 
 
   # Follow/Unfollow
