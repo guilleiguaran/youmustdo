@@ -1,5 +1,0 @@
-find_executable: checking for git... -------------------- yes
-
-/usr/local/lib/ruby/1.8/mkmf.rb:997: warning: Insecure world writable dir /usr/local/bin in PATH, mode 040777
---------------------
-
